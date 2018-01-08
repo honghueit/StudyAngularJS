@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="todo">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script type="text/javascript">
+        "use strict";
+        angular.module("todo", [])
+            .controller("TodoManagerController", ["$scope", function controller($scope) {
+                $scope.todo = {
+                    "title": "Test 1",
+                    "description": "Test 1 description"
+                };
+            }])
+            .controller("HelloController", ["$scope", function controller($scope) {
+                $scope.todo = {
+                    "fistName": "Hue",
+                    "lastName": "Tran"
+                };
+            }])
+            .controller("StudentController" , ["$scope", function controller($scope){
+                $scope.todo = {
+                    "fullName" : "Tran Thi Hong Hue",
+                    "class" : "d14th02",
+                    "score" : 10
+                }
+            }])
+    </script>
+</head>
+
+<body>
+    <div ng-controller="TodoManagerController">{{ todo.title }}</div>
+    <p ng-controller="HelloController">{{todo.fistName + " " + todo.lastName}}</p>
+    <h1 ng-controller="StudentController">{{todo.fullName+ " " + todo.class + " " + todo.score}}</h1>
+</body>
+
+</html>
