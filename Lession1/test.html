@@ -24,16 +24,27 @@
                 $scope.todo = {
                     "fullName" : "Tran Thi Hong Hue",
                     "class" : "d14th02",
-                    "score" : 10
+                    "score" : 10,
+                }
+                $scope.fullInfo = function() {
+                    return todo.fullName + " " + todo.class + " " + to.score;
                 }
             }])
+            // rootScope :The rootScope is available in the entire application
+            .run(function construct($rootScope){
+                $rootScope.todo = {
+                    "name" : "aaaaaa"
+                }
+            })
     </script>
 </head>
 
 <body>
     <div ng-controller="TodoManagerController">{{ todo.title }}</div>
     <p ng-controller="HelloController">{{todo.fistName + " " + todo.lastName}}</p>
-    <h1 ng-controller="StudentController">{{todo.fullName+ " " + todo.class + " " + todo.score}}</h1>
+    <!-- <h1 ng-controller="StudentController">{{todo.fullName+ " " + todo.class + " " + todo.score}}</h1> -->
+    <h1 ng-controller="StudentController">{{todo.fullInfo()}}</h1>
+    <p>{{todo.name}}</p>
 </body>
 
 </html>
