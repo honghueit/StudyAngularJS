@@ -1,0 +1,57 @@
+what do i do next?
+Let me experiment with it first and just watch what 
+oKwhat I will do
+ok?
+yes ok
+Can you create another button and named it Cancel
+that ?
+button in your from or my form?
+In your form
+ok
+is it ok?
+ok/
+ I willl continue now
+ okDid you see the differnce between data types?
+ Didd you seee that instead of setting show
+ let me see
+ yes i see it, addUser will change when we click button, if we want form show, in function, we set addUser = true, and if want close, addUser = false
+ is it right?
+ yes
+ if I make some changes in the code and what will happen.
+ ok?
+ okay you
+ Now refresh it and click Add User button
+i think will have error because showaddUser is a function but you not use correct
+alright?
+try look
+so for example
+now the fornmshows when the add user button is cicked
+vebecause we call the function using "( )" symbol
+ye
+kok?
+yes 
+we will disconnect now in teamviewer
+but I will give you an assignment or homework
+ok?
+ok you
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

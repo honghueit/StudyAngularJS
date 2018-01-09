@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="user">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/a
+	ngularjs/1.6.6/angular.min.js"></script>
+	<script type="text/javascript">
+
+		angular.module( 'user', [] )
+		.controller( "UserManagerController", ["$scope", function controller($scope){
+			$scope.user = {
+				"name" : "Hello user"
+			}
+
+			$scope.addUser = false;
+
+			$scope.hideAddUser = function hideAddUser( ){
+				$scope.addUser = false;
+			};
+
+			$scope.showAddUser = function showAddUser( ){
+				$scope.addUser = true;
+			};
+
+			
+		}])
+	</script>
+</head>
+<body ng-controller="UserManagerController">
+	{{user.name}}
+	<button
+			ng-click="showAddUser( )"
+	>
+		Add user
+	</button>
+	
+	<form action="" method="POST" role="form" style="width: 50%;" ng-show="addUser">
+		<legend>Form title</legend>
+		<div class="form-group">
+			<label for="">Name</label>
+			<input type="text" class="form-control" id="" placeholder="name">
+		</div>
+		<div class="form-group">
+			<label for="">Title</label>
+			<input type="text" class="form-control" id="" placeholder="title">
+		</div>
+		<div class="form-group">
+			<label for="">Description</label>
+			<textarea  class="form-control" id="" placeholder="description"></textarea>
+		</div>
+	
+		<button type="submit" class="btn btn-primary">Submit</button>
+		
+	</form>
+	
+	<button type="submit" class="btn btn-primary" ng-click="hideAddUser( )">Cancel</button>
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+</body>
+</html>
