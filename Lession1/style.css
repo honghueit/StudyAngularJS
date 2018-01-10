@@ -1,5 +1,24 @@
 .mytable{
 	margin-left: 100px;
 	margin-right: 100px;
+	margin-top: 100px;
 	width: 80%;
+}
+.addtransaction{
+	margin-right: 100px;
+	margin-bottom: 100px;
+}
+.formAddtransaction{
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-top: 100px;
+	width: 80%;
+	margin-bottom: 100px;
+}
+.formEdittransaction{
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-top: 100px;
+	width: 80%;
+	margin-bottom: 100px;
 }
