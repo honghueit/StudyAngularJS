@@ -11,113 +11,207 @@
     <script src="https://ajax.googleapis.com/ajax/libs/a
 	ngularjs/1.6.6/angular.min.js"></script>
     <script type="text/javascript">
-    angular
-        .module('transaction', [])
-        .controller("TransactionController", [
-            "$scope",
-            "$timeout",
-            function controller(
-                $scope,
-                $timeout
-            ) {
-                $scope.listTransaction = true;
-                $scope.addTransaction = false;
-                $scope.transactionList = [{
-                        "stamp": "abc",
-                        "title" : "abc",
-                        "description" : "abc",
-                        "firstname"   : "abc",
-                        "lastname"    : "abc"
-                    },
-                    {
-                        "stamp": "def",
-                        "title" : "def",
-                        "description" : "def",
-                        "firstname"   : "def",
-                        "lastname"    : "def"
-                    }
-                ];
-                $scope.addTransactions = function addTransactions() {
-                    $scope.addTransaction = true;
-                    $scope.listTransaction = false;
-                };
-                $scope.saveTransactions = function saveTransactions() {
-                    $scope.addTransaction = false;
-                    $scope.listTransaction = true;
-                };
-                $scope.cencelTransactions = function cencelTransactions() {
-                    $scope.addTransaction = false;
-                    $scope.listTransaction = true;
-                };
-                $scope.editTransaction = false;
-                // $scope.editTransactions = function editTransactions() {
-                //     $scope.editTransaction = true;
-                //     $scope.listTransaction = false;
-                // };
-                $scope.detailsTransaction = false;
-                $scope.hideDetailTransaction = function hideDetailTransaction() {
-                    $scope.detailsTransaction = false;
-                };
-                $scope.showDetailTransaction = function showDetailTransaction() {
-                    $scope.detailsTransaction = true;
-                };
-            }
-        ])
+		angular
+			.module( 'transaction', [] )
+        	.controller( "TransactionController", [
+				"$scope",
+				"$timeout",
+
+				function controller(
+					$scope,
+					$timeout
+				) {
+                    $scope.buttonshow = false;
+					$scope.listTransaction = false;
+					$scope.addTransaction = false;
+
+					$scope.transactionList = [ ];
+
+					$scope.addTransactions = function addTransactions( ) {
+					    $scope.addTransaction = true;
+					    $scope.listTransaction = false;
+					};
+
+					$scope.saveTransactions = function saveTransactions( ) {
+					    $scope.addTransaction = false;
+					    $scope.listTransaction = true;
+					};
+
+					$scope.cencelTransactions = function cencelTransactions( ) {
+					    $scope.addTransaction = false;
+					    $scope.listTransaction = true;
+					};
+
+					$scope.editTransaction = false;
+
+					// $scope.editTransactions = function editTransactions() {
+					//     $scope.editTransaction = true;
+					//     $scope.listTransaction = false;
+					// };
+
+					$scope.detailsTransaction = false;
+
+					$scope.hideDetailTransaction = function hideDetailTransaction( ) {
+						$scope.detailsTransaction = false;
+					};
+
+					$scope.showDetailTransaction = function showDetailTransaction( ) {
+						$scope.detailsTransaction = true;
+					};
+
+					var timeout = $timeout( function( ){
+                        $scope.listTransaction = true;
+						$scope.transactionList = [
+							{
+								"stamp": "abc"
+							},
+							{
+								"stamp": "def"
+							}
+						];
+
+						$timeout.cancel( timeout );
+
+					}, 10000 );
+
+                    var timeout1 = $timeout( function( ){
+                        $scope.listTransaction = true;
+                        $scope.transactionList = [
+                            {
+                                "stamp": "abc"
+                            },
+                            {
+                                "stamp": "def"
+                            }
+                        ];
+
+                        $timeout1.cancel( timeout );
+
+                    }, 10000 );
+                    var timeout2 = $timeout( function( ){
+                        $scope.buttonshow = true;
+                        $scope.transactionList = [
+                            {
+                                "stamp": "abc"
+                            },
+                            {
+                                "stamp": "def"
+                            }
+                        ];
+
+                        $timeout2.cancel( timeout );
+
+                    }, 5000 );
+
+
+				}
+			] );
     </script>
 </head>
 
-<body ng-controller="TransactionController">
-    <h1>Transaction</h1>
-    <button type="button" class="btn btn-info float-right addtransaction" ng-click="addTransactions ()">
-        Add Transaction
-    </button>
-    <form action="" method="POST" role="form" ng-show="addTransaction" class="formAddtransaction">
+<body
+	ng-controller="TransactionController"
+>
+	<h1>Transaction</h1>
+
+	<button
+		type="button"
+		class="btn btn-info float-right addtransaction"
+		ng-click="addTransactions ()"
+        ng-show="buttonshow"
+        
+	>
+		Add Transaction
+	</button>
+
+	<form
+		action=""
+		method="POST"
+		role="form"
+		ng-show="addTransaction"
+		class="formAddtransaction"
+	>
         <legend>Form Add Transaction</legend>
-        <div class="form-group">
+        <div
+			class="form-group"
+		>
             <label for="">Transaction Stamp</label>
             <input type="text" class="form-control" id="" placeholder="Input field">
         </div>
-        <div class="form-group">
+
+        <div
+			class="form-group"
+		>
             <label for="">Transaction Title</label>
             <input type="text" class="form-control" id="" placeholder="Input field">
         </div>
-        <div class="form-group">
+
+        <div
+			class="form-group"
+		>
             <label for="">Transaction Description</label>
             <input type="text" class="form-control" id="" placeholder="Input field">
         </div>
-        <div class="form-group">
+
+        <div
+			class="form-group"
+		>
             <label for="">Reference</label>
             <input type="text" class="form-control" id="" placeholder="Input field">
         </div>
-        <div class="form-group">
+
+        <div
+			class="form-group">
             <label for="">FirstName</label>
             <input type="text" class="form-control" id="" placeholder="Input field">
         </div>
-        <div class="form-group">
+
+        <div
+			class="form-group"
+		>
             <label for="">LastName</label>
             <input type="text" class="form-control" id="" placeholder="Input field">
         </div>
-        <div class="form-group">
+
+        <div
+			class="form-group"
+		>
             <label for="">Email Address</label>
             <input type="text" class="form-control" id="" placeholder="Input field">
         </div>
-        <div class="form-group">
+
+        <div
+			class="form-group"
+		>
             <label for="">Mobile Number</label>
             <input type="text" class="form-control" id="" placeholder="Input field">
         </div>
+
         <div class="form-group">
             <label for="">Home Address</label>
             <input type="text" class="form-control" id="" placeholder="Input field">
         </div>
-        <button type="submit" class="btn btn-primary" ng-click="saveTransactions()">
-            Save
-        </button>
-        <button type="button" class="btn btn-default">
-            Reset
-        </button>
-        <button type="button" class="btn btn-danger" ng-click="cencelTransactions()">
-            Cancel
-        </button>
+
+		<button
+			type="submit"
+			class="btn btn-primary"
+			ng-click="saveTransactions()"
+		>
+			Save
+		</button>
+		<button
+			type="button"
+			class="btn btn-default"
+		>
+			Reset
+		</button>
+        <button
+			type="button"
+			class="btn btn-danger"
+			ng-click="cencelTransactions()"
+		>
+			Cancel
+		</button>
     </form>
     <!-- <form action="" method="POST" role="form" ng-show="editTransaction" class="formEdittransaction">
         <legend>Form Edid Transaction</legend>
@@ -161,11 +255,17 @@
         <button type="button" class="btn btn-default">Reset</button>
         <button type="button" class="btn btn-danger" ng-click="cencelTransactions()">Cancel</button>
     </form> -->
-    <table class="table table-hover mytable" ng-if="listTransaction">
+	<table
+		class="table table-hover mytable"
+		ng-show="listTransaction"
+        ng-show="listTransaction"
+	>
         <thead>
             <tr>
                 <td>
-                    <div class="checkbox">
+                    <div
+						class="checkbox"
+					>
                         <label>
                             <input type="checkbox" value="">
                         </label>
@@ -178,8 +278,12 @@
                 <th>Last Name</th>
             </tr>
         </thead>
-        <tbody ng-repeat=" x in transactionList">
-            <tr ng-click="showDetailTransaction( )">
+        <tbody
+			ng-repeat="transaction in transactionList"
+		>
+            <tr
+				ng-click="showDetailTransaction( )"
+			>
                 <td>
                     <div class="checkbox">
                         <label>
@@ -187,23 +291,27 @@
                         </label>
                     </div>
                 </td>
-                <td>
-                    {{x.stampssssssss }}
-                </td>
-                <td>{{ x.title }}</td>
-                <td>{{ x.description }}</td>
-                <td>{{x.firstname}}</td>
-                <td>{{x.lastname}}</td>
+                <td>a</td>
+                <td>A</td>
+                <td>A</td>
+                <td>AAA</td>
+                <td>AAAA</td>
             </tr>
             <tr>
-                <table class="table mytable" ng-show="detailsTransaction">
+                <table
+					class="table mytable"
+					ng-show="detailsTransaction"
+				>
                     <thead>
                         <tr>
                             <th>Transaction Detail</th>
                             <th>
-                                <button type="button" class="btn btn-default float-right">
-                                    Sub details
-                                </button>
+                                <button
+									type="button"
+									class="btn btn-default float-right"
+								>
+									Sub details
+								</button>
                             </th>
                         </tr>
                     </thead>
@@ -246,14 +354,22 @@
                         </tr>
                         <tr>
                             <td>
-                                <button type="button" class="btn btn-info" ng-click="editTransactions()">
-                                    Edit
-                                </button>
+                                <button
+									type="button"
+									class="btn btn-info"
+									ng-click="editTransactions()"
+								>
+									Edit
+								</button>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-default" ng-click="hideDetailTransaction( )">
-                                    Close
-                                </button>
+                                <button
+									type="button"
+									class="btn btn-default"
+									ng-click="hideDetailTransaction( )"
+								>
+									Close
+								</button>
                             </td>
                         </tr>
                     </tbody>
