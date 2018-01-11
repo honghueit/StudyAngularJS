@@ -35,6 +35,33 @@ but I will give you an assignment or homework
 ok?
 ok you
 
+We are going to study  ng-repeat directive.
+okay?
+okay first can you explain and demo ng-repeat for me?
+okay
+ok
+ng-repeat is a directive in Angular.js 
+
+It is used in  looping through arrays
+so that it is easier to display on the web page.
+Do you understand me?
+is it mean we have to loop all element in array then use ng-repeat to print element in array
+?yesy
+oh can you
+I will push the code in your repo.
+
+I will tell you when I am finished pushing it.
+okay?
+yes, i will wait when you push on to repo then i pull it
+okay
+
+Kindly pull
+i just do it
+oh it was lost
+can you pull it again?
+
+no error
+I will explain it 
 
 
 

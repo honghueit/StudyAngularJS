@@ -13,61 +13,45 @@
     <script type="text/javascript">
 		angular
 			.module( 'transaction', [] )
-        	.controller( "TransactionController", [
-				"$scope",
-				"$timeout",
+        	.controller( "TransactionController", [ "$scope", function controller( $scope ) {
 
-				function controller(
-					$scope,
-					$timeout
-				) {
+				$scope.listTransaction = true;
+				$scope.addTransaction = false;
 
-					$scope.listTransaction = true;
-					$scope.addTransaction = false;
+				$scope.addTransactions = function addTransactions( ) {
+				    $scope.addTransaction = true;
+				    $scope.listTransaction = false;
+				};
 
-					$scope.transactionList = [
-						{
-							"stamp": "abc"
-						},
-						{
-							"stamp": "def"
-						}
-					];
+				$scope.saveTransactions = function saveTransactions( ) {
+				    $scope.addTransaction = false;
+				    $scope.listTransaction = true;
+				};
 
-					$scope.addTransactions = function addTransactions( ) {
-					    $scope.addTransaction = true;
-					    $scope.listTransaction = false;
-					};
+				$scope.cencelTransactions = function cencelTransactions( ) {
+				    $scope.addTransaction = false;
+				    $scope.listTransaction = true;
+				};
 
-					$scope.saveTransactions = function saveTransactions( ) {
-					    $scope.addTransaction = false;
-					    $scope.listTransaction = true;
-					};
+				$scope.editTransaction = false;
 
-					$scope.cencelTransactions = function cencelTransactions( ) {
-					    $scope.addTransaction = false;
-					    $scope.listTransaction = true;
-					};
+				// $scope.editTransactions = function editTransactions() {
+				//     $scope.editTransaction = true;
+				//     $scope.listTransaction = false;
+				// };
 
-					$scope.editTransaction = false;
+				$scope.detailsTransaction = false;
 
-					// $scope.editTransactions = function editTransactions() {
-					//     $scope.editTransaction = true;
-					//     $scope.listTransaction = false;
-					// };
-
+				$scope.hideDetailTransaction = function hideDetailTransaction( ) {
 					$scope.detailsTransaction = false;
+				};
 
-					$scope.hideDetailTransaction = function hideDetailTransaction( ) {
-						$scope.detailsTransaction = false;
-					};
+				$scope.showDetailTransaction = function showDetailTransaction( ) {
+					$scope.detailsTransaction = true;
+				};
 
-					$scope.showDetailTransaction = function showDetailTransaction( ) {
-						$scope.detailsTransaction = true;
-					};
 
-				}
-			] )
+			} ] )
     </script>
 </head>
 
@@ -215,10 +199,9 @@
         <button type="button" class="btn btn-default">Reset</button>
         <button type="button" class="btn btn-danger" ng-click="cencelTransactions()">Cancel</button>
     </form> -->
-
 	<table
 		class="table table-hover mytable"
-		ng-if="listTransaction"
+		ng-show="listTransaction"
 	>
         <thead>
             <tr>
@@ -238,109 +221,102 @@
                 <th>Last Name</th>
             </tr>
         </thead>
-		<tbody
-			nhasTransaction( )
-			ng-repeat="transaction in transactionList"
-		>
-		    <tr
+        <tbody>
+            <tr
 				ng-click="showDetailTransaction( )"
 			>
-		        <td>
-		            <div class="checkbox">
-		                <label>
-		                    <input type="checkbox" value="">
-		                </label>
-		            </div>
-		        </td>
-		        <td>
-					{{
-						transaction.stamp
-					}}
-				</td>
-		        <td>A</td>
-		        <td>A</td>
-		        <td>AAA</td>
-		        <td>AAAA</td>
-		    </tr>
-		    <tr>
-		        <table
+                <td>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="">
+                        </label>
+                    </div>
+                </td>
+                <td>a</td>
+                <td>A</td>
+                <td>A</td>
+                <td>AAA</td>
+                <td>AAAA</td>
+            </tr>
+            <tr>
+                <table
 					class="table mytable"
 					ng-show="detailsTransaction"
 				>
-		            <thead>
-		                <tr>
-		                    <th>Transaction Detail</th>
-		                    <th>
-		                        <button
+                    <thead>
+                        <tr>
+                            <th>Transaction Detail</th>
+                            <th>
+                                <button
 									type="button"
 									class="btn btn-default float-right"
 								>
 									Sub details
 								</button>
-		                    </th>
-		                </tr>
-		            </thead>
-		            <tbody>
-		                <tr>
-		                    <td>Stamp:</td>
-		                    <td>a</td>
-		                </tr>
-		                <tr>
-		                    <td>Title:</td>
-		                    <td>a</td>
-		                </tr>
-		                <tr>
-		                    <td>Description:</td>
-		                    <td>a</td>
-		                </tr>
-		                <tr>
-		                    <td>User Reference:</td>
-		                    <td>a</td>
-		                </tr>
-		                <tr>
-		                    <td>FirstName:</td>
-		                    <td>a</td>
-		                </tr>
-		                <tr>
-		                    <td>LastName:</td>
-		                    <td>a</td>
-		                </tr>
-		                <tr>
-		                    <td>Email address:</td>
-		                    <td>a</td>
-		                </tr>
-		                <tr>
-		                    <td>Mobile Number:</td>
-		                    <td>a</td>
-		                </tr>
-		                <tr>
-		                    <td>Home address:</td>
-		                    <td>a</td>
-		                </tr>
-		                <tr>
-		                    <td>
-		                        <button
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Stamp:</td>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>Title:</td>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>Description:</td>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>User Reference:</td>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>FirstName:</td>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>LastName:</td>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>Email address:</td>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile Number:</td>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>Home address:</td>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button
 									type="button"
 									class="btn btn-info"
 									ng-click="editTransactions()"
 								>
 									Edit
 								</button>
-		                    </td>
-		                    <td>
-		                        <button
+                            </td>
+                            <td>
+                                <button
 									type="button"
 									class="btn btn-default"
 									ng-click="hideDetailTransaction( )"
 								>
 									Close
 								</button>
-		                    </td>
-		                </tr>
-		            </tbody>
-		        </table>
-		    </tr>
-		</tbody>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </tr>
+        </tbody>
     </table>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
