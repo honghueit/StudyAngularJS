@@ -11,31 +11,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <script type="text/javascript">
         angular
-        .module("myApp", [])
-        .controller("myController", [
-            "$scope",
-            "$timeout", 
-            function controller($scope, $timeout) {
-                $scope.showlistMenus = false;
-                $scope.showSider = false;
-                $scope.listMenu = [ ];
-                var timeout = $timeout(function(){
-                    $scope.showlistMenus = true;
-                    $scope.listMenu = [
-                    "Home",
-                    "Introduce",
-                    "Product",
-                    "Cart",
-                    "Contact"
-                ];
-                $timeout.cancel( timeout );
-                }, 6000)
-                var timeout2 = $timeout( function( ){
-                    $scope.showSider = true;
-                    $timeout2.cancel( timeout );
+			.module( "myApp", [ ] )
+			.controller( "myController", [
+	            "$scope",
+	            "$timeout",
+	            function controller( $scope, $timeout ) {
+	                $scope.showlistMenus = false;
+	                $scope.showSider = false;
+	                $scope.listMenu = [ ];
 
-                }, 10000 );
-            }])
+	                var timeout = $timeout( function( ) {
+	                    $scope.showlistMenus = true;
+
+	                    $scope.listMenu = [
+		                    "Home",
+		                    "Introduce",
+		                    "Product",
+		                    "Cart",
+		                    "Contact"
+	                	];
+
+	                	$timeout.cancel( timeout );
+
+					}, 6000 );
+
+	                var timeout2 = $timeout( function( ){
+	                    $scope.showSider = true;
+	                    $timeout2.cancel( timeout );
+
+	                }, 10000 );
+	            }
+		] );
     </script>
 </head>
     <body class="container">
