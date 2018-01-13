@@ -22,3 +22,31 @@
 	width: 80%;
 	margin-bottom: 100px;
 }
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: #1f2c38 !important;
+    border-color: #1f2c38 !important;
+    font-size: 20px;
+    margin-top: 20px;
+    line-height: 30px;
+}
+.titleuser{
+	border-bottom: 0px !important;
+	font-size: 20px;
+}
+.description{
+	border-top: 0px !important;
+}
+.my-glyphicon{
+	font-size: 25px;
+}
+.detail-user{
+	margin-top: 30px;
+}
+.my-detail-row{
+	border: 0px !important;
+	padding-left: 100px !important;
+	list-style-type: none !important;
+	/*padding-right: 100px !important;*/
+}
