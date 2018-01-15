@@ -23,10 +23,14 @@
                 $scope.showIconDown = true;
                 $scope.showIconUp = false;
 
-				$scope.itemList = [ ];
+				$scope.itemList = [
+					// {
+					// 	"name": "Reg"
+					// }
+				];
 
 				$scope.hasItem = function hasItem( ){
-					return false;
+					return !!$scope.itemList.length;
 				};
 
                 $scope.displayInfo = function displayInfo( ) {
