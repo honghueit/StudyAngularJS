@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="user">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/a
+		ngularjs/1.6.6/angular.min.js"></script>
+    <script type="text/javascript">
+    angular
+        .module( 'user', [ ] )
+        .controller( "UserController", [
+            "$scope",
+
+            function controller(
+                $scope,
+
+            ) {
+                $scope.showInfo = false;
+                $scope.showIconDown = true;
+                $scope.showIconUp = false;
+
+				$scope.itemList = [ ];
+
+				$scope.hasItem = function hasItem( ){
+					return true;
+				};
+
+                $scope.displayInfo = function displayInfo( ) {
+                    $scope.showInfo = !$scope.showInfo;
+                    $scope.showIconDown = !$scope.showIconDown;
+                    $scope.showIconUp = !$scope.showIconUp;
+                };
+
+            }
+        ]);
+    </script>
+</head>
+
+<body>
+    <div class="container" ng-controller="UserController">
+        <ul
+			class="list-group"
+			ng-if="hasItem( )"
+		>
+            <li class="list-group-item active">List Item</li>
+            <li class="list-group-item titleuser">Bag</li>
+            <li class="list-group-item description">
+                Bag
+                <span
+                	class="glyphicon glyphicon-chevron-down float-right my-glyphicon"
+                	ng-click="displayInfo( )"
+                	ng-show="showIconDown"
+                >
+				</span>
+                <span
+                	class="glyphicon glyphicon-chevron-up float-right my-glyphicon"
+                	ng-click="displayInfo( )"
+                	ng-show="showIconUp"
+                >
+				</span>
+                <ul
+                	class="list-group detail-user"
+                	ng-show="showInfo"
+                >
+                    <li class=" my-detail-row">
+                        <b>Title : </b> Bag
+                    </li>
+                    <li class="my-detail-row">
+                        <b>Description : </b> Bag
+                    </li>
+                    <li class="my-detail-row">
+                        <b>Reference : </b> adadwewqreqrq
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+</body>
+
+</html>
