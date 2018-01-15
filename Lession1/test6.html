@@ -30,7 +30,11 @@
 				];
 
 				$scope.hasItem = function hasItem( ){
-					return !!$scope.itemList.length;
+					if ($scope.itemList.length == 0) {
+						return false;
+					}
+					// return !!$scope.itemList.length;
+					return true;
 				};
 
                 $scope.displayInfo = function displayInfo( ) {
