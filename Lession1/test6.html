@@ -31,6 +31,8 @@
 
 				$scope.hasItem = function hasItem( ){
 					if ($scope.itemList.length == 0) {
+						// $scope.message = "No items available";
+						// console.log($scope.message);
 						return false;
 					}
 					// return !!$scope.itemList.length;
@@ -50,6 +52,7 @@
 
 <body>
     <div class="container" ng-controller="UserController">
+    	<p ng-show = "!hasItem()">No items available</p>
         <ul
 			class="list-group"
 			ng-if="hasItem( )"
