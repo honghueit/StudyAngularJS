@@ -24,9 +24,18 @@
                 $scope.showIconUp = false;
 
 				$scope.itemList = [
-					// {
-					// 	"name": "Reg"
-					// }
+					{
+						"name": "Element1",
+						"description" : "Description element1"
+					},
+					{
+						"name": "Element2",
+						"description" : "Description element2"
+					},
+					{
+						"name": "Element3",
+						"description" : "Description element3"
+					}
 				];
 
 				$scope.hasItem = function hasItem( ){
@@ -61,9 +70,10 @@
         <ul
 			class="list-group"
 			ng-if="hasItem( )"
+			ng-repeat="x in itemList"
 		>
-            <li class="list-group-item active">List Item</li>
-            <li class="list-group-item titleuser">Bag</li>
+            <li class="list-group-item active">{{x.name}}</li>
+            <li class="list-group-item titleuser">{{x.description}}</li>
             <li class="list-group-item description">
                 Bag
                 <span
