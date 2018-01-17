@@ -12,8 +12,11 @@
 		<script type="text/javascript">
 			angular
 				.module( "funtodoApp", [ ] )
-				.controller( "TodosControllers", [
-					function controller( ){
+				.controller( "TodosController", [ 
+					"$scope" ,
+					function controller( 
+						$scope 
+					) {
 					  console.log( "Studying angular" );
 					}
 				] );
