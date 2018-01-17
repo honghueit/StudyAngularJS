@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html
+	ng-app="calculator"
+>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/creative.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/a
+			ngularjs/1.6.6/angular.min.js"></script>
+		<script type="text/javascript">
+			angular
+				.module( "calculator" )
+				.controller( "calculatorController", [
+
+					function controller( ){
+						var initialDigit = 0;
+					}
+
+				] );
+		</script>
+	</head>
+	<body
+		ng-controller="calculatorController"
+	>
+		<div class="row displayBox">
+			<p
+				class="displayText"
+				id="display"
+			>
+				{{
+					initialDigit
+				}}
+			</p>
+	  	</div>
+	</body>
+</html>
