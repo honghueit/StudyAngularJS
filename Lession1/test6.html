@@ -27,16 +27,21 @@
 					{
 						"name": "Xel",
 						"description" : "Hello",
-						"state": "active"
+						"state": "active",
+                        "referance" : "dwq"
+
 					},
 					{
 						"name": "Element2",
-						"description" : "Description element2",
-						"state": "deactivated"
+						"description" : "",
+						"state": "deactivated",
+                        "referance" : ""
 					},
 					{
-						"name": "Element3",
-						"description" : "Description element3"
+						"name": "",
+						"description" : "Description element3",
+                        "state": "deactivated",
+                        "referance" : "dwq354364567476"
 					}
 				];
 
@@ -130,11 +135,39 @@
 							}}
 						</span>
                     </li>
-                    <li class="my-detail-row">
-                        <b>Description : </b> <span class="label label-primary">{{ x.description || "None" }}</span>
+                    <li class=" my-detail-row">
+                        <b>Description : </b>
+                        <span
+                            class="label label-primary"
+                            ng-if="x.description"
+                        >
+                            {{
+                                x.description
+                            }}
+                        </span>
+                        <span
+                            class="label label-danger"
+                            ng-if="!x.description"
+                        >
+                            None
+                        </span>
                     </li>
-                    <li class="my-detail-row">
-                        <b>Reference : </b> adadwewqreqrq
+                    <li class=" my-detail-row">
+                        <b>Referance: </b>
+                        <span
+                            class="label label-primary"
+                            ng-if="x.referance"
+                        >
+                            {{
+                                x.referance
+                            }}
+                        </span>
+                        <span
+                            class="label label-danger"
+                            ng-if="!x.referance"
+                        >
+                            None
+                        </span>
                     </li>
                 </ul>
             </li>
