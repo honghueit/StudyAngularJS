@@ -26,7 +26,7 @@
 				$scope.itemList = [
 					{
 						"name": "Element1",
-						"description" : "Description element1"
+						"description" : ""
 					},
 					{
 						"name": "Element2",
@@ -93,7 +93,7 @@
                 	ng-show="showInfo"
                 >
                     <li class=" my-detail-row">
-                        <b>Title : </b> Bag
+                        <b>Title : </b> {{ x.description || "None" }}
                     </li>
                     <li class="my-detail-row">
                         <b>Description : </b> Bag
