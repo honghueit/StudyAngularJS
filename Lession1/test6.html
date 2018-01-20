@@ -25,12 +25,14 @@
 
 				$scope.itemList = [
 					{
-						"name": "Element1",
-						"description" : ""
+						"name": "Xel",
+						"description" : "Hello",
+						"state": "active"
 					},
 					{
 						"name": "Element2",
-						"description" : "Description element2"
+						"description" : "Description element2",
+						"state": "deactivated"
 					},
 					{
 						"name": "Element3",
@@ -93,7 +95,40 @@
                 	ng-show="showInfo"
                 >
                     <li class=" my-detail-row">
-                        <b>Title : </b> <span class="label label-primary">{{ x.title || "None" }}</span>
+                        <b>Title : </b>
+						<span
+							class="label label-primary"
+							ng-if="x.name"
+						>
+							{{
+								x.name
+							}}
+						</span>
+						<span
+							class="label label-danger"
+							ng-if="!x.name"
+						>
+							None
+						</span>
+                    </li>
+					<li class=" my-detail-row">
+                        <b>State : </b>
+						<span
+							class="label label-primary"
+							ng-if="x.state == 'active'"
+						>
+							{{
+								x.state
+							}}
+						</span>
+						<span
+							class="label label-danger"
+							ng-if="x.state == 'deactivated'"
+						>
+							{{
+								x.state
+							}}
+						</span>
                     </li>
                     <li class="my-detail-row">
                         <b>Description : </b> <span class="label label-primary">{{ x.description || "None" }}</span>
