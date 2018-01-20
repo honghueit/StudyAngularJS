@@ -38,7 +38,7 @@
                         "referance" : ""
 					},
 					{
-						"name": "",
+						"name": "Element3",
 						"description" : "Description element3",
                         "state": "deactivated",
                         "referance" : "dwq354364567476"
@@ -58,6 +58,9 @@
                     $scope.showIconDown = !$scope.showIconDown;
                     $scope.showIconUp = !$scope.showIconUp;
                 };
+                $scope.displayInfo1 = function displayInfo1( ) {
+                    $scope.showInfo = true;
+                };
 
             }
         ]);
@@ -65,7 +68,7 @@
 </head>
 
 <body>
-    <div
+    <!-- <div
 		class="container"
 		ng-controller="UserController"
 	>
@@ -174,7 +177,105 @@
                 </ul>
             </li>
         </ul>
+    </div> -->
+
+    <div 
+        class="container"
+        ng-controller="UserController"
+    >
+    <ul class="nav nav-tabs">
+        <li 
+            ng-repeat="x in itemList"
+            ng-if="hasItem( )"
+        >
+            <a data-toggle="tab" href="#menu1" ng-click="displayInfo1( )">{{ x.name }}</a></li>
+    </ul>
+    <div 
+        class="tab-content" 
+        ng-if="hasItem( )" 
+    >
+    <div id="menu1" class="tab-pane fade"  >
+        <ul
+            class="list-group detail-user"
+            ng-repeat="x in itemList"
+        >
+            <li class=" my-detail-row">
+                <b>Title : </b>
+                <span
+                    class="label label-primary"
+                    ng-if="x.name"
+                >
+                    {{
+                        x.name
+                    }}
+                </span>
+                <span
+                    class="label label-danger"
+                    ng-if="!x.name"
+                >
+                    None
+                </span>
+            </li>
+            <li class=" my-detail-row">
+                <b>State : </b>
+                <span
+                    style="text-transform: capitalize;"
+                    class="label label-primary"
+                    ng-if="x.state == 'active'"
+                >
+                    {{
+                        x.state
+                    }}
+                </span>
+                <span
+                    style="text-transform: capitalize;"
+                    class="label label-danger"
+                    ng-if="x.state == 'deactivated'"
+                >
+                    {{
+                        x.state
+                    }}
+                </span>
+            </li>
+            <li class=" my-detail-row">
+                <b>Description : </b>
+                <span
+                    class="label label-primary"
+                    ng-if="x.description"
+                >
+                    {{
+                        x.description
+                    }}
+                </span>
+                <span
+                    class="label label-danger"
+                    ng-if="!x.description"
+                >
+                    None
+                </span>
+            </li>
+            <li class=" my-detail-row">
+                <b>Referance: </b>
+                <span
+                    class="label label-primary"
+                    ng-if="x.referance"
+                >
+                    {{
+                        x.referance
+                    }}
+                </span>
+                <span
+                    class="label label-danger"
+                    ng-if="!x.referance"
+                >
+                    None
+                </span>
+            </li>
+        </ul>
     </div>
+  </div>
+</div>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
