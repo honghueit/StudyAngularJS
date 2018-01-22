@@ -285,7 +285,7 @@
     <div
         class="header"
     >
-        x List
+        Tab 1
     </div>
     <div
         class="body"
@@ -311,41 +311,29 @@
                             {{ x.description }}
                         </p>
                     </div>
-                    <div
-                        class="x-detail-summary-control"
-                    >
-                        <span
-                            class="material-icons"
-                            ng-show="!x._viewMode"
-                        >
-                            expand_more
-                        </span>
-                        <span
-                            class="material-icons"
-                            ng-show="x._viewMode"
-                        >
-                            expand_less
-                        </span>
-                    </div>
                 </div>
                 <div
                     class="detail-panel"
                     ng-if="
-                        viewMode
-                    "
+                        hasItem( )"
+                    
                 >
                     <dl
                         class="col-md-12 dl-horizontal"
                     >
                         <dt>
-                            Title:
+                            Name:
                         </dt>
                         <dd
                             style="
                                 text-transform: capitalize;
                             "
                         >
-                            {{ x.title }}
+                            
+                            {{
+                                    x.name
+                            }}
+                            
                         </dd>
                         <dt>
                             Description:
@@ -353,23 +341,17 @@
                         <dd>
                             {{ x.description }}
                         </dd>
-                        
+                        <dt>
+                           State:
+                        </dt>
                         <dd>
-                            <div>
-                                <span
-                                    class="label label-primary"
-                                    ng-show="x.defaultValue === true"
-                                >
-                                    Enabled
-                                </span>
-                                <span
-                                    class="label label-default"
-                                    ng-show="x.defaultValue === false"
-                                >
-                                    Disabled
-                                </span>
-                            </div>
-                            
+                            {{ x.state }}
+                        </dd>
+                        <dt>
+                           Referance:
+                        </dt>
+                        <dd>
+                            {{ x.referance }}
                         </dd>
                     </dl>
                 </div>
