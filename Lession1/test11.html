@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="user">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/a
+		ngularjs/1.6.6/angular.min.js"></script>
+    <script type="text/javascript">
+    angular
+        .module( "user", [ ] )
+        .controller( "UserController", [
+            "$scope",
+
+            function controller(
+                $scope,
+
+            ) {
+                $scope.showInfo = false;
+                $scope.showIconDown = true;
+                $scope.showIconUp = false;
+
+				$scope.itemList = [
+					{
+						"title": "Xel",
+						"description" : "Hello",
+						"state": "active",
+                        "referance" : "dwq"
+
+					},
+					{
+						"title": "Element2",
+						"description" : "wqewqe",
+						"state": "deactivated",
+                        "referance" : "342345464576"
+					},
+					{
+						"title": "Element3",
+						"description" : "Description element3",
+                        "state": "deactivated",
+                        "referance" : "dwq354364567476"
+					}
+				];
+
+				$scope.hasItem = function hasItem( ){
+					if ( $scope.itemList.length == 0 ) {
+						return false;
+					}
+
+					return true;
+				};
+
+                $scope.displayInfo = function displayInfo( ) {
+                    $scope.showInfo = !$scope.showInfo;
+                    $scope.showIconDown = !$scope.showIconDown;
+                    $scope.showIconUp = !$scope.showIconUp;
+                };
+                // $scope.displayInfo1 = function displayInfo1( ) {
+                //     $scope.showInfo = true;
+                // };
+
+            }
+        ]);
+    </script>
+</head>
+
+<body ng-controller="UserController">
+<div class="container">
+  <h2>Test</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Discount</a></li>
+    <li><a data-toggle="tab" href="#menu1">Price</a></li>
+    <li><a data-toggle="tab" href="#menu2">Item</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <td>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="">
+                    </label>
+                </div>
+            </td>
+            <th>Reference</th>
+            <th>Title</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody 
+        >
+          <tr ng-if="hasItem( )"
+          ng-repeat="x in itemList">
+            <td>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="">
+                    </label>
+                </div>
+            </td>
+            <td ng-click="displayInfo( )">{{x.referance}}</td>
+            <td >{{x.title}}</td>
+            <td>{{x.state}}</td>
+            <td>detail</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+</body>
+
+</html>
