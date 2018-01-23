@@ -383,3 +383,101 @@
 </body>
 
 </html>
+          <script language="JavaScript" type="text/javascript">
+                //            alert('asd');
+                time = 'start';
+                $(document).ready(function () {
+//                alert('asd');
+
+                    $("#aw").click(function () {
+                        sessionStorage['h'] = 0;
+                        sessionStorage['min'] = 1;
+                        sessionStorage['sec'] = 0;
+
+                    });
+
+
+                    if (sessionStorage['sec'] == undefined) {
+                        var min = 1, sec = 0, h = 0;
+
+                    } else {
+
+                        var h = 0, min = 1, sec = 0;
+                        h = sessionStorage['h'];
+                        min = sessionStorage['min'];
+                        sec = sessionStorage['sec'];
+                    }
+                    function timer() {
+                        if (sec == 0 && min != 0) {
+                            sec = 59;
+                            min--;
+                            t=true;
+                        } else if (sec > 0) {
+                            sec--;
+
+                        }
+                        if (sessionStorage['min'] == 0 && sessionStorage['sec'] == 0 && t==true) {
+                                t=false;
+                            data = $("#form2").serialize();
+
+                            $.post('resultat',data,function(data){
+                                document.getElementById('res').remove();
+                                document.getElementById('resultat').innerHTML=data ;
+                                document.getElementById('endtime').innerHTML=document.getElementById('min').innerHTML ;
+                                document.getElementById('endsec').innerHTML=document.getElementById('sec').innerHTML ;
+                                document.getElementById('timeview').remove();
+
+                                $('body').addClass('widthb');
+
+                            } );
+
+
+
+
+                        }
+
+                        sessionStorage['min'] = min;
+                        sessionStorage['sec'] = sec;
+                        sessionStorage['h'] = h;
+                        document.getElementById('sec').innerHTML = sec;
+                        document.getElementById('min').innerHTML = min;
+                        document.getElementById('h').innerHTML = h;
+                    }
+                $("#aw").click(function () {
+                    t=false;
+                    time = 'stop';
+                    data = $("#form2").serialize();
+
+                    $.post('resultat',data,function(data){
+                        document.getElementById('res').remove();
+                        document.getElementById('resultat').innerHTML=data ;
+                        document.getElementById('endtime').innerHTML=document.getElementById('min').innerHTML ;
+                        document.getElementById('endsec').innerHTML=document.getElementById('sec').innerHTML ;
+                        document.getElementById('timeview').remove();
+
+                        $('body').addClass('widthb');
+                    } );
+                });
+                    if(time=='start'){
+                setInterval(timer, 1000);
+                    }
+
+
+
+                })
+            </script>
+
+
+
+    //
+
+timer html
+   <center>
+
+                            <a id="timeview" style="opacity: 0.6; position: fixed; right: 0px;" class="btn btn-danger pull-left">
+                                <span class="fa fa-clock-o"></span>
+                                <label style=" font-size: 20px; color: #ffffff" id="h">0</label>:
+                                <label style="font-size: 20px; color: #ffffff" id="min">0</label>:
+                                <label style="font-size: 20px; color: #ffffff" id="sec">0</label>
+
+                            </a></center>

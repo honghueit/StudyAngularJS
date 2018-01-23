@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/a
 		ngularjs/1.6.6/angular.min.js"></script>
+    <style type="text/css">
+      .header{
+        padding: 10px;
+        font-size: 1.3em;
+        background-color: rgba( 0, 0, 0, 0.8 );
+        color: white;
+      }
+    </style>
     <script type="text/javascript">
     angular
         .module( "user", [ ] )
@@ -25,23 +33,23 @@
 
 				$scope.itemList = [
 					{
-						"title": "Xel",
-						"description" : "Hello",
+						"title": "Item1",
+						"description" : "This is item1",
 						"state": "active",
-                        "referance" : "dwq"
+            "referance" : "dwq"
 
 					},
 					{
-						"title": "Element2",
-						"description" : "wqewqe",
+						"title": "Item2",
+						"description" : "This is item2",
 						"state": "deactivated",
-                        "referance" : "342345464576"
+            "referance" : "342345464576"
 					},
 					{
-						"title": "Element3",
-						"description" : "Description element3",
-                        "state": "deactivated",
-                        "referance" : "dwq354364567476"
+						"title": "Item3",
+						"description" : "This is item3",
+            "state": "deactivated",
+            "referance" : "dwq354364567476"
 					}
 				];
 
@@ -67,50 +75,68 @@
     </script>
 </head>
 
-<body ng-controller="UserController">
+<body ng-controller="UserController" ng-controller="UserController">
 <div class="container">
   <h2>Test</h2>
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Discount</a></li>
-    <li><a data-toggle="tab" href="#menu1">Price</a></li>
-    <li><a data-toggle="tab" href="#menu2">Item</a></li>
+    <li class="active"><a data-toggle="tab" href="#home">Item</a></Itemi>
+    <li><a data-toggle="tab" href="#menu1">Discount</a></li>
   </ul>
-
   <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <td>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="">
-                    </label>
-                </div>
-            </td>
-            <th>Reference</th>
-            <th>Title</th>
-            <th>Type</th>
-          </tr>
-        </thead>
-        <tbody 
-        >
-          <tr ng-if="hasItem( )"
-          ng-repeat="x in itemList">
-            <td>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="">
-                    </label>
-                </div>
-            </td>
-            <td ng-click="displayInfo( )">{{x.referance}}</td>
-            <td >{{x.title}}</td>
-            <td>{{x.state}}</td>
-            <td>detail</td>
-          </tr>
-        </tbody>
-      </table>
+    <div id="home" class="tab-pane active" role="tabpanel">
+      <div class="col-md-12">
+        <div class="item-manager col-md-12 no-left-right-padding">
+          <div class="item-list item-panel">
+            <div class="header">Item List</div>
+            <div class="body">
+              <p
+                ng-show = "!hasItem( )"
+              >
+              <ul 
+                ng-if="hasItem( )"
+                ng-repeat="x in itemList"
+              >
+                <li>
+                  <div class="detail-summary-panel">
+                    <div class="item-detail">
+                      <h4 style="text-transform: capitalize;" >{{x.title}}</h4>
+                      <p>{{x.description}}</p>
+                    </div>
+                    <div class="item-detail-summary-control">
+                      <span 
+                        class="glyphicon glyphicon-chevron-down float-right my-glyphicon"
+                        ng-click="displayInfo( )"
+                        ng-show="showIconDown"
+                      >
+                      </span>
+                      <span
+                        class="glyphicon glyphicon-chevron-up float-right my-glyphicon"
+                        ng-click="displayInfo( )"
+                        ng-show="showIconUp"
+                      >
+                    </div>
+                  </div>
+                  <div 
+                    class="detail-panel"
+                    ng-show="showInfo"
+                    >
+                    <dl class="col-md-12 dl-horizontal">
+                      <dt>Title:</dt>
+                      <dd style="text-transform: capitalize;">{{x.title}}</dd>
+                      <dt>Description:</dt>
+                      <dd style="text-transform: capitalize;">{{x.description}}</dd>
+                      <dt>Reference:</dt>
+                      <dd style="text-transform: capitalize;" >{{x.referance}}}</dd>
+                      <dt>State:</dt>
+                      <dd style="text-transform: capitalize;">{{x.state}}</dd>
+                    </dl>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
