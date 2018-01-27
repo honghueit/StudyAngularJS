@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="user">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .item-manager {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .item-manager>.item-panel>div.header {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 1.3em;
+            background-color: rgba( 0, 0, 0, 0.8);
+            color: white;
+        }
+        
+        .item-manager>.item-panel>div.body {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding-top: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: 0;
+        }
+        
+        .item-manager>.item-panel>div.body>ul {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+            max-height: 700px;
+            overflow-y: auto;
+        }
+        
+        .item-manager>.item-panel>div.body>ul>li {
+            display: flex;
+            height: auto;
+            flex-direction: column;
+            overflow: hidden;
+            flex-shrink: 0;
+            flex-grow: 0;
+        }
+        
+        .item-manager>.item-panel>div.body>ul>li>.detail-summary-panel {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+        
+        .item-manager>.item-panel>div.body>ul>li>.detail-summary-panel>.item-detail {
+            flex-grow: 1;
+            flex-shrink: 1;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 70px;
+        }
+        
+        .item-manager>.item-panel>div.body>ul>li>.detail-summary-panel>.item-detail-summary-control {
+            height: 70px;
+            width: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        .item-manager>.item-panel>div.body>ul>li>.detail-panel {
+            padding-top: 5px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+    </style>
+    <script type="text/javascript">
+        angular
+            .module("user", [])
+            .controller("ItemController", [
+                "$scope",
+                function controller(
+                    $scope,
+                ) {
+                    $scope.showInfo = false;
+                    $scope.showIconDown = true;
+                    $scope.showIconUp = false;
+                    $scope.itemList = [{
+                        "title": "Ballpen 1",
+                        "description": "This is Ballpen 1",
+                        "referance": "dwq",
+                        "efectiveday": "29-01-2017",
+                        "validity": "infinite",
+                        "valid-unit": "infinite"
+
+                    }, {
+                        "title": "Ballpen 2",
+                        "description": "This is Ballpen 2",
+                        "referance": "dwq",
+                        "efectiveday": "29-01-2017",
+                        "validity": "infinite",
+                        "valid-unit": "infinite"
+
+                    }, {
+                        "title": "Item3",
+                        "description": "This is item3",
+                        "state": "deactivated",
+                        "referance": "dwq354364567476"
+                    }];
+                    $scope.hasItem = function hasItem() {
+                        if ($scope.itemList.length == 0) {
+                            return false;
+                        }
+                        return true;
+                    };
+                    $scope.displayInfo = function displayInfo() {
+                        $scope.showInfo = !$scope.showInfo;
+                        $scope.showIconDown = !$scope.showIconDown;
+                        $scope.showIconUp = !$scope.showIconUp;
+                    };
+                    // $scope.displayInfo1 = function displayInfo1( ) {
+                    //     $scope.showInfo = true;
+                    // };
+                }
+            ]);
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">ITem</a></li>
+            <li><a data-toggle="tab" href="#stock">Stock</a></li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active" ng-controller="ItemController">
+                <div class="col-md-12">
+                    <div class="item-manager col-md-12 no-left-right-padding">
+                        <div class="item-list item-panel">
+                            <div class="header">Item List</div>
+                            <div class="body">
+                                <ul ng-if="hasItem( )" ng-repeat="x in itemList">
+                                    <li>
+                                        <div class="detail-summary-panel">
+                                            <div class="item-detail">
+                                                <h4 style="text-transform: capitalize;">Item 1</h4>
+                                                <p>Item 1 Description</p>
+                                            </div>
+                                            <div class="item-detail-summary-control">
+                                                <span class="glyphicon glyphicon-chevron-down"></span>
+                                            </div>
+                                        </div>
+                                        <div class="detail-panel">
+                                            <dl class="col-md-12 dl-horizontal">
+                                                <dt>Title:</dt>
+                                                <dd style="text-transform: capitalize;">Item 1</dd>
+                                                <dt>Description:</dt>
+                                                <dd style="text-transform: capitalize;">Item 1 description</dd>
+                                                <dt>Reference:</dt>
+                                                <dd style="text-transform: capitalize;">Item 1 reference</dd>
+                                                <dt>Effective Date:</dt>
+                                                <dd style="text-transform: capitalize;">27-01-2017</dd>
+                                                <dt>Valid Unit:</dt>
+                                                <dd style="text-transform: capitalize;">Infinite</dd>
+                                                <dt>Valid Type:</dt>
+                                                <dd style="text-transform: capitalize;">Infinite</dd>
+                                            </dl>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="detail-summary-panel">
+                                            <div class="item-detail">
+                                                <h4 style="text-transform: capitalize;">Item 1</h4>
+                                                <p>Item 1 Description</p>
+                                            </div>
+                                            <div class="item-detail-summary-control">
+                                                <span class="glyphicon glyphicon-chevron-down"></span>
+                                            </div>
+                                        </div>
+                                        <div class="detail-panel">
+                                            <dl class="col-md-12 dl-horizontal">
+                                                <dt>Title:</dt>
+                                                <dd style="text-transform: capitalize;">Item 1</dd>
+                                                <dt>Description:</dt>
+                                                <dd style="text-transform: capitalize;">Item 1 description</dd>
+                                                <dt>Reference:</dt>
+                                                <dd style="text-transform: capitalize;">Item 1 reference</dd>
+                                                <dt>Effective Date:</dt>
+                                                <dd style="text-transform: capitalize;">27-01-2017</dd>
+                                                <dt>Valid Unit:</dt>
+                                                <dd style="text-transform: capitalize;">Infinite</dd>
+                                                <dt>Valid Type:</dt>
+                                                <dd style="text-transform: capitalize;">Infinite</dd>
+                                            </dl>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="detail-summary-panel">
+                                            <div class="item-detail">
+                                                <h4 style="text-transform: capitalize;">Item 1</h4>
+                                                <p>Item 1 Description</p>
+                                            </div>
+                                            <div class="item-detail-summary-control">
+                                                <span class="glyphicon glyphicon-chevron-down"></span>
+                                            </div>
+                                        </div>
+                                        <div class="detail-panel">
+                                            <dl class="col-md-12 dl-horizontal">
+                                                <dt>Title:</dt>
+                                                <dd style="text-transform: capitalize;">Item 1</dd>
+                                                <dt>Description:</dt>
+                                                <dd style="text-transform: capitalize;">Item 1 description</dd>
+                                                <dt>Reference:</dt>
+                                                <dd style="text-transform: capitalize;">Item 1 reference</dd>
+                                                <dt>Effective Date:</dt>
+                                                <dd style="text-transform: capitalize;">27-01-2017</dd>
+                                                <dt>Valid Unit:</dt>
+                                                <dd style="text-transform: capitalize;">Infinite</dd>
+                                                <dt>Valid Type:</dt>
+                                                <dd style="text-transform: capitalize;">Infinite</dd>
+                                            </dl>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="stock" class="tab-pane fade" ng-controller="StockController">
+                <h3>Menu 1</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -10,110 +10,85 @@
     <script src="https://ajax.googleapis.com/ajax/libs/a
 		ngularjs/1.6.6/angular.min.js"></script>
     <style type="text/css">
-      .header{
-        padding: 10px;
-        font-size: 1.3em;
-        background-color: rgba( 0, 0, 0, 0.8 );
-        color: white;
-      }
+        .header {
+            padding: 10px;
+            font-size: 1.3em;
+            background-color: rgba( 0, 0, 0, 0.8);
+            color: white;
+        }
     </style>
     <script type="text/javascript">
-    angular
-        .module( "user", [ ] )
-        .controller( "UserController", [
-            "$scope",
-
-            function controller(
-                $scope,
-
-            ) {
-                $scope.showInfo = false;
-                $scope.showIconDown = true;
-                $scope.showIconUp = false;
-
-				$scope.itemList = [
-					{
-						"title": "Item1",
-						"description" : "This is item1",
-						"state": "active",
-            "referance" : "dwq"
-
-					},
-					{
-						"title": "Item2",
-						"description" : "This is item2",
-						"state": "deactivated",
-            "referance" : "342345464576"
-					},
-					{
-						"title": "Item3",
-						"description" : "This is item3",
-            "state": "deactivated",
-            "referance" : "dwq354364567476"
-					}
-				];
-
-				$scope.hasItem = function hasItem( ){
-					if ( $scope.itemList.length == 0 ) {
-						return false;
-					}
-
-					return true;
-				};
-
-                $scope.displayInfo = function displayInfo( ) {
-                    $scope.showInfo = !$scope.showInfo;
-                    $scope.showIconDown = !$scope.showIconDown;
-                    $scope.showIconUp = !$scope.showIconUp;
-                };
-                // $scope.displayInfo1 = function displayInfo1( ) {
-                //     $scope.showInfo = true;
-                // };
-
-            }
-        ]);
+        angular
+            .module("user", [])
+            .controller("UserController", [
+                "$scope",
+                function controller(
+                    $scope,
+                ) {
+                    $scope.showInfo = false;
+                    $scope.showIconDown = true;
+                    $scope.showIconUp = false;
+                    $scope.itemList = [{
+                        "title": "Item1",
+                        "description": "This is item1",
+                        "state": "active",
+                        "referance": "dwq"
+                    }, {
+                        "title": "Item2",
+                        "description": "This is item2",
+                        "state": "deactivated",
+                        "referance": "342345464576"
+                    }, {
+                        "title": "Item3",
+                        "description": "This is item3",
+                        "state": "deactivated",
+                        "referance": "dwq354364567476"
+                    }];
+                    $scope.hasItem = function hasItem() {
+                        if ($scope.itemList.length == 0) {
+                            return false;
+                        }
+                        return true;
+                    };
+                    $scope.displayInfo = function displayInfo() {
+                        $scope.showInfo = !$scope.showInfo;
+                        $scope.showIconDown = !$scope.showIconDown;
+                        $scope.showIconUp = !$scope.showIconUp;
+                    };
+                    // $scope.displayInfo1 = function displayInfo1( ) {
+                    //     $scope.showInfo = true;
+                    // };
+                }
+            ]);
     </script>
 </head>
 
-<body ng-controller="UserController" ng-controller="UserController">
-<div class="container">
-  <h2>Test</h2>
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Item</a></Itemi>
-    <li><a data-toggle="tab" href="#menu1">Discount</a></li>
-  </ul>
-  <div class="tab-content">
-    <div id="home" class="tab-pane active" role="tabpanel">
-      <div class="col-md-12">
-        <div class="item-manager col-md-12 no-left-right-padding">
-          <div class="item-list item-panel">
-            <div class="header">Item List</div>
-            <div class="body">
-              <p
-                ng-show = "!hasItem( )"
-              >
-              <ul 
-                ng-if="hasItem( )"
-                ng-repeat="x in itemList"
-              >
-                <li>
-                  <div class="detail-summary-panel">
-                    <div class="item-detail">
-                      <h4 style="text-transform: capitalize;" >{{x.title}}</h4>
-                      <p>{{x.description}}</p>
-                    </div>
-                    <div class="item-detail-summary-control">
-                      <span 
-                        class="glyphicon glyphicon-chevron-down float-right my-glyphicon"
-                        ng-click="displayInfo( )"
-                        ng-show="showIconDown"
-                      >
+<body ng-controller="UserController">
+    <div class="container">
+        <h2>Test</h2>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Item</a></Itemi>
+                <li><a data-toggle="tab" href="#menu1">Discount</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="home" class="tab-pane active" role="tabpanel">
+                <div class="col-md-12">
+                    <div class="item-manager col-md-12 no-left-right-padding">
+                        <div class="item-list item-panel">
+                            <div class="header">Item List</div>
+                            <div class="body">
+                                <p ng-show="!hasItem( )">
+                                    <ul ng-if="hasItem( )" ng-repeat="x in itemList">
+                                        <li>
+                                            <div class="detail-summary-panel">
+                                                <div class="item-detail">
+                                                    <h4 style="text-transform: capitalize;">{{x.title}}</h4>
+                                                    <p>{{x.description}}</p>
+                                                </div>
+                                                <div class="item-detail-summary-control">
+                                                    <span class="glyphicon glyphicon-chevron-down float-right my-glyphicon" ng-click="displayInfo( )" ng-show="showIconDown">
                       </span>
-                      <span
-                        class="glyphicon glyphicon-chevron-up float-right my-glyphicon"
-                        ng-click="displayInfo( )"
-                        ng-show="showIconUp"
-                      >
+                                                    <span class="glyphicon glyphicon-chevron-up float-right my-glyphicon" ng-click="displayInfo( )" ng-show="showIconUp">
                     </div>
                   </div>
                   <div 
