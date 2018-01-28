@@ -2,12 +2,13 @@
 <html lang="en" ng-app="user">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>Test12</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <style>
         .item-manager {
             display: flex;
@@ -90,8 +91,25 @@
     </style>
     <script type="text/javascript">
         angular
-            .module("user", [])
-            .controller("ItemController", [
+            .module( "user" , [])
+            .controller( "CoreController" , [
+                "$scope",
+                function controller( $scope ) {
+
+                        $scope.showInfoStock = false;
+                        $scope.showInfoItem  = true;
+                    $scope.selectItemTab     = function selectItemTab() {
+                        $scope.showInfoItem  = true;
+                        $scope.showInfoStock = false;
+                    }
+                    $scope.selectStockTab   = function selectStockTab() {
+                        $scope.showInfoStock = true;
+                        $scope.showInfoItem  = false;
+                    }
+
+                }
+            ])
+            .controller( "ItemController" , [
                 "$scope",
                 function controller(
                     $scope,
@@ -136,28 +154,50 @@
                     //     $scope.showInfo = true;
                     // };
                 }
-            ]);
+            ])
+            .controller("StockController", [
+                " $scope ",
+                function controller($scope) {
+                    $scope.stockList = [{
+
+                    }]
+                }
+            ])
     </script>
 </head>
 
-<body>
+<body ng-controller="CoreController">
 
     <div class="container">
 
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#home">ITem</a></li>
-            <li><a data-toggle="tab" href="#stock">Stock</a></li>
+            <li class="active">
+                <a 
+                    data-toggle="tab" 
+                    ng-click= "selectItemTab()"
+                >ITem</a>
+            </li>
+            <li>
+                <a 
+                    data-toggle="tab"
+                    ng-click= "selectStockTab()"
+                >Stock</a>
+            </li>
 
         </ul>
 
         <div class="tab-content">
-            <div id="home" class="tab-pane fade in active" ng-controller="ItemController">
+            <div 
+                 
+                ng-show = "showInfoItem" 
+                class   ="tab-pane fade in active" 
+            >
                 <div class="col-md-12">
                     <div class="item-manager col-md-12 no-left-right-padding">
                         <div class="item-list item-panel">
                             <div class="header">Item List</div>
                             <div class="body">
-                                <ul ng-if="hasItem( )" ng-repeat="x in itemList">
+                                <ul >
                                     <li>
                                         <div class="detail-summary-panel">
                                             <div class="item-detail">
@@ -245,8 +285,12 @@
                     </div>
                 </div>
             </div>
-            <div id="stock" class="tab-pane fade" ng-controller="StockController">
-                <h3>Menu 1</h3>
+            <div 
+                 
+                ng-show="showInfoStock" 
+                class="tab-pane fade in active" 
+            >
+                <h3>Stock</h3>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
 
