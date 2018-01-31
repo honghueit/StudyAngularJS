@@ -102,14 +102,14 @@
                     $scope.showInfoStock  = false;
                     $scope.showInfoItem   = true;
                     $scope.selectItemTab  = function selectItemTab() {
-                        $scope.showInfoItem  = true;
-                        $scope.showInfoStock = false;
+                      $scope.showInfoItem   = true;
+                      $scope.showInfoStock = false;
                     }
                     $scope.selectStockTab    = function selectStockTab() {
-                        $scope.showInfoStock = true;
-                        $scope.showInfoItem  = false;
+                      $scope.showInfoStock = true;
+                      $scope.showInfoItem  = false;
                     }
-
+                    
                 }
             ])
             .controller( "ItemController" , [
@@ -126,7 +126,7 @@
                         "referance": "dwq",
                         "efectiveday": "29-01-2017",
                         "validity": "infinite",
-                        "valid-unit": "infinite"
+                        "validunit": "infinite"
 
                     }, {
                         "title": "Ballpen 2",
@@ -134,7 +134,7 @@
                         "referance": "",
                         "efectiveday": "29-01-2017",
                         "validity": "infinite",
-                        "valid-unit": "definite"
+                        "validunit": "definite"
 
                     }, {
                         "title": "Ballpen 3",
@@ -142,7 +142,7 @@
                         "referance": "dwq",
                         "efectiveday": "29-01-2017",
                         "validity": "infinite",
-                        "valid-unit": "infinite"
+                        "validunit": "infinite"
                     }];
                     $scope.hasItem = function hasItem() {
                         if ($scope.itemList.length == 0) {
@@ -159,15 +159,18 @@
                 }
             ])
             .controller( "StockController" , [
-                " $scope ",
+                "$scope",
                 function controller( $scope ) {
+                    $scope.showInfo     = false;
+                    $scope.showIconDown = true;
+                    $scope.showIconUp   = false;
                     $scope.stockList = [{
                         "title": "Gran 1",
                         "description": "This is Gran 1",
                         "referance": "dwq",
                         "efectiveday": "29-01-2017",
                         "validity": "infinite",
-                        "valid-unit": "infinite"
+                        "validunit": "infinite"
                     },
                     {
                         "title": "Gran 2",
@@ -175,7 +178,7 @@
                         "referance": "dwq",
                         "efectiveday": "29-01-2017",
                         "validity": "infinite",
-                        "valid-unit": "infinite"
+                        "validunit": "infinite"
 
                     },
                     {
@@ -184,14 +187,19 @@
                         "referance": "dwq",
                         "efectiveday": "29-01-2017",
                         "validity": "infinite",
-                        "valid-unit": "infinite"
+                        "validunit": "infinite"
                     }
                     ];
-                    $scope.hasStock = function hasStock() {
+                    $scope.hasStock = function hasItem() {
                         if ($scope.stockList.length == 0) {
                             return false;
                         }
                         return true;
+                    };
+                    $scope.displayInfo = function displayInfo() {
+                        $scope.showInfo = !$scope.showInfo;
+                        $scope.showIconDown = !$scope.showIconDown;
+                        $scope.showIconUp = !$scope.showIconUp;
                     };
                 }
             ])
@@ -206,7 +214,7 @@
             <li class="active">
                 <a data-toggle="tab" ng-click="selectItemTab()">ITem</a>
             </li>
-            <li>
+            <li >
                 <a data-toggle="tab" ng-click="selectStockTab()">Stock</a>
             </li>
 
@@ -216,7 +224,7 @@
             <div 
               ng-show="showInfoItem" 
               class="tab-pane fade in active"
-              ng-controller="ItemController" 
+              ng-controller="ItemController"
             >
               <div class="col-md-12">
                 <div class="item-manager col-md-12 no-left-right-padding">
@@ -242,10 +250,26 @@
                                       <p>{{x.description}}</p>
                                   </div>
                                   <div class="item-detail-summary-control">
-                                      <span class="glyphicon glyphicon-chevron-down"></span>
+                                    <span 
+                                      class="
+                                        glyphicon glyphicon-chevron-down
+                                        "
+                                      ng-click="displayInfo( )"
+                                      ng-show="showIconDown"
+                                    ></span>
+                                    <span 
+                                      class="
+                                        glyphicon glyphicon-chevron-up
+                                        "
+                                      ng-click="displayInfo( )"
+                                      ng-show="showIconUp"
+                                    ></span>
                                   </div>
                               </div>
-                              <div class="detail-panel">
+                              <div 
+                                class="detail-panel" 
+                                ng-show="showInfo"
+                              >
                                   <dl class="col-md-12 dl-horizontal">
                                       <dt>Title:</dt>
                                       <dd style="
@@ -314,15 +338,16 @@
                                         text-transform:capitalize;
                                       " 
                                       > 
-                                        <span class="label label-primary" ng-if="x.valid-unit == 'infinite'">
+                                        <span class="label label-primary" ng-if="x.validunit == 'infinite'">
                                           infinite
                                         </span>
                                         <span class="label label-danger"
-                                          ng-if="x.valid-unit == 'definite'"
+                                          ng-if="x.validunit == 'definite'"
                                         >
                                           definite
                                         </span>
                                       </dd>
+                  
                                   </dl>
                               </div>
                           </li>
@@ -330,14 +355,14 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>      
             </div>
             <div 
-             
               class="tab-pane fade in active"
+              ng-show="showInfoStock" 
               ng-controller="StockController"
             >
-                <div class="col-md-12">
+              <div class="col-md-12" ng-show="showInfoStock">
                 <div class="item-manager col-md-12 no-left-right-padding">
                   <div class="item-list item-panel">
                     <div class="header">Item Stock</div>
@@ -361,10 +386,26 @@
                                       <p>{{x.description}}</p>
                                   </div>
                                   <div class="item-detail-summary-control">
-                                      <span class="glyphicon glyphicon-chevron-down"></span>
+                                    <span 
+                                      class="
+                                        glyphicon glyphicon-chevron-down
+                                        "
+                                      ng-click="displayInfo( )"
+                                      ng-show="showIconDown"
+                                    ></span>
+                                    <span 
+                                      class="
+                                        glyphicon glyphicon-chevron-up
+                                        "
+                                      ng-click="displayInfo( )"
+                                      ng-show="showIconUp"
+                                    ></span>
                                   </div>
                               </div>
-                              <div class="detail-panel">
+                              <div 
+                                class="detail-panel"
+                                ng-show="showInfo"
+                              >
                                   <dl class="col-md-12 dl-horizontal">
                                       <dt>Title:</dt>
                                       <dd style="
@@ -433,11 +474,11 @@
                                         text-transform:capitalize;
                                       " 
                                       > 
-                                        <span class="label label-primary" ng-if="x.valid-unit == 'infinite'">
+                                        <span class="label label-primary" ng-if="x.validunit == 'infinite'">
                                           infinite
                                         </span>
                                         <span class="label label-danger"
-                                          ng-if="x.valid-unit == 'definite'"
+                                          ng-if="x.validunit == 'definite'"
                                         >
                                           definite
                                         </span>
@@ -451,10 +492,7 @@
                 </div>
               </div>
             </div>
-
         </div>
     </div>
-
 </body>
-
 </html>
