@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="user">
-
 <head>
-    <title>Test12</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-    <style>
+     <style>
         .item-manager {
             display: flex;
             flex-direction: column;
@@ -92,6 +89,7 @@
             justify-content: space-evenly;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <script type="text/javascript">
         angular
             .module( "user" , [] )
@@ -99,20 +97,20 @@
                 "$scope",
                 function controller( $scope ) {
 
-                    $scope.showInfoStock  = false;
-                    $scope.showInfoItem   = true;
-                    $scope.selectItemTab  = function selectItemTab() {
-                      $scope.showInfoItem   = true;
-                      $scope.showInfoStock = false;
+                    $scope.showInfoTeacher     = false;
+                    $scope.showInfoStudent   = true;
+                    $scope.selectStudentTab     = function selectStudentTab() {
+                      $scope.showInfoStudent = true;
+                      $scope.showInfoTeacher   = false;
                     }
-                    $scope.selectStockTab    = function selectStockTab() {
-                      $scope.showInfoStock = true;
-                      $scope.showInfoItem  = false;
+                    $scope.selectTeacherTab    = function selectTeacherTab() {
+                      $scope.showInfoTeacher   = true;
+                      $scope.showInfoStudent = false;
                     }
                     
                 }
             ])
-            .controller( "ItemController" , [
+            .controller( "StudentController" , [
                 "$scope",
                 function controller(
                     $scope,
@@ -120,122 +118,114 @@
                     $scope.showInfo     = false;
                     $scope.showIconDown = true;
                     $scope.showIconUp   = false;
-                    $scope.itemList     = [{
-                        "title": "Ballpen 1",
-                        "description": "This is Ballpen 1",
-                        "referance": "dwq",
-                        "efectiveday": "29-01-2017",
-                        "validity": "infinite",
-                        "validunit": "infinite"
+                    $scope.studentList  = [{
+                        "id": "DH51401772",
+                        "fullname": "Tran Thi Hong Hue",
+                        "birthday": "29-01-2017",
+                        "nationality": "VietNam",
+                        "status": "online"
 
                     }, {
-                        "title": "Ballpen 2",
-                        "description": "This is Ballpen 2",
-                        "referance": "",
-                        "efectiveday": "29-01-2017",
-                        "validity": "infinite",
-                        "validunit": "definite"
-
+                        "id": "DH51401773",
+                        "fullname": "John Lenon Maghanoy",
+                        "birthday": "29-01-2017",
+                        "nationality": "Philipin",
+                        "status": "offline"
                     }, {
-                        "title": "Ballpen 3",
-                        "description": "This is Ballpen 3",
-                        "referance": "dwq",
-                        "efectiveday": "29-01-2017",
-                        "validity": "infinite",
-                        "validunit": "infinite"
+                        "id": "DH51401774",
+                        "fullname": "Mr Suasan",
+                        "birthday": "29-01-2017",
+                        "nationality": "Japan",
+                        "status": "online"
                     }];
-                    $scope.hasItem = function hasItem() {
-                        if ($scope.itemList.length == 0) {
+                    $scope.hasStudent = function hasStudent() {
+                        if ($scope.studentList.length == 0) {
                             return false;
                         }
                         return true;
                     };
-                    $scope.displayInfo = function displayInfo() {
-                        $scope.showInfo = !$scope.showInfo;
+                    $scope.displayInfo    = function displayInfo() {
+                        $scope.showInfo   = !$scope.showInfo;
                         $scope.showIconDown = !$scope.showIconDown;
-                        $scope.showIconUp = !$scope.showIconUp;
+                        $scope.showIconUp    = !$scope.showIconUp;
                     };
 
                 }
             ])
-            .controller( "StockController" , [
+            .controller( "TeacherController" , [
                 "$scope",
                 function controller( $scope ) {
                     $scope.showInfo     = false;
                     $scope.showIconDown = true;
                     $scope.showIconUp   = false;
-                    $scope.stockList = [{
-                        "title": "Gran 1",
-                        "description": "This is Gran 1",
-                        "referance": "dwq",
-                        "efectiveday": "29-01-2017",
-                        "validity": "infinite",
-                        "validunit": "infinite"
+                    $scope.teacherList = [{
+                        "id": "TH2432534",
+                        "fullname": "Mss Linda",
+                        "birthday": "29-01-2017",
+                        "nationality": "English",
+                        "status": "online"
                     },
                     {
-                        "title": "Gran 2",
-                        "description": "This is Gran 2",
-                        "referance": "dwq",
-                        "efectiveday": "29-01-2017",
-                        "validity": "infinite",
-                        "validunit": "infinite"
+                        "id": "TH53436",
+                        "fullname": "Lang Ky Doanh",
+                        "birthday": "29-01-2017",
+                        "nationality": "VietNam",
+                        "status": "offline"
 
                     },
                     {
-                        "title": "Gran 3",
-                        "description": "This is Gran 3",
-                        "referance": "dwq",
-                        "efectiveday": "29-01-2017",
-                        "validity": "infinite",
-                        "validunit": "infinite"
+                        "id": "th5477",
+                        "fullname": "Kimberly",
+                        "birthday": "29-01-2017",
+                        "nationality": "philipin",
+                        "status": "online"
                     }
                     ];
-                    $scope.hasStock = function hasItem() {
-                        if ($scope.stockList.length == 0) {
+                    $scope.hasTeacher = function hasTeacher() {
+                        if ($scope.teacherList.length == 0) {
                             return false;
                         }
                         return true;
                     };
-                    $scope.displayInfo = function displayInfo() {
-                        $scope.showInfo = !$scope.showInfo;
+                    $scope.displayInfo     = function displayInfo() {
+                        $scope.showInfo    = !$scope.showInfo;
                         $scope.showIconDown = !$scope.showIconDown;
-                        $scope.showIconUp = !$scope.showIconUp;
+                        $scope.showIconUp   = !$scope.showIconUp;
                     };
                 }
             ])
     </script>
 </head>
-
-<body ng-controller="CoreController">
-
-    <div class="container">
+<body>
+	<div class="container" 
+		ng-controller="CoreController">
         <ul class="nav nav-tabs">
             <li class="active">
-                <a data-toggle="tab" ng-click="selectItemTab()">ITem</a>
+                <a data-toggle="tab" ng-click="selectStudentTab()">Student</a>
             </li>
             <li >
-                <a data-toggle="tab" ng-click="selectStockTab()">Stock</a>
+                <a data-toggle="tab" ng-click="selectTeacherTab()">Teacher</a>
             </li>
         </ul>
         <div class="tab-content">
             <div 
-              ng-show="showInfoItem" 
+              ng-show="showInfoStudent" 
               class="tab-pane fade in active"
-              ng-controller="ItemController"
+              ng-controller="StudentController"
             >
               <div class="col-md-12">
                 <div class="item-manager col-md-12 no-left-right-padding">
                   <div class="item-list item-panel">
-                    <div class="header">Item List</div>
+                    <div class="header">Student List</div>
                     <div class="body">
                         <p
-                          ng-show = "!hasItem( )"
+                          ng-show = "!hasStudent( )"
                         >
-                          No items available
+                          No students available
                         </p>
                         <ul 
-                          ng-repeat="x in itemList"
-                          ng-if="hasItem( )"
+                          ng-repeat="x in studentList"
+                          ng-if="hasStudent( )"
                         >
                           <li>
                               <div class="detail-summary-panel">
@@ -243,8 +233,8 @@
                                       <h4 style="
                                           text-transform:capitalize;
                                         "
-                                      >{{x.title}}</h4>
-                                      <p>{{x.description}}</p>
+                                      >{{x.id}}</h4>
+                                      <p>{{x.fullname}}</p>
                                   </div>
                                   <div class="item-detail-summary-control">
                                     <span 
@@ -268,80 +258,66 @@
                                 ng-show="showInfo"
                               >
                                   <dl class="col-md-12 dl-horizontal">
-                                      <dt>Title:</dt>
+                                      <dt>ID:</dt>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
-                                        ng-if="x.title"
-                                      >{{x.title}}</dd>
+                                        ng-if="x.id"
+                                      >{{x.id}}</dd>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
-                                        ng-if="!x.title"
+                                        ng-if="!x.id"
                                       >None</dd>
                                       
-                                      <dt>Description:</dt>
+                                      <dt>Fullname:</dt>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
-                                        ng-if="x.description"
-                                      >{{x.description}}</dd>
+                                        ng-if="x.fullname"
+                                      >{{x.fullname}}</dd>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
-                                        ng-if="!x.description"
+                                        ng-if="!x.fullname"
                                       >None</dd>
 
-                                      <dt>Reference:</dt>
+                                      <dt>Birthday:</dt>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
-                                        ng-if="x.referance"
-                                      >{{x.referance}}</dd>
+                                        ng-if="x.birthday"
+                                      >{{x.birthday}}</dd>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
-                                        ng-if="!x.referance"
+                                        ng-if="!x.birthday"
                                       >None</dd>
                                       
-                                      <dt>Effective Date:</dt>
+                                      <dt>Nationality:</dt>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
-                                        ng-if="x.efectiveday"
-                                      >{{x.efectiveday}}</dd>
+                                        ng-if="x.nationality"
+                                      >{{x.nationality}}</dd>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
-                                        ng-if="!x.efectiveday"
+                                        ng-if="!x.nationality"
                                       >None</dd>
-
-
-                                      <dt>Valid Type:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.validity"
-                                      >{{x.validity}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.validity"
-                                      >None</dd>
-
-                                      
-                                      <dt>Valid Unit:</dt>
+                                      <dt>Status:</dt>
                                       <dd style="
                                         text-transform:capitalize;
                                       " 
                                       > 
-                                        <span class="label label-primary" ng-if="x.validunit == 'infinite'">
-                                          infinite
+                                        <span class="label label-success" 
+                                        	ng-if="x.status == 'online'">
+                                          online
                                         </span>
                                         <span class="label label-danger"
-                                          ng-if="x.validunit == 'definite'"
+                                          ng-if="x.status == 'offline'"
                                         >
-                                          definite
+                                          offline
                                         </span>
                                       </dd>
                   
@@ -356,22 +332,22 @@
             </div>
             <div 
               class="tab-pane fade in active"
-              ng-show="showInfoStock" 
-              ng-controller="StockController"
+              ng-show="showInfoTeacher" 
+              ng-controller="TeacherController"
             >
-              <div class="col-md-12" ng-show="showInfoStock">
+              <div class="col-md-12" ng-show="showInfoTeacher">
                 <div class="item-manager col-md-12 no-left-right-padding">
                   <div class="item-list item-panel">
-                    <div class="header">Item Stock</div>
+                    <div class="header">Teacher List</div>
                     <div class="body">
                         <p
-                          ng-show = "!hasStock( )"
+                          ng-show = "!hasTeacher( )"
                         >
                           No stock available
                         </p>
                         <ul 
-                          ng-repeat="x in stockList"
-                          ng-if="hasStock( )"
+                          ng-repeat="x in teacherList"
+                          ng-if="hasTeacher( )"
                         >
                           <li>
                               <div class="detail-summary-panel">
@@ -379,8 +355,8 @@
                                       <h4 style="
                                           text-transform:capitalize;
                                         "
-                                      >{{x.title}}</h4>
-                                      <p>{{x.description}}</p>
+                                      >{{x.id}}</h4>
+                                      <p>{{x.fullname}}</p>
                                   </div>
                                   <div class="item-detail-summary-control">
                                     <span 
@@ -404,80 +380,65 @@
                                 ng-show="showInfo"
                               >
                                   <dl class="col-md-12 dl-horizontal">
-                                      <dt>Title:</dt>
+                                      <dt>ID:</dt>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
                                         ng-if="x.title"
-                                      >{{x.title}}</dd>
+                                      >{{x.id}}</dd>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
                                         ng-if="!x.title"
                                       >None</dd>
                                       
-                                      <dt>Description:</dt>
+                                      <dt>Fullname:</dt>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
                                         ng-if="x.description"
-                                      >{{x.description}}</dd>
+                                      >{{x.fullname}}</dd>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
                                         ng-if="!x.description"
                                       >None</dd>
 
-                                      <dt>Reference:</dt>
+                                      <dt>Birthday:</dt>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
                                         ng-if="x.referance"
-                                      >{{x.referance}}</dd>
+                                      >{{x.birthday}}</dd>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
                                         ng-if="!x.referance"
                                       >None</dd>
                                       
-                                      <dt>Effective Date:</dt>
+                                      <dt>Nationality:</dt>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
                                         ng-if="x.efectiveday"
-                                      >{{x.efectiveday}}</dd>
+                                      >{{x.nationality}}</dd>
                                       <dd style="
                                         text-transform:capitalize;
                                       "
                                         ng-if="!x.efectiveday"
                                       >None</dd>
-
-
-                                      <dt>Valid Type:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.validity"
-                                      >{{x.validity}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.validity"
-                                      >None</dd>
-
-                                      
-                                      <dt>Valid Unit:</dt>
+                                      <dt>Status:</dt>
                                       <dd style="
                                         text-transform:capitalize;
                                       " 
                                       > 
-                                        <span class="label label-primary" ng-if="x.validunit == 'infinite'">
-                                          infinite
+                                        <span class="label label-success" ng-if="x.status == 'online'">
+                                          online
                                         </span>
                                         <span class="label label-danger"
-                                          ng-if="x.validunit == 'definite'"
+                                          ng-if="x.status == 'offline'"
                                         >
-                                          definite
+                                          offline
                                         </span>
                                       </dd>
                                   </dl>
