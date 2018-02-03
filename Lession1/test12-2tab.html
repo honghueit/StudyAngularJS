@@ -123,70 +123,78 @@
     </style>
     <script type="text/javascript">
         angular
-            .module( "user" , [] )
+            .module( "user" , [ ] )
             .controller( "CoreController" , [
                 "$scope",
                 function controller( $scope ) {
 
-                    $scope.showInfoStock  = false;
-                    $scope.showInfoItem   = true;
-                    $scope.selectItemTab  = function selectItemTab() {
-                      $scope.showInfoItem   = true;
-                      $scope.showInfoStock = false;
-                    }
-                    $scope.selectStockTab    = function selectStockTab() {
-                      $scope.showInfoStock = true;
-                      $scope.showInfoItem  = false;
-                    }
+					$scope.showInfoStock  = false;
+					$scope.showInfoItem   = true;
+
+					$scope.selectItemTab = function selectItemTab( ) {
+						$scope.showInfoItem = true;
+						$scope.showInfoStock = false;
+					};
+
+					$scope.selectStockTab = function selectStockTab( ) {
+						$scope.showInfoStock = true;
+						$scope.showInfoItem  = false;
+					};
 
                 }
-            ])
+            ] )
             .controller( "ItemController" , [
                 "$scope",
                 function controller(
                     $scope,
                 ) {
-                    $scope.showInfo     = false;
+                    $scope.showInfo = false;
                     $scope.showIconDown = true;
-                    $scope.showIconUp   = false;
-                    $scope.itemList     = [{
-                        "title": "Ballpen 1",
-                        "description": "This is Ballpen 1",
-                        "referance": "dwq",
-                        "efectiveday": "29-01-2017",
-                        "validity": "infinite",
-                        "validunit": "infinite"
+                    $scope.showIconUp = false;
 
-                    }, {
-                        "title": "Ballpen 2",
-                        "description": "This is Ballpen 2",
-                        "referance": "",
-                        "efectiveday": "29-01-2017",
-                        "validity": "infinite",
-                        "validunit": "definite"
+                    $scope.itemList = [
+						{
+							"title": "Ballpen 1",
+							"description": "This is Ballpen 1",
+							"referance": "dwq",
+							"efectiveday": "29-01-2017",
+							"validity": "infinite",
+							"validunit": "infinite"
+						},
+						{
+							"title": "Ballpen 2",
+							"description": "This is Ballpen 2",
+							"referance": "",
+							"efectiveday": "29-01-2017",
+							"validity": "infinite",
+							"validunit": "definite"
+						},
+						{
+						    "title": "Ballpen 3",
+						    "description": "This is Ballpen 3",
+						    "referance": "dwq",
+						    "efectiveday": "29-01-2017",
+						    "validity": "infinite",
+						    "validunit": "infinite"
+						}
+					];
 
-                    }, {
-                        "title": "Ballpen 3",
-                        "description": "This is Ballpen 3",
-                        "referance": "dwq",
-                        "efectiveday": "29-01-2017",
-                        "validity": "infinite",
-                        "validunit": "infinite"
-                    }];
-                    $scope.hasItem = function hasItem() {
-                        if ($scope.itemList.length == 0) {
-                            return false;
-                        }
-                        return true;
+                    $scope.hasItem = function hasItem( ) {
+	                    if ( $scope.itemList.length == 0 ) {
+	                        return false;
+	                    }
+
+	                    return true;
                     };
-                    $scope.displayInfo = function displayInfo() {
-                        $scope.showInfo = !$scope.showInfo;
-                        $scope.showIconDown = !$scope.showIconDown;
-                        $scope.showIconUp = !$scope.showIconUp;
+
+                    $scope.displayInfo = function displayInfo( ) {
+	                    $scope.showInfo = !$scope.showInfo;
+	                    $scope.showIconDown = !$scope.showIconDown;
+	                    $scope.showIconUp = !$scope.showIconUp;
                     };
 
                 }
-            ])
+            ] )
             .controller( "StockController" , [
                 "$scope",
                 function controller( $scope ) {
