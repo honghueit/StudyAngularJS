@@ -192,13 +192,14 @@
                     };
 
                     $scope.displayInfo = function displayInfo( x ) {
-						$scope.itemList.forEach( function onEachItem( item ) {
-							if( item.title != x.title ) {
-								item._viewMode = false;
-							}
-						} );
+          						$scope.itemList.forEach( function onEachItem( item ) {
+          							if( item.title != x.title ) {
+          								item._viewMode = false;
+          							}
 
-						x._viewMode = !x._viewMode;
+          						} );
+
+						          x._viewMode = !x._viewMode;
                         // $scope.showInfo = !$scope.showInfo;
                         // $scope.showIconDown = !$scope.showIconDown;
                         // $scope.showIconUp = !$scope.showIconUp;
@@ -251,10 +252,16 @@
                       return true;
                     };
 
-                    $scope.displayInfo = function displayInfo() {
-                      $scope.showInfo = !$scope.showInfo;
-                      $scope.showIconDown = !$scope.showIconDown;
-                      $scope.showIconUp = !$scope.showIconUp;
+                    $scope.displayInfo = function displayInfo( x ) {
+                      $scope.stockList.forEach( function onEachItem( stock ){
+                          if( stock.title != x.title ) {
+                            stock._viewMode1 = false;
+                        }
+
+                      } );
+
+                      x._viewMode1 = !x._viewMode1;
+      
                     };
                 }
             ])
@@ -465,18 +472,21 @@
                                 </div>
                                 <div class="item-detail-summary-control">
                                   <span
-                                    class="glyphicon glyphicon-chevron-down"ng-click="displayInfo( )"
-                                    ng-show="showIconDown"
+                                    class="glyphicon glyphicon-chevron-down"ng-click="displayInfo( x )"
+                                    ng-show="!x._viewMode1"
                                   >
                                   </span>
                                   <span
-                                    class="glyphicon glyphicon-chevron-up" ng-click="displayInfo( )"
-                                    ng-show="showIconUp"
+                                    class="glyphicon glyphicon-chevron-up" ng-click="displayInfo( x )"
+                                    ng-show="x._viewMode1"
                                   >
                                   </span>
                                 </div>
                               </div>
-                              <div class="detail-panel" ng-show="showInfo">
+                              <div 
+                                class="detail-panel" 
+                                ng-show="x._viewMode1"
+                              >
                                 <dl class="col-md-12 dl-horizontal">
                                   <dt>Title:</dt>
                                   <dd style="
