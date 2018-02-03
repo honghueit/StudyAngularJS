@@ -14,7 +14,7 @@
           display: flex;
           flex-direction: column;
         }
-        
+
         .item-manager >
         .item-panel >
         div.header {
@@ -24,7 +24,7 @@
           background-color: rgba( 0, 0, 0, 0.8);
           color: white;
         }
-        
+
         .item-manager >
         .item-panel >
         div.body {
@@ -36,7 +36,7 @@
           border: 1px solid rgba(0, 0, 0, 0.05);
           border-top: 0;
         }
-        
+
         .item-manager >
         .item-panel >
         div.body >
@@ -49,7 +49,7 @@
           max-height: 700px;
           overflow-y: auto;
         }
-        
+
         .item-manager >
         .item-panel >
         div.body >
@@ -62,7 +62,7 @@
           flex-shrink: 0;
           flex-grow: 0;
         }
-        
+
         .item-manager >
         .item-panel >
         div.body >
@@ -73,7 +73,7 @@
           flex-direction: row;
           justify-content: flex-start;
         }
-        
+
         .item-manager >
         .item-panel >
         div.body >
@@ -91,11 +91,11 @@
           justify-content: center;
           height: 70px;
         }
-        
+
         .item-manager >
         .item-panel >
         div.body >
-        ul > 
+        ul >
         li >
         .detail-summary-panel >
         .item-detail-summary-control {
@@ -108,7 +108,7 @@
           cursor: pointer;
           flex-shrink: 0;
         }
-        
+
         .item-manager >
         .item-panel >
         div.body >
@@ -127,8 +127,8 @@
             .module( "user" , [] )
             .controller( "CoreController" , [
                 "$scope",
-                function controller( 
-                  $scope 
+                function controller(
+                  $scope
                   ) {
 
                     $scope.showInfoStock = false;
@@ -163,7 +163,7 @@
                       "efectiveday": "29-01-2017",
                       "validity": "infinite",
                       "validunit": "infinite"
-                    }, 
+                    },
 
                     {
                       "title": "Ballpen 2",
@@ -172,7 +172,7 @@
                       "efectiveday": "29-01-2017",
                       "validity": "infinite",
                       "validunit": "definite"
-                    }, 
+                    },
 
                     {
                       "title": "Ballpen 3",
@@ -191,16 +191,23 @@
                       return true;
                     };
 
-                    $scope.displayInfo = function displayInfo( ) {
-                        $scope.showInfo = !$scope.showInfo;
-                        $scope.showIconDown = !$scope.showIconDown;
-                        $scope.showIconUp = !$scope.showIconUp;
+                    $scope.displayInfo = function displayInfo( x ) {
+						$scope.itemList.forEach( function onEachItem( item ) {
+							if( item.title != x.title ) {
+								item._viewMode = false;
+							}
+						} );
+
+						x._viewMode = !x._viewMode;
+                        // $scope.showInfo = !$scope.showInfo;
+                        // $scope.showIconDown = !$scope.showIconDown;
+                        // $scope.showIconUp = !$scope.showIconUp;
                     };
                 }
             ] )
             .controller( "StockController" , [
                 "$scope",
-                function controller( 
+                function controller(
                   $scope
                 ) {
 
@@ -215,7 +222,7 @@
                       "efectiveday": "29-01-2017",
                       "validity": "infinite",
                       "validunit": "infinite"
-                    }, 
+                    },
 
                     {
                       "title": "Gran 2",
@@ -225,7 +232,7 @@
                       "validity": "infinite",
                       "validunit": "infinite"
 
-                    }, 
+                    },
 
                     {
                       "title": "Gran 3",
@@ -259,16 +266,16 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="active">
-              <a 
-                data-toggle="tab" 
+              <a
+                data-toggle="tab"
                 ng-click="selectItemTab( )"
                 >
 				         Item
 			        </a>
             </li>
             <li>
-              <a 
-                data-toggle="tab" 
+              <a
+                data-toggle="tab"
                 ng-click="selectStockTab( )"
               >
 					      Stock
@@ -276,9 +283,9 @@
             </li>
         </ul>
         <div class="tab-content">
-            <div 
-              ng-show="showInfoItem" 
-              class="tab-pane fade in active" 
+            <div
+              ng-show="showInfoItem"
+              class="tab-pane fade in active"
               ng-controller="ItemController"
             >
               <div class="col-md-12">
@@ -286,13 +293,13 @@
                   <div class="item-list item-panel">
                     <div class="header">Item List</div>
                       <div class="body">
-                        <p 
+                        <p
                           ng-show="!hasItem( )"
                         >
                           No items available
                         </p>
-                          <ul 
-                            ng-repeat="x in itemList" 
+                          <ul
+                            ng-repeat="x in itemList"
                             ng-if="hasItem( )"
                           >
                             <li>
@@ -309,36 +316,36 @@
                                   </p>
                                 </div>
                                 <div class="item-detail-summary-control">
-                                  <span 
-                                    class="glyphicon glyphicon-chevron-down" ng-click="displayInfo( )" 
-                                    ng-show="showIconDown"
+                                  <span
+                                    class="glyphicon glyphicon-chevron-down" ng-click="displayInfo( x )"
+                                    ng-show="!x._viewMode"
                                   >
                                   </span>
-                                  <span 
-                                    class="glyphicon glyphicon-chevron-up" ng-click="displayInfo( )" 
-                                    ng-show="showIconUp"
+                                  <span
+                                    class="glyphicon glyphicon-chevron-up" ng-click="displayInfo( x )"
+                                    ng-show="x._viewMode"
                                   >
                                   </span>
                                 </div>
                               </div>
-                              <div 
-                                class="detail-panel" 
-                                ng-show="showInfo"
+                              <div
+                                class="detail-panel"
+                                ng-show="x._viewMode"
                               >
                                 <dl class="col-md-12 dl-horizontal">
                                   <dt>Title:</dt>
                                   <dd style="
                                     text-transform:capitalize;
-                                    " 
+                                    "
                                     ng-if="x.title"
-                                  > 
+                                  >
                                     {{x.title}}
                                   </dd>
                                   <dd style="
                                       text-transform:capitalize;
-                                    " 
+                                    "
                                     ng-if="!x.title"
-                                  > 
+                                  >
                                     None
                                   </dd>
                                   <dt>Description:</dt>
@@ -346,22 +353,22 @@
                                     text-transform:capitalize;
                                       "
                                     ng-if="x.description"
-                                  > 
+                                  >
                                     {{x.description}}
                                   </dd>
                                   <dd style="
                                     text-transform:capitalize;
-                                      " 
+                                      "
                                     ng-if="!x.description"
-                                  > 
+                                  >
                                     None
                                   </dd>
                                   <dt>Reference:</dt>
                                   <dd style="
                                     text-transform:capitalize;
-                                    " 
+                                    "
                                     ng-if="x.referance"
-                                  > 
+                                  >
                                     {{x.referance}}
                                   </dd>
                                   <dd style="
@@ -375,29 +382,29 @@
                                   <dd style="
                                     text-transform:capitalize;
                                   " ng-if="x.efectiveday"
-                                  > 
+                                  >
                                     {{x.efectiveday}}
                                   </dd>
                                   <dd style="
                                     text-transform:capitalize;
-                                    " 
+                                    "
                                     ng-if="!x.efectiveday"
-                                  > 
+                                  >
                                     None
                                   </dd>
                                   <dt>Valid Type:</dt>
                                   <dd style="
                                     text-transform:capitalize;
-                                    " 
+                                    "
                                     ng-if="x.validity"
-                                  > 
+                                  >
                                     {{x.validity}}
                                   </dd>
                                   <dd style="
                                     text-transform:capitalize;
-                                    " 
+                                    "
                                     ng-if="!x.validity"
-                                  > 
+                                  >
                                     None
                                   </dd>
                                   <dt>Valid Unit:</dt>
@@ -405,14 +412,14 @@
                                     text-transform:capitalize;
                                     "
                                   >
-                                    <span 
-                                      class="label label-primary" 
+                                    <span
+                                      class="label label-primary"
                                       ng-if="x.validunit == 'infinite'"
                                     >
                                       infinite
                                     </span>
-                                    <span 
-                                      class="label label-danger" 
+                                    <span
+                                      class="label label-danger"
                                       ng-if="x.validunit == 'definite'"
                                     >
                                       definite
@@ -427,22 +434,22 @@
                 </div>
               </div>
             </div>
-            <div 
-              class="tab-pane fade in active" 
-              ng-show="showInfoStock" 
+            <div
+              class="tab-pane fade in active"
+              ng-show="showInfoStock"
               ng-controller="StockController">
                 <div class="col-md-12" ng-show="showInfoStock">
                   <div class="item-manager col-md-12 no-left-right-padding">
                     <div class="item-list item-panel">
                       <div class="header">Item Stock</div>
                         <div class="body">
-                          <p 
+                          <p
                             ng-show="!hasStock( )"
                           >
                             No stock available
                           </p>
-                          <ul 
-                            ng-repeat="x in stockList" 
+                          <ul
+                            ng-repeat="x in stockList"
                             ng-if="hasStock( )"
                           >
                             <li>
@@ -457,13 +464,13 @@
                                   <p>{{x.description}}</p>
                                 </div>
                                 <div class="item-detail-summary-control">
-                                  <span 
-                                    class="glyphicon glyphicon-chevron-down"ng-click="displayInfo( )" 
+                                  <span
+                                    class="glyphicon glyphicon-chevron-down"ng-click="displayInfo( )"
                                     ng-show="showIconDown"
                                   >
                                   </span>
-                                  <span 
-                                    class="glyphicon glyphicon-chevron-up" ng-click="displayInfo( )" 
+                                  <span
+                                    class="glyphicon glyphicon-chevron-up" ng-click="displayInfo( )"
                                     ng-show="showIconUp"
                                   >
                                   </span>
@@ -474,43 +481,43 @@
                                   <dt>Title:</dt>
                                   <dd style="
                                     text-transform:capitalize;
-                                    " 
+                                    "
                                     ng-if="x.title"
-                                  > 
+                                  >
                                     {{x.title}}
                                   </dd>
-                                  <dd 
+                                  <dd
                                     style="text-transform:capitalize;
-                                    " 
+                                    "
                                     ng-if="!x.title"
-                                  > 
+                                  >
                                     None
                                   </dd>
                                   <dt>Description:</dt>
-                                  <dd 
+                                  <dd
                                     style="text-transform:capitalize;
-                                    " 
+                                    "
                                     ng-if="x.description"
-                                  > 
+                                  >
                                     {{x.description}}
                                   </dd>
                                     <dd style="
                                       text-transform:capitalize;
-                                    " 
+                                    "
                                     ng-if="!x.description"
                                   > None
                                   </dd>
                                   <dt>Reference:</dt>
-                                  <dd 
+                                  <dd
                                     style="text-transform:capitalize;
-                                    " 
+                                    "
                                     ng-if="x.referance"
                                   >
                                     {{x.referance}}
                                   </dd>
-                                  <dd 
+                                  <dd
                                     style="text-transform:capitalize;
-                                    " 
+                                    "
                                     ng-if="!x.referance"
                                   >
                                     None
@@ -518,29 +525,29 @@
                                   <dt>Effective Date:</dt>
                                   <dd style="
                                     text-transform:capitalize;
-                                  " 
+                                  "
                                   ng-if="x.efectiveday"
                                   >
                                     {{x.efectiveday}}
                                   </dd>
                                   <dd style="
                                     text-transform:capitalize;
-                                  " 
+                                  "
                                     ng-if="!x.efectiveday"
-                                  > 
+                                  >
                                     None
                                   </dd>
                                   <dt>Valid Type:</dt>
                                   <dd style="
                                     text-transform:capitalize;
-                                  " 
+                                  "
                                     ng-if="x.validity"
-                                  > 
+                                  >
                                     {{x.validity}}
                                   </dd>
                                   <dd style="
                                     text-transform:capitalize;
-                                  " 
+                                  "
                                     ng-if="!x.validity"
                                   >
                                     None
@@ -550,14 +557,14 @@
                                     text-transform:capitalize;
                                   "
                                   >
-                                    <span 
-                                      class="label label-primary" 
+                                    <span
+                                      class="label label-primary"
                                       ng-if="x.validunit == 'infinite'"
                                     >
                                       infinite
                                     </span>
-                                    <span 
-                                      class="label label-danger" 
+                                    <span
+                                      class="label label-danger"
                                       ng-if="x.validunit == 'definite'"
                                     >
                                       definite
