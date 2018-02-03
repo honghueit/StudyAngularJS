@@ -164,6 +164,7 @@
                       "validity": "infinite",
                       "validunit": "infinite"
                     }, 
+
                     {
                       "title": "Ballpen 2",
                       "description": "This is Ballpen 2",
@@ -172,6 +173,7 @@
                       "validity": "infinite",
                       "validunit": "definite"
                     }, 
+
                     {
                       "title": "Ballpen 3",
                       "description": "This is Ballpen 3",
@@ -182,9 +184,10 @@
                     } ];
 
                     $scope.hasItem = function hasItem( ) {
-                      if ($scope.itemList.length == 0) {
+                      if ( $scope.itemList.length == 0 ) {
                           return false;
                       }
+
                       return true;
                     };
 
@@ -213,6 +216,7 @@
                       "validity": "infinite",
                       "validunit": "infinite"
                     }, 
+
                     {
                       "title": "Gran 2",
                       "description": "This is Gran 2",
@@ -222,6 +226,7 @@
                       "validunit": "infinite"
 
                     }, 
+
                     {
                       "title": "Gran 3",
                       "description": "This is Gran 3",
@@ -230,12 +235,15 @@
                       "validity": "infinite",
                       "validunit": "infinite"
                     } ];
+
                     $scope.hasStock = function hasItem( ) {
-                      if ($scope.stockList.length == 0) {
+                      if ( $scope.stockList.length == 0)  {
                           return false;
                       }
+
                       return true;
                     };
+
                     $scope.displayInfo = function displayInfo() {
                       $scope.showInfo = !$scope.showInfo;
                       $scope.showIconDown = !$scope.showIconDown;
