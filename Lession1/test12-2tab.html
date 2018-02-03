@@ -11,232 +11,235 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <style>
         .item-manager {
-            display: flex;
-            flex-direction: column;
+          display: flex;
+          flex-direction: column;
         }
-
+        
         .item-manager >
-		.item-panel >
-		div.header {
-	        margin-top: 20px;
-	        padding: 10px;
-	        font-size: 1.3em;
-	        background-color: rgba( 0, 0, 0, 0.8);
-	        color: white;
+        .item-panel >
+        div.header {
+          margin-top: 20px;
+          padding: 10px;
+          font-size: 1.3em;
+          background-color: rgba( 0, 0, 0, 0.8);
+          color: white;
         }
-
+        
         .item-manager >
-		.item-panel >
-		div.body {
-	        display: flex;
-	        flex-direction: column;
-	        flex-wrap: wrap;
-	        justify-content: space-evenly;
-	        padding-top: 5px;
-	        border: 1px solid rgba(0, 0, 0, 0.05);
-	        border-top: 0;
+        .item-panel >
+        div.body {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          padding-top: 5px;
+          border: 1px solid rgba(0, 0, 0, 0.05);
+          border-top: 0;
         }
-
+        
         .item-manager >
-		.item-panel >
-		div.body >
-		ul {
-            display: flex;
-            flex-direction: column;
-            list-style: none;
-            padding: 0px;
-            margin: 0px;
-            max-height: 700px;
-            overflow-y: auto;
+        .item-panel >
+        div.body >
+        ul {
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+          padding: 0px;
+          margin: 0px;
+          max-height: 700px;
+          overflow-y: auto;
         }
-
+        
         .item-manager >
-		.item-panel >
-		div.body >
-		ul > li {
-            display: flex;
-            height: auto;
-            flex-direction: column;
-            overflow: hidden;
-            flex-shrink: 0;
-            flex-grow: 0;
+        .item-panel >
+        div.body >
+        ul >
+        li {
+          display: flex;
+          height: auto;
+          flex-direction: column;
+          overflow: hidden;
+          flex-shrink: 0;
+          flex-grow: 0;
         }
-
+        
         .item-manager >
-		.item-panel >
-		div.body >
-		ul >
-		li >
-		.detail-summary-panel {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
+        .item-panel >
+        div.body >
+        ul >
+        li >
+        .detail-summary-panel {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
         }
-
+        
         .item-manager >
-		.item-panel >
-		div.body >
-		ul >
-		li >
+        .item-panel >
+        div.body >
+        ul >
+        li >
         .detail-summary-panel >
-		.item-detail {
-            flex-grow: 1;
-            flex-shrink: 1;
-            padding: 5px;
-            padding-left: 10px;
-            padding-right: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 70px;
+        .item-detail {
+          flex-grow: 1;
+          flex-shrink: 1;
+          padding: 5px;
+          padding-left: 10px;
+          padding-right: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 70px;
         }
-
+        
         .item-manager >
-		.item-panel >
-		div.body >
-		ul >
-		li >
+        .item-panel >
+        div.body >
+        ul > 
+        li >
         .detail-summary-panel >
-		.item-detail-summary-control {
-            height: 70px;
-            width: 70px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2em;
-            cursor: pointer;
-            flex-shrink: 0;
+        .item-detail-summary-control {
+          height: 70px;
+          width: 70px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 2em;
+          cursor: pointer;
+          flex-shrink: 0;
         }
-
+        
         .item-manager >
-		.item-panel >
-		div.body >
-		ul >
-		li >
-		.detail-panel {
-            padding-top: 5px;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
+        .item-panel >
+        div.body >
+        ul >
+        li >
+        .detail-panel {
+          padding-top: 5px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
         }
     </style>
     <script type="text/javascript">
         angular
-            .module( "user" , [ ] )
+            .module( "user" , [] )
             .controller( "CoreController" , [
                 "$scope",
-                function controller( $scope ) {
+                function controller( 
+                  $scope 
+                  ) {
 
-					$scope.showInfoStock  = false;
-					$scope.showInfoItem   = true;
+                    $scope.showInfoStock = false;
+                    $scope.showInfoItem = true;
 
-					$scope.selectItemTab = function selectItemTab( ) {
-						$scope.showInfoItem = true;
-						$scope.showInfoStock = false;
-					};
+                    $scope.selectItemTab = function selectItemTab() {
+                        $scope.showInfoItem = true;
+                        $scope.showInfoStock = false;
+                    };
 
-					$scope.selectStockTab = function selectStockTab( ) {
-						$scope.showInfoStock = true;
-						$scope.showInfoItem  = false;
-					};
+                    $scope.selectStockTab = function selectStockTab() {
+                        $scope.showInfoStock = true;
+                        $scope.showInfoItem = false;
+                    };
 
-                }
-            ] )
+                  }
+            ])
             .controller( "ItemController" , [
                 "$scope",
                 function controller(
-                    $scope,
+                  $scope,
                 ) {
+
                     $scope.showInfo = false;
                     $scope.showIconDown = true;
                     $scope.showIconUp = false;
 
-                    $scope.itemList = [
-						{
-							"title": "Ballpen 1",
-							"description": "This is Ballpen 1",
-							"referance": "dwq",
-							"efectiveday": "29-01-2017",
-							"validity": "infinite",
-							"validunit": "infinite"
-						},
-						{
-							"title": "Ballpen 2",
-							"description": "This is Ballpen 2",
-							"referance": "",
-							"efectiveday": "29-01-2017",
-							"validity": "infinite",
-							"validunit": "definite"
-						},
-						{
-						    "title": "Ballpen 3",
-						    "description": "This is Ballpen 3",
-						    "referance": "dwq",
-						    "efectiveday": "29-01-2017",
-						    "validity": "infinite",
-						    "validunit": "infinite"
-						}
-					];
+                    $scope.itemList = [ {
+                      "title": "Ballpen 1",
+                      "description": "This is Ballpen 1",
+                      "referance": "dwq",
+                      "efectiveday": "29-01-2017",
+                      "validity": "infinite",
+                      "validunit": "infinite"
+                    }, 
+                    {
+                      "title": "Ballpen 2",
+                      "description": "This is Ballpen 2",
+                      "referance": "",
+                      "efectiveday": "29-01-2017",
+                      "validity": "infinite",
+                      "validunit": "definite"
+                    }, 
+                    {
+                      "title": "Ballpen 3",
+                      "description": "This is Ballpen 3",
+                      "referance": "dwq",
+                      "efectiveday": "29-01-2017",
+                      "validity": "infinite",
+                      "validunit": "infinite"
+                    } ];
 
                     $scope.hasItem = function hasItem( ) {
-	                    if ( $scope.itemList.length == 0 ) {
-	                        return false;
-	                    }
-
-	                    return true;
+                      if ($scope.itemList.length == 0) {
+                          return false;
+                      }
+                      return true;
                     };
 
                     $scope.displayInfo = function displayInfo( ) {
-	                    $scope.showInfo = !$scope.showInfo;
-	                    $scope.showIconDown = !$scope.showIconDown;
-	                    $scope.showIconUp = !$scope.showIconUp;
+                        $scope.showInfo = !$scope.showInfo;
+                        $scope.showIconDown = !$scope.showIconDown;
+                        $scope.showIconUp = !$scope.showIconUp;
                     };
-
                 }
             ] )
             .controller( "StockController" , [
                 "$scope",
-                function controller( $scope ) {
-                    $scope.showInfo     = false;
-                    $scope.showIconDown = true;
-                    $scope.showIconUp   = false;
-                    $scope.stockList = [{
-                        "title": "Gran 1",
-                        "description": "This is Gran 1",
-                        "referance": "dwq",
-                        "efectiveday": "29-01-2017",
-                        "validity": "infinite",
-                        "validunit": "infinite"
-                    },
-                    {
-                        "title": "Gran 2",
-                        "description": "This is Gran 2",
-                        "referance": "dwq",
-                        "efectiveday": "29-01-2017",
-                        "validity": "infinite",
-                        "validunit": "infinite"
+                function controller( 
+                  $scope
+                ) {
 
-                    },
+                    $scope.showInfo = false;
+                    $scope.showIconDown = true;
+                    $scope.showIconUp = false;
+
+                    $scope.stockList = [ {
+                      "title": "Gran 1",
+                      "description": "This is Gran 1",
+                      "referance": "dwq",
+                      "efectiveday": "29-01-2017",
+                      "validity": "infinite",
+                      "validunit": "infinite"
+                    }, 
                     {
-                        "title": "Gran 3",
-                        "description": "This is Gran 3",
-                        "referance": "dwq",
-                        "efectiveday": "29-01-2017",
-                        "validity": "infinite",
-                        "validunit": "infinite"
-                    }
-                    ];
-                    $scope.hasStock = function hasItem() {
-                        if ($scope.stockList.length == 0) {
-                            return false;
-                        }
-                        return true;
+                      "title": "Gran 2",
+                      "description": "This is Gran 2",
+                      "referance": "dwq",
+                      "efectiveday": "29-01-2017",
+                      "validity": "infinite",
+                      "validunit": "infinite"
+
+                    }, 
+                    {
+                      "title": "Gran 3",
+                      "description": "This is Gran 3",
+                      "referance": "dwq",
+                      "efectiveday": "29-01-2017",
+                      "validity": "infinite",
+                      "validunit": "infinite"
+                    } ];
+                    $scope.hasStock = function hasItem( ) {
+                      if ($scope.stockList.length == 0) {
+                          return false;
+                      }
+                      return true;
                     };
                     $scope.displayInfo = function displayInfo() {
-                        $scope.showInfo = !$scope.showInfo;
-                        $scope.showIconDown = !$scope.showIconDown;
-                        $scope.showIconUp = !$scope.showIconUp;
+                      $scope.showInfo = !$scope.showInfo;
+                      $scope.showIconDown = !$scope.showIconDown;
+                      $scope.showIconUp = !$scope.showIconUp;
                     };
                 }
             ])
@@ -248,314 +251,321 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="active">
-                <a
-					data-toggle="tab"
-					ng-click="
-						selectItemTab( )
-					"
-				>
-					Item
-				</a>
+              <a 
+                data-toggle="tab" 
+                ng-click="selectItemTab( )"
+                >
+				         Item
+			        </a>
             </li>
-            <li >
-                <a
-					data-toggle="tab"
-					ng-click="
-						selectStockTab( )
-					"
-				>
-					Stock
-				</a>
+            <li>
+              <a 
+                data-toggle="tab" 
+                ng-click="selectStockTab( )"
+              >
+					      Stock
+				      </a>
             </li>
         </ul>
         <div class="tab-content">
-            <div
-              ng-show="showInfoItem"
-              class="tab-pane fade in active"
+            <div 
+              ng-show="showInfoItem" 
+              class="tab-pane fade in active" 
               ng-controller="ItemController"
             >
               <div class="col-md-12">
                 <div class="item-manager col-md-12 no-left-right-padding">
                   <div class="item-list item-panel">
                     <div class="header">Item List</div>
-                    <div class="body">
-						<p
-							ng-show = "
-								!hasItem( )
-							"
-						>
-						  No items available
-						</p>
-                        <ul
-							ng-repeat="x in itemList"
-							ng-if="
-								hasItem( )
-							"
+                      <div class="body">
+                        <p 
+                          ng-show="!hasItem( )"
                         >
-                          <li>
+                          No items available
+                        </p>
+                          <ul 
+                            ng-repeat="x in itemList" 
+                            ng-if="hasItem( )"
+                          >
+                            <li>
                               <div class="detail-summary-panel">
-                                  <div class="item-detail">
-									<h4
-										style="
-											text-transform:capitalize;
-										"
-									>
-										{{
-											x.title
-										}}
-									</h4>
-									<p>
-										{{
-											x.description
-										}}
-									</p>
-                                  </div>
-                                  <div class="item-detail-summary-control">
-                                    <span
-                                      class="
-                                        glyphicon glyphicon-chevron-down
-                                        "
-										ng-click="
-											displayInfo( )
-										"
-                                      ng-show="showIconDown"
-                                    ></span>
-									<span
-										class="glyphicon glyphicon-chevron-up"
-										ng-click="
-											displayInfo( )
-										"
-										ng-show="showIconUp"
-									></span>
-                                  </div>
+                                <div class="item-detail">
+                                  <h4 style="
+                                    text-transform:capitalize;
+										                "
+                                  >
+                                    {{ x.title }}
+                                  </h4>
+                                  <p>
+                                      {{ x.description }}
+                                  </p>
+                                </div>
+                                <div class="item-detail-summary-control">
+                                  <span 
+                                    class="glyphicon glyphicon-chevron-down" ng-click="displayInfo( )" 
+                                    ng-show="showIconDown"
+                                  >
+                                  </span>
+                                  <span 
+                                    class="glyphicon glyphicon-chevron-up" ng-click="displayInfo( )" 
+                                    ng-show="showIconUp"
+                                  >
+                                  </span>
+                                </div>
                               </div>
-                              <div
-                                class="detail-panel"
+                              <div 
+                                class="detail-panel" 
                                 ng-show="showInfo"
                               >
-                                  <dl class="col-md-12 dl-horizontal">
-                                      <dt>Title:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
+                                <dl class="col-md-12 dl-horizontal">
+                                  <dt>Title:</dt>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                    " 
+                                    ng-if="x.title"
+                                  > 
+                                    {{x.title}}
+                                  </dd>
+                                  <dd style="
+                                      text-transform:capitalize;
+                                    " 
+                                    ng-if="!x.title"
+                                  > 
+                                    None
+                                  </dd>
+                                  <dt>Description:</dt>
+                                  <dd style="
+                                    text-transform:capitalize;
                                       "
-                                        ng-if="x.title"
-                                      >{{x.title}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.title"
-                                      >None</dd>
-
-                                      <dt>Description:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.description"
-                                      >{{x.description}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.description"
-                                      >None</dd>
-
-                                      <dt>Reference:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.referance"
-                                      >{{x.referance}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.referance"
-                                      >None</dd>
-
-                                      <dt>Effective Date:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.efectiveday"
-                                      >{{x.efectiveday}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.efectiveday"
-                                      >None</dd>
-
-
-                                      <dt>Valid Type:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.validity"
-                                      >{{x.validity}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.validity"
-                                      >None</dd>
-
-
-                                      <dt>Valid Unit:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                      >
-                                        <span class="label label-primary" ng-if="x.validunit == 'infinite'">
-                                          infinite
-                                        </span>
-                                        <span class="label label-danger"
-                                          ng-if="x.validunit == 'definite'"
-                                        >
-                                          definite
-                                        </span>
-                                      </dd>
-
-                                  </dl>
+                                    ng-if="x.description"
+                                  > 
+                                    {{x.description}}
+                                  </dd>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                      " 
+                                    ng-if="!x.description"
+                                  > 
+                                    None
+                                  </dd>
+                                  <dt>Reference:</dt>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                    " 
+                                    ng-if="x.referance"
+                                  > 
+                                    {{x.referance}}
+                                  </dd>
+                                  <dd style="
+                                      text-transform:capitalize;
+                                    "
+                                    ng-if="!x.referance"
+                                  >
+                                    None
+                                  </dd>
+                                  <dt>Effective Date:</dt>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                  " ng-if="x.efectiveday"
+                                  > 
+                                    {{x.efectiveday}}
+                                  </dd>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                    " 
+                                    ng-if="!x.efectiveday"
+                                  > 
+                                    None
+                                  </dd>
+                                  <dt>Valid Type:</dt>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                    " 
+                                    ng-if="x.validity"
+                                  > 
+                                    {{x.validity}}
+                                  </dd>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                    " 
+                                    ng-if="!x.validity"
+                                  > 
+                                    None
+                                  </dd>
+                                  <dt>Valid Unit:</dt>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                    "
+                                  >
+                                    <span 
+                                      class="label label-primary" 
+                                      ng-if="x.validunit == 'infinite'"
+                                    >
+                                      infinite
+                                    </span>
+                                    <span 
+                                      class="label label-danger" 
+                                      ng-if="x.validunit == 'definite'"
+                                    >
+                                      definite
+                                    </span>
+                                  </dd>
+                                </dl>
                               </div>
-                          </li>
-                        </ul>
+                            </li>
+                          </ul>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div
-              class="tab-pane fade in active"
-              ng-show="showInfoStock"
-              ng-controller="StockController"
-            >
-              <div class="col-md-12" ng-show="showInfoStock">
-                <div class="item-manager col-md-12 no-left-right-padding">
-                  <div class="item-list item-panel">
-                    <div class="header">Item Stock</div>
-                    <div class="body">
-                        <p
-                          ng-show = "!hasStock( )"
-                        >
-                          No stock available
-                        </p>
-                        <ul
-                          ng-repeat="x in stockList"
-                          ng-if="hasStock( )"
-                        >
-                          <li>
+            <div 
+              class="tab-pane fade in active" 
+              ng-show="showInfoStock" 
+              ng-controller="StockController">
+                <div class="col-md-12" ng-show="showInfoStock">
+                  <div class="item-manager col-md-12 no-left-right-padding">
+                    <div class="item-list item-panel">
+                      <div class="header">Item Stock</div>
+                        <div class="body">
+                          <p 
+                            ng-show="!hasStock( )"
+                          >
+                            No stock available
+                          </p>
+                          <ul 
+                            ng-repeat="x in stockList" 
+                            ng-if="hasStock( )"
+                          >
+                            <li>
                               <div class="detail-summary-panel">
-                                  <div class="item-detail">
-                                      <h4 style="
-                                          text-transform:capitalize;
-                                        "
-                                      >{{x.title}}</h4>
-                                      <p>{{x.description}}</p>
-                                  </div>
-                                  <div class="item-detail-summary-control">
-                                    <span
-                                      class="
-                                        glyphicon glyphicon-chevron-down
-                                        "
-                                      ng-click="displayInfo( )"
-                                      ng-show="showIconDown"
-                                    ></span>
-                                    <span
-                                      class="
-                                        glyphicon glyphicon-chevron-up
-                                        "
-                                      ng-click="displayInfo( )"
-                                      ng-show="showIconUp"
-                                    ></span>
-                                  </div>
+                                <div class="item-detail">
+                                  <h4 style="
+                                    text-transform:capitalize;
+                                    "
+                                  >
+                                    {{x.title}}
+                                  </h4>
+                                  <p>{{x.description}}</p>
+                                </div>
+                                <div class="item-detail-summary-control">
+                                  <span 
+                                    class="glyphicon glyphicon-chevron-down"ng-click="displayInfo( )" 
+                                    ng-show="showIconDown"
+                                  >
+                                  </span>
+                                  <span 
+                                    class="glyphicon glyphicon-chevron-up" ng-click="displayInfo( )" 
+                                    ng-show="showIconUp"
+                                  >
+                                  </span>
+                                </div>
                               </div>
-                              <div
-                                class="detail-panel"
-                                ng-show="showInfo"
-                              >
-                                  <dl class="col-md-12 dl-horizontal">
-                                      <dt>Title:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.title"
-                                      >{{x.title}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.title"
-                                      >None</dd>
-
-                                      <dt>Description:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.description"
-                                      >{{x.description}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.description"
-                                      >None</dd>
-
-                                      <dt>Reference:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.referance"
-                                      >{{x.referance}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.referance"
-                                      >None</dd>
-
-                                      <dt>Effective Date:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.efectiveday"
-                                      >{{x.efectiveday}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.efectiveday"
-                                      >None</dd>
-
-
-                                      <dt>Valid Type:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.validity"
-                                      >{{x.validity}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.validity"
-                                      >None</dd>
-
-
-                                      <dt>Valid Unit:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                      >
-                                        <span class="label label-primary" ng-if="x.validunit == 'infinite'">
-                                          infinite
-                                        </span>
-                                        <span class="label label-danger"
-                                          ng-if="x.validunit == 'definite'"
-                                        >
-                                          definite
-                                        </span>
-                                      </dd>
-                                  </dl>
+                              <div class="detail-panel" ng-show="showInfo">
+                                <dl class="col-md-12 dl-horizontal">
+                                  <dt>Title:</dt>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                    " 
+                                    ng-if="x.title"
+                                  > 
+                                    {{x.title}}
+                                  </dd>
+                                  <dd 
+                                    style="text-transform:capitalize;
+                                    " 
+                                    ng-if="!x.title"
+                                  > 
+                                    None
+                                  </dd>
+                                  <dt>Description:</dt>
+                                  <dd 
+                                    style="text-transform:capitalize;
+                                    " 
+                                    ng-if="x.description"
+                                  > 
+                                    {{x.description}}
+                                  </dd>
+                                    <dd style="
+                                      text-transform:capitalize;
+                                    " 
+                                    ng-if="!x.description"
+                                  > None
+                                  </dd>
+                                  <dt>Reference:</dt>
+                                  <dd 
+                                    style="text-transform:capitalize;
+                                    " 
+                                    ng-if="x.referance"
+                                  >
+                                    {{x.referance}}
+                                  </dd>
+                                  <dd 
+                                    style="text-transform:capitalize;
+                                    " 
+                                    ng-if="!x.referance"
+                                  >
+                                    None
+                                  </dd>
+                                  <dt>Effective Date:</dt>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                  " 
+                                  ng-if="x.efectiveday"
+                                  >
+                                    {{x.efectiveday}}
+                                  </dd>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                  " 
+                                    ng-if="!x.efectiveday"
+                                  > 
+                                    None
+                                  </dd>
+                                  <dt>Valid Type:</dt>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                  " 
+                                    ng-if="x.validity"
+                                  > 
+                                    {{x.validity}}
+                                  </dd>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                  " 
+                                    ng-if="!x.validity"
+                                  >
+                                    None
+                                  </dd>
+                                  <dt>Valid Unit:</dt>
+                                  <dd style="
+                                    text-transform:capitalize;
+                                  "
+                                  >
+                                    <span 
+                                      class="label label-primary" 
+                                      ng-if="x.validunit == 'infinite'"
+                                    >
+                                      infinite
+                                    </span>
+                                    <span 
+                                      class="label label-danger" 
+                                      ng-if="x.validunit == 'definite'"
+                                    >
+                                      definite
+                                    </span>
+                                  </dd>
+                                </dl>
                               </div>
-                          </li>
-                        </ul>
+                            </li>
+                          </ul>
+                        </div>
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
