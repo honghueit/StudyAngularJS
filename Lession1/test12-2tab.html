@@ -240,10 +240,24 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="active">
-                <a data-toggle="tab" ng-click="selectItemTab()">ITem</a>
+                <a
+					data-toggle="tab"
+					ng-click="
+						selectItemTab( )
+					"
+				>
+					Item
+				</a>
             </li>
             <li >
-                <a data-toggle="tab" ng-click="selectStockTab()">Stock</a>
+                <a
+					data-toggle="tab"
+					ng-click="
+						selectStockTab( )
+					"
+				>
+					Stock
+				</a>
             </li>
         </ul>
         <div class="tab-content">
@@ -257,39 +271,54 @@
                   <div class="item-list item-panel">
                     <div class="header">Item List</div>
                     <div class="body">
-                        <p
-                          ng-show = "!hasItem( )"
-                        >
-                          No items available
-                        </p>
+						<p
+							ng-show = "
+								!hasItem( )
+							"
+						>
+						  No items available
+						</p>
                         <ul
-                          ng-repeat="x in itemList"
-                          ng-if="hasItem( )"
+							ng-repeat="x in itemList"
+							ng-if="
+								hasItem( )
+							"
                         >
                           <li>
                               <div class="detail-summary-panel">
                                   <div class="item-detail">
-                                      <h4 style="
-                                          text-transform:capitalize;
-                                        "
-                                      >{{x.title}}</h4>
-                                      <p>{{x.description}}</p>
+									<h4
+										style="
+											text-transform:capitalize;
+										"
+									>
+										{{
+											x.title
+										}}
+									</h4>
+									<p>
+										{{
+											x.description
+										}}
+									</p>
                                   </div>
                                   <div class="item-detail-summary-control">
                                     <span
                                       class="
                                         glyphicon glyphicon-chevron-down
                                         "
-                                      ng-click="displayInfo( )"
+										ng-click="
+											displayInfo( )
+										"
                                       ng-show="showIconDown"
                                     ></span>
-                                    <span
-                                      class="
-                                        glyphicon glyphicon-chevron-up
-                                        "
-                                      ng-click="displayInfo( )"
-                                      ng-show="showIconUp"
-                                    ></span>
+									<span
+										class="glyphicon glyphicon-chevron-up"
+										ng-click="
+											displayInfo( )
+										"
+										ng-show="showIconUp"
+									></span>
                                   </div>
                               </div>
                               <div
