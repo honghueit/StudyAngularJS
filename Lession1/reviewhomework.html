@@ -12,81 +12,111 @@
             flex-direction: column;
         }
 
-        .item-manager > .item-panel > div.header {
-            margin-top: 20px;
-            padding: 10px;
-            font-size: 1.3em;
-            background-color: rgba( 0, 0, 0, 0.8);
-            color: white;
+        .item-manager >
+        .item-panel > 
+        div.header {
+          margin-top: 20px;
+          padding: 10px;
+          font-size: 1.3em;
+          background-color: rgba( 0, 0, 0, 0.8);
+          color: white;
         }
         
-        .item-manager > .item-panel > div.body {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            padding-top: 5px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            border-top: 0;
+        .item-manager > 
+        .item-panel > 
+        div.body {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          padding-top: 5px;
+          border: 1px solid rgba(0, 0, 0, 0.05);
+          border-top: 0;
         }
         
-        .item-manager > .item-panel > div.body > ul {
-            display: flex;
-            flex-direction: column;
-            list-style: none;
-            padding: 0px;
-            margin: 0px;
-            max-height: 700px;
-            overflow-y: auto;
+        .item-manager > 
+        .item-panel > 
+        div.body > 
+        ul {
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+          padding: 0px;
+          margin: 0px;
+          max-height: 700px;
+          overflow-y: auto;
         }
         
-        .item-manager > .item-panel > div.body > ul > li {
-            display: flex;
-            height: auto;
-            flex-direction: column;
-            overflow: hidden;
-            flex-shrink: 0;
-            flex-grow: 0;
+        .item-manager > 
+        .item-panel > 
+        div.body > 
+        ul > 
+        li {
+          display: flex;
+          height: auto;
+          flex-direction: column;
+          overflow: hidden;
+          flex-shrink: 0;
+          flex-grow: 0;
         }
         
-        .item-manager > .item-panel > div.body > ul > li >.detail-summary-panel {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
+        .item-manager > 
+        .item-panel > 
+        div.body > 
+        ul > 
+        li >
+        .detail-summary-panel {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
         }
         
-        .item-manager > .item-panel > div.body > ul > li > 
-        .detail-summary-panel > .item-detail {
-            flex-grow: 1;
-            flex-shrink: 1;
-            padding: 5px;
-            padding-left: 10px;
-            padding-right: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 70px;
+        .item-manager > 
+        .item-panel > 
+        div.body > 
+        ul > 
+        li > 
+        .detail-summary-panel > 
+        .item-detail {
+          flex-grow: 1;
+          flex-shrink: 1;
+          padding: 5px;
+          padding-left: 10px;
+          padding-right: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 70px;
         }
         
-        .item-manager > .item-panel > div.body > ul > li >
-        .detail-summary-panel > .item-detail-summary-control {
-            height: 70px;
-            width: 70px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2em;
-            cursor: pointer;
-            flex-shrink: 0;
+        .item-manager > 
+        .item-panel > 
+        div.body > 
+        ul > 
+        li >
+        .detail-summary-panel > 
+        .item-detail-summary-control {
+          height: 70px;
+          width: 70px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 2em;
+          cursor: pointer;
+          flex-shrink: 0;
         }
         
-        .item-manager > .item-panel > div.body
-        > ul > li > .detail-panel {
-            padding-top: 5px;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
+        .item-manager > 
+        .item-panel > 
+        div.body > 
+        ul > 
+        li > 
+        .detail-panel {
+          padding-top: 5px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
@@ -97,19 +127,21 @@
                 "$scope",
                 function controller( $scope ) {
 
-                    $scope.showInfoTeacher     = false;
-                    $scope.showInfoStudent   = true;
-                    $scope.selectStudentTab     = function selectStudentTab() {
-                      $scope.showInfoStudent = true;
-                      $scope.showInfoTeacher   = false;
-                    }
-                    $scope.selectTeacherTab    = function selectTeacherTab() {
-                      $scope.showInfoTeacher   = true;
-                      $scope.showInfoStudent = false;
-                    }
+                  $scope.showInfoTeacher = false;
+                  $scope.showInfoStudent = true;
+
+                  $scope.selectStudentTab = function selectStudentTab( ) {
+                    $scope.showInfoStudent = true;
+                    $scope.showInfoTeacher = false;
+                  }
+
+                  $scope.selectTeacherTab = function selectTeacherTab( ) {
+                    $scope.showInfoTeacher = true;
+                    $scope.showInfoStudent = false;
+                  }
                     
                 }
-            ])
+            ] )
             .controller( "StudentController" , [
                 "$scope",
                 function controller(
@@ -118,79 +150,96 @@
                     $scope.showInfo     = false;
                     $scope.showIconDown = true;
                     $scope.showIconUp   = false;
-                    $scope.studentList  = [{
-                        "id": "DH51401772",
-                        "fullname": "Tran Thi Hong Hue",
-                        "birthday": "29-01-2017",
-                        "nationality": "VietNam",
-                        "status": "online"
+                    $scope.studentList  = [ {
+                      "id": "DH51401772",
+                      "fullname": "Tran Thi Hong Hue",
+                      "birthday": "29-01-2017",
+                      "nationality": "VietNam",
+                      "status": "online"
 
-                    }, {
-                        "id": "DH51401773",
-                        "fullname": "John Lenon Maghanoy",
-                        "birthday": "29-01-2017",
-                        "nationality": "Philipin",
-                        "status": "offline"
-                    }, {
-                        "id": "DH51401774",
-                        "fullname": "Mr Suasan",
-                        "birthday": "29-01-2017",
-                        "nationality": "Japan",
-                        "status": "online"
-                    }];
-                    $scope.hasStudent = function hasStudent() {
-                        if ($scope.studentList.length == 0) {
-                            return false;
-                        }
-                        return true;
+                    },
+
+                    {
+                      "id": "DH51401773",
+                      "fullname": "John Lenon Maghanoy",
+                      "birthday": "29-01-2017",
+                      "nationality": "Philipin",
+                      "status": "offline"
+                    }, 
+
+                    {
+                      "id": "DH51401774",
+                      "fullname": "Mr Suasan",
+                      "birthday": "29-01-2017",
+                      "nationality": "Japan",
+                      "status": "online"
+                    } ];
+
+                    $scope.hasStudent = function hasStudent( ) {
+                      if ( $scope.studentList.length == 0 ) {
+                          return false;
+                      }
+
+                      return true;
                     };
-                    $scope.displayInfo    = function displayInfo() {
-                        $scope.showInfo   = !$scope.showInfo;
-                        $scope.showIconDown = !$scope.showIconDown;
-                        $scope.showIconUp    = !$scope.showIconUp;
+
+                    $scope.displayInfo = function displayInfo( x ) {
+                      $scope.studentList.forEach( function onEachItem( student ) {
+                        if ( student.id != x.id ) {
+                          student.Info = false;
+                        }
+
+                      } );
+                      x.Info = !x.Info;
                     };
 
                 }
-            ])
+            ] )
             .controller( "TeacherController" , [
                 "$scope",
                 function controller( $scope ) {
-                    $scope.showInfo     = false;
+                    $scope.showInfo = false;
                     $scope.showIconDown = true;
-                    $scope.showIconUp   = false;
-                    $scope.teacherList = [{
-                        "id": "TH2432534",
-                        "fullname": "Mss Linda",
-                        "birthday": "29-01-2017",
-                        "nationality": "English",
-                        "status": "online"
+                    $scope.showIconUp = false;
+                    $scope.teacherList = [ {
+                      "id": "TH2432534",
+                      "fullname": "Mss Linda",
+                      "birthday": "29-01-2017",
+                      "nationality": "English",
+                      "status": "online"
                     },
+
                     {
-                        "id": "TH53436",
-                        "fullname": "Lang Ky Doanh",
-                        "birthday": "29-01-2017",
-                        "nationality": "VietNam",
-                        "status": "offline"
+                      "id": "TH53436",
+                      "fullname": "Lang Ky Doanh",
+                      "birthday": "29-01-2017",
+                      "nationality": "VietNam",
+                      "status": "offline"
 
                     },
+
                     {
-                        "id": "th5477",
-                        "fullname": "Kimberly",
-                        "birthday": "29-01-2017",
-                        "nationality": "philipin",
-                        "status": "online"
-                    }
-                    ];
-                    $scope.hasTeacher = function hasTeacher() {
-                        if ($scope.teacherList.length == 0) {
-                            return false;
-                        }
-                        return true;
+                      "id": "th5477",
+                      "fullname": "Kimberly",
+                      "birthday": "29-01-2017",
+                      "nationality": "philipin",
+                      "status": "online"
+                    } ];
+
+                    $scope.hasTeacher = function hasTeacher( ) {
+                      if ($scope.teacherList.length == 0) {
+                          return false;
+                      }
+
+                      return true;
                     };
-                    $scope.displayInfo     = function displayInfo() {
-                        $scope.showInfo    = !$scope.showInfo;
-                        $scope.showIconDown = !$scope.showIconDown;
-                        $scope.showIconUp   = !$scope.showIconUp;
+                    $scope.displayInfo     = function displayInfo( x ) {
+                      $scope.teacherList.forEach( function onEachItem ( teacher ) {
+                          if( teacher.id != x.id) {
+                            teacher.Info = false;
+                          }
+                      } )
+                      x.Info = !x.Info;
                     };
                 }
             ])
@@ -198,15 +247,26 @@
 </head>
 <body>
 	<div class="container" 
-		ng-controller="CoreController">
-        <ul class="nav nav-tabs">
-            <li class="active">
-                <a data-toggle="tab" ng-click="selectStudentTab()">Student</a>
-            </li>
-            <li >
-                <a data-toggle="tab" ng-click="selectTeacherTab()">Teacher</a>
-            </li>
-        </ul>
+		ng-controller="CoreController"
+  >
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a 
+          data-toggle="tab" 
+          ng-click="selectStudentTab( )"
+        >
+          Student
+        </a>
+      </li>
+      <li >
+        <a 
+          data-toggle="tab" 
+          ng-click="selectTeacherTab( )"
+        >
+          Teacher
+        </a>
+      </li>
+    </ul>
         <div class="tab-content">
             <div 
               ng-show="showInfoStudent" 
@@ -218,113 +278,128 @@
                   <div class="item-list item-panel">
                     <div class="header">Student List</div>
                     <div class="body">
-                        <p
-                          ng-show = "!hasStudent( )"
-                        >
-                          No students available
-                        </p>
-                        <ul 
-                          ng-repeat="x in studentList"
-                          ng-if="hasStudent( )"
-                        >
-                          <li>
-                              <div class="detail-summary-panel">
-                                  <div class="item-detail">
-                                      <h4 style="
-                                          text-transform:capitalize;
-                                        "
-                                      >{{x.id}}</h4>
-                                      <p>{{x.fullname}}</p>
-                                  </div>
-                                  <div class="item-detail-summary-control">
-                                    <span 
-                                      class="
-                                        glyphicon glyphicon-chevron-down
-                                        "
-                                      ng-click="displayInfo( )"
-                                      ng-show="showIconDown"
-                                    ></span>
-                                    <span 
-                                      class="
-                                        glyphicon glyphicon-chevron-up
-                                        "
-                                      ng-click="displayInfo( )"
-                                      ng-show="showIconUp"
-                                    ></span>
-                                  </div>
-                              </div>
-                              <div 
-                                class="detail-panel" 
-                                ng-show="showInfo"
+                      <p
+                        ng-show = "!hasStudent( )"
+                      >
+                        No students available
+                      </p>
+                      <ul 
+                        ng-repeat="x in studentList"
+                        ng-if="hasStudent( )"
+                      >
+                        <li>
+                          <div class="detail-summary-panel">
+                            <div class="item-detail">
+                              <h4 style="
+                                  text-transform:capitalize;
+                                "
                               >
-                                  <dl class="col-md-12 dl-horizontal">
-                                      <dt>ID:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.id"
-                                      >{{x.id}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.id"
-                                      >None</dd>
-                                      
-                                      <dt>Fullname:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.fullname"
-                                      >{{x.fullname}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.fullname"
-                                      >None</dd>
-
-                                      <dt>Birthday:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.birthday"
-                                      >{{x.birthday}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.birthday"
-                                      >None</dd>
-                                      
-                                      <dt>Nationality:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.nationality"
-                                      >{{x.nationality}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.nationality"
-                                      >None</dd>
-                                      <dt>Status:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      " 
-                                      > 
-                                        <span class="label label-success" 
-                                        	ng-if="x.status == 'online'">
-                                          online
-                                        </span>
-                                        <span class="label label-danger"
-                                          ng-if="x.status == 'offline'"
-                                        >
-                                          offline
-                                        </span>
-                                      </dd>
-                  
-                                  </dl>
-                              </div>
-                          </li>
-                        </ul>
+                                {{x.id}}
+                              </h4>
+                              <p>{{x.fullname}}</p>
+                            </div>
+                            <div class="item-detail-summary-control">
+                              <span 
+                                class="glyphicon glyphicon-chevron-down"
+                                ng-click="displayInfo( x )"
+                                ng-show="!x.Info"
+                              >
+                              </span>
+                              <span 
+                                class="glyphicon glyphicon-chevron-up"
+                                ng-click="displayInfo( x )"
+                                ng-show="x.Info"
+                              >
+                              </span>
+                            </div>
+                          </div>
+                          <div 
+                            class="detail-panel" 
+                            ng-show="x.Info"
+                          >
+                            <dl class="col-md-12 dl-horizontal">
+                              <dt>ID:</dt>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="x.id"
+                              > 
+                                {{x.id}}
+                              </dd>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="!x.id"
+                              >
+                                None
+                              </dd>
+                              <dt>Fullname:</dt>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="x.fullname"
+                              >
+                                {{x.fullname}}
+                              </dd>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="!x.fullname"
+                              >
+                                None
+                              </dd>
+                              <dt>Birthday:</dt>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="x.birthday"
+                              >
+                                {{x.birthday}}
+                              </dd>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="!x.birthday"
+                              >
+                                None
+                              </dd> 
+                              <dt>Nationality:</dt>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="x.nationality"
+                              >
+                                {{x.nationality}}
+                              </dd>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="!x.nationality"
+                              >
+                                None
+                              </dd>
+                              <dt>Status:</dt>
+                              <dd style="
+                                text-transform:capitalize;
+                                " 
+                              > 
+                                <span 
+                                  class="label label-success" 
+                                  ng-if="x.status == 'online'"
+                                >
+                                  online
+                                </span>
+                                <span 
+                                  class="label label-danger"
+                                  ng-if="x.status == 'offline'"
+                                >
+                                  offline
+                                </span>
+                              </dd>
+                            </dl>
+                          </div>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -340,111 +415,127 @@
                   <div class="item-list item-panel">
                     <div class="header">Teacher List</div>
                     <div class="body">
-                        <p
-                          ng-show = "!hasTeacher( )"
-                        >
-                          No stock available
-                        </p>
-                        <ul 
-                          ng-repeat="x in teacherList"
-                          ng-if="hasTeacher( )"
-                        >
-                          <li>
-                              <div class="detail-summary-panel">
-                                  <div class="item-detail">
-                                      <h4 style="
-                                          text-transform:capitalize;
-                                        "
-                                      >{{x.id}}</h4>
-                                      <p>{{x.fullname}}</p>
-                                  </div>
-                                  <div class="item-detail-summary-control">
-                                    <span 
-                                      class="
-                                        glyphicon glyphicon-chevron-down
-                                        "
-                                      ng-click="displayInfo( )"
-                                      ng-show="showIconDown"
-                                    ></span>
-                                    <span 
-                                      class="
-                                        glyphicon glyphicon-chevron-up
-                                        "
-                                      ng-click="displayInfo( )"
-                                      ng-show="showIconUp"
-                                    ></span>
-                                  </div>
-                              </div>
-                              <div 
-                                class="detail-panel"
-                                ng-show="showInfo"
+                      <p
+                        ng-show = "!hasTeacher( )"
+                      >
+                        No stock available
+                      </p>
+                      <ul 
+                        ng-repeat="x in teacherList"
+                        ng-if="hasTeacher( )"
+                      >
+                        <li>
+                          <div class="detail-summary-panel">
+                            <div class="item-detail">
+                              <h4 style="
+                                text-transform:capitalize;
+                                "
                               >
-                                  <dl class="col-md-12 dl-horizontal">
-                                      <dt>ID:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.title"
-                                      >{{x.id}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.title"
-                                      >None</dd>
-                                      
-                                      <dt>Fullname:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.description"
-                                      >{{x.fullname}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.description"
-                                      >None</dd>
-
-                                      <dt>Birthday:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.referance"
-                                      >{{x.birthday}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.referance"
-                                      >None</dd>
-                                      
-                                      <dt>Nationality:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="x.efectiveday"
-                                      >{{x.nationality}}</dd>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      "
-                                        ng-if="!x.efectiveday"
-                                      >None</dd>
-                                      <dt>Status:</dt>
-                                      <dd style="
-                                        text-transform:capitalize;
-                                      " 
-                                      > 
-                                        <span class="label label-success" ng-if="x.status == 'online'">
-                                          online
-                                        </span>
-                                        <span class="label label-danger"
-                                          ng-if="x.status == 'offline'"
-                                        >
-                                          offline
-                                        </span>
-                                      </dd>
-                                  </dl>
-                              </div>
-                          </li>
-                        </ul>
+                                {{x.id}}
+                              </h4>
+                              <p>{{x.fullname}}</p>
+                            </div>
+                            <div class="item-detail-summary-control">
+                              <span 
+                                class="glyphicon glyphicon-chevron-down"
+                                ng-click="displayInfo( x )"
+                                ng-show="!x.Info"
+                              >                                 
+                              </span>
+                              <span 
+                                class="glyphicon glyphicon-chevron-up"
+                                ng-click="displayInfo( x )"
+                                ng-show="x.Info"
+                              >
+                              </span>
+                            </div>
+                          </div>
+                          <div 
+                            class="detail-panel"
+                            ng-show="x.Info"
+                          >
+                            <dl class="col-md-12 dl-horizontal">
+                              <dt>ID:</dt>
+                                <dd style="
+                                  text-transform:capitalize;
+                                  "
+                                  ng-if="x.title"
+                                >
+                                  {{x.id}}
+                                </dd>
+                                <dd style="
+                                  text-transform:capitalize;
+                                  "
+                                  ng-if="!x.title"
+                                >
+                                None
+                              </dd>
+                              <dt>Fullname:</dt>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="x.description"
+                              > 
+                                {{x.fullname}}</dd>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="!x.description"
+                              >
+                                None
+                              </dd>
+                              <dt>Birthday:</dt>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="x.referance"
+                              >
+                                {{x.birthday}}
+                              </dd>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="!x.referance"
+                              >
+                                None
+                              </dd> 
+                              <dt>Nationality:</dt>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="x.efectiveday"
+                              >
+                                {{x.nationality}}
+                              </dd>
+                              <dd style="
+                                text-transform:capitalize;
+                                "
+                                ng-if="!x.efectiveday"
+                              >
+                                None
+                              </dd>
+                              <dt>Status:</dt>
+                              <dd style="
+                                text-transform:capitalize;
+                                " 
+                              > 
+                                <span 
+                                  class="label label-success" 
+                                  ng-if="x.status == 'online'"
+                                >
+                                  online
+                                </span>
+                                <span 
+                                  class="label label-danger"
+                                  ng-if="x.status == 'offline'"
+                                >
+                                  offline
+                                </span>
+                              </dd>
+                            </dl>
+                          </div>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
