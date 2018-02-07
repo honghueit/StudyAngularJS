@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="user">
   <head>
     <title>Title</title>
     <!-- Required meta tags -->
@@ -10,8 +10,83 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script type="text/javascript">
+       angular
+        .module( "user" , [] )
+        .controller( 'TransactionController' , [
+          '$scope', 
+          function controller( $scope ) {
+
+            $scope.listTransaction = [ {
+              "stamp" : "4354654yr6ytry6",
+              "title" : "Reg",
+              "description" : "Reg",
+              "firstname" : "Hong",
+              "lastname" : "Hue",
+              "user_refernce" : "q42353465trdg34",
+              "email_address" : "tranthihonghue19it@gmail.com",
+              "mobile_phone" : "436547548",
+              "home_address" : "VietNam"
+            },
+
+            {
+              "stamp" : "4354654yr6yt5876",
+              "title" : "Reg1",
+              "description" : "Reg1",
+              "firstname" : "Hong1",
+              "lastname" : "Hue1",
+              "user_refernce" : "q42353465trdg34",
+              "email_address" : "tranthihonghue19it@gmail.com",
+              "mobile_phone" : "436547548",
+              "home_address" : "VietNam"
+            },
+
+            {
+              "stamp" : "4354654yr6yt76",
+              "title" : "Reg2",
+              "description" : "Reg2",
+              "firstname" : "Hong2",
+              "lastname" : "Hue2",
+              "user_refernce" : "q42353465trdg34",
+              "email_address" : "tranthihonghue19it@gmail.com",
+              "mobile_phone" : "436547548",
+              "home_address" : "VietNam"
+            },
+
+            {
+              "stamp" : "435465765876",
+              "title" : "Reg3",
+              "description" : "Reg3",
+              "firstname" : "Hong3",
+              "lastname" : "Hue3",
+              "user_refernce" : "q42353465trdg34",
+              "email_address" : "tranthihonghue19it@gmail.com",
+              "mobile_phone" : "436547548",
+              "home_address" : "VietNam"
+            } ];
+
+            $scope.hasTransaction = function hasTransaction( ) {
+              if( $scope.listTransaction.lengh == 0 ) {
+                return false;
+              }
+
+              return true;
+            }
+
+            $scope.showInfo = function showInfo( x ) {
+              $scope.listTransaction.forEach( function onEachItem( item ) {
+                if(item.stamp != x.stamp ) {
+                  item._viewMode = false;
+                };
+              } )
+
+              x._viewMode =! x._viewMode;
+            }
+            
+        } ] ) 
+    </script>
   </head>
-  <body>
+  <body ng-controller="TransactionController">
     <h1>Transaction</h1>
     <div class="container">
       <table class="table">
@@ -24,15 +99,27 @@
               <th>Lastname</th>
             </tr>
           </thead>
-          <tbody style="">
-            <tr class="title">
-              <td scope="row" ><input type="checkbox" value="">Stamp53454646575</td>
-              <td>rưe</td>
-              <td>rewrw</td>
-              <td>rewrw</td>
-              <td>rewrw</td>
-            </tr>
-            <tr style="" class="detail">
+          <tbody 
+            ng-repeat=" x in listTransaction"
+            ng-if="hasTransaction( )"
+          >
+            <tr 
+              class="title" 
+              ng-click="showInfo( x )"
+            >
+              <td scope="row" >
+                <input type="checkbox" value="">
+                {{x.stamp}}
+              </td>
+              <td>{{ x.title }}</td>
+              <td>{{ x.description }}</td>
+              <td>{{ x.firstname }}</td>
+              <td>{{ x.lastname }}</td>
+            </tr >
+            <tr 
+              style="" class="detail"
+              ng-show="x._viewMode"
+            >
               <td class="title-detail">
                 <h4>Transaction Details</h4>
                 <button type="button" class="btn btn-default">Sub Details</button>
@@ -51,15 +138,15 @@
                     <p>Home Address:</p>
                   </div>
                   <div class="content">
-                    <p>32547564887659887</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
+                    <p>{{ x.stamp }}</p>
+                    <p>{{ x.title }}</p>
+                    <p>{{ x.description }}</p>
+                    <p>{{ x.user_refernce }}</p>
+                    <p>{{ x.firstname }}</p>
+                    <p>{{ x.lastname }}</p>
+                    <p>{{ x.email_address }}</p>
+                    <p>{{ x.mobile_phone }}</p>
+                    <p>{{ x.home_address }}</p>
 
                   </div>
                 </div>
@@ -67,51 +154,13 @@
               <td class="title-detail">
                 <h4></h4>
                 <button type="button" class="btn btn-primary pull-right">Edit</button>
-                <button type="button" class="btn btn-default pull-right">Close</button>
-              </td>
-            </tr>
-            <tr class="title">
-              <td scope="row" ><input type="checkbox" value="">Stamp53454646575</td>
-              <td>rưe</td>
-              <td>rewrw</td>
-              <td>rewrw</td>
-              <td>rewrw</td>
-            </tr>
-            <tr style="" class="detail">
-              <td class="title-detail">
-                <h4>Transaction Details</h4>
-                <button type="button" class="btn btn-default">Sub Details</button>
-              </td>
-              <td class="detail-transaction">
-                <div class="detail-panel">
-                  <div class="header">
-                    <p>Stamp:</p>
-                    <p>Title:</p>
-                    <p>Description:</p>
-                    <p>User Refernce:</p>
-                    <p>Firstname:</p>
-                    <p>Lastname:</p>
-                    <p>Email Address:</p>
-                    <p>Mobile Number:</p>
-                    <p>Home Address:</p>
-                  </div>
-                  <div class="content">
-                    <p>32547564887659887</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
-                    <p>Reg</p>
-                  </div>
-                </div>
-              </td>
-              <td class="title-detail">
-                <h4></h4>
-                <button type="button" class="btn btn-primary pull-right">Edit</button>
-                <button type="button" class="btn btn-default pull-right">Close</button>
+                <button 
+                  type="button" 
+                  class="btn btn-default pull-right"
+                  ng-click="!showInfo( x )"
+                >
+                  Close
+                </button>
               </td>
             </tr>
           </tbody>
