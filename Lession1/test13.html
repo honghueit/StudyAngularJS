@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
   </head>
   <body>
     <h1>Transaction</h1>
@@ -16,56 +17,42 @@
       <table class="table">
           <thead>
             <tr>
-              <th>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                  </label>
-                </div>
-              </th>
-              <th>Stamp</th>
+              <th><input type="checkbox" value="">Stamp</th>
               <th>Title</th>
               <th>Description</th>
               <th>Firstname</th>
               <th>Lastname</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                  </label>
-                </div>
-              </td>
-              <td scope="row">53454646575</td>
+          <tbody style="">
+            <tr class="title">
+              <td scope="row" >53454646575</td>
               <td>rưe</td>
               <td>rewrw</td>
               <td>rewrw</td>
               <td>rewrw</td>
             </tr>
-            <tr style="">
-              <td>
-                <div>
-                  <p>aeqwdqw</p>
-                  <p>aeqwdqw</p>
-                  <p>aeqwdqw</p>
-                  <p>aeqwdqw</p>
+            <tr style="" class="detail">
+              <td class="title-detail">
+                <h4>Transaction Details</h4>
+                <button type="button" class="btn btn-default">Sub Details</button>
+              </td>
+              <td class="detail-transaction">
+                <div class="detail-panel">
+                  <dl class="col-md-12 dl-horizontal">
+                    <dt>Title:</dt>
+                    <dd style="text-transform: capitalize;">Item 1</dd>
+                    <dt>Title:</dt>
+                    <dd style="text-transform: capitalize;">Item 1 description</dd>
+                    <dt>Reference:</dt>
+                    <dd style="text-transform: capitalize;">Item 1 reference</dd>
+                  </dl>
                 </div>
               </td>
-              <td>
-                <div>
-                  <p>aeqwdqw</p>
-                  <p>aeqwdqw</p>
-                  <p>aeqwdqw</p>
-                  <p>aeqwdqw</p>
-                </div>
+              <td class="title-detail">
+                <h4></h4>
+                <button type="button" class="btn btn-default pull-right">Sub Details</button>
               </td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>ádas</td>
             </tr>
           </tbody>
         </table>
