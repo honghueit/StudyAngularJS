@@ -1,4 +1,5 @@
 table thead {
+  padding-left: 20px !important;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -7,8 +8,13 @@ table thead {
   table thead tr {
     display: flex; }
     table thead tr th {
+      border-bottom: 1px solid #ddd !important;
       flex: 1; }
+      table thead tr th input {
+        margin-right: 15px !important; }
 table tbody {
+  padding-left: 20px !important;
+  border-left: 4px solid #1a6bbf;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -18,6 +24,8 @@ table tbody {
     display: flex; }
     table tbody tr.title td {
       flex: 1 !important; }
+      table tbody tr.title td input {
+        margin-right: 15px !important; }
   table tbody tr.detail {
     display: flex;
     flex-direction: column;
@@ -44,12 +52,16 @@ table tbody {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-evenly; }
+      justify-content: flex-start; }
       table tbody tr.detail td.detail-transaction .detail-panel {
         padding-top: 5px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly; }
+        table tbody tr.detail td.detail-transaction .detail-panel div.header p {
+          font-weight: bold; }
+        table tbody tr.detail td.detail-transaction .detail-panel div.content {
+          margin-left: 130px !important; }
 
 /*# sourceMappingURL=style.css.map */
