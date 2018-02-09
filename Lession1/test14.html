@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en" ng-app="user">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="wiph=device-wiph, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/style14.css">
+    <script type="text/javascript">
+       angular
+        .module( "user" , [] )
+          .controller( "ItemController" , [
+            "$scope",
+            function controller( $scope ) {
+              $scope.itemList = [ 
+                {
+                  "title" : "pallpen1",
+                  "description" : "pallpen1",
+                  "reference" : "214235234abcd24",
+                  "effective_date" : "19.03.2017",
+                  "validity_type" : "infinite",
+                  "valid_unit" : "infinite",
+                },
+
+                {
+                  "title" : "pallpen2",
+                  "description" : "pallpen2",
+                  "reference" : "214235234abcd24",
+                  "effective_date" : "19.03.2017",
+                  "validity_type" : "infinite",
+                  "valid_unit" : "infinite",
+                },
+
+                {
+                  "title" : "pallpen3",
+                  "description" : "pallpen3",
+                  "reference" : "214235234abcd24",
+                  "effective_date" : "19.03.2017",
+                  "validity_type" : "infinite",
+                  "valid_unit" : "definite",
+                },
+              ];
+
+              $scope.hasItem = function hasItem( ) {
+                if ( $scope.itemList.length == 0 ) {
+                    return false;
+                }
+
+                return true;
+              };
+
+              $scope.displayInfo = function displayInfo( x ) {
+                $scope.itemList.forEach( function onEachItem( item ) {
+                  if( item.title != x.title ) {
+                    item._viewMode = false;
+                  }
+
+                } );
+
+                x._viewMode = !x._viewMode;
+              };
+            }
+          ] )
+          .controller( "CoreController" , [
+            "$scope",
+            function controller( $scope ) {
+
+              $scope.showInfoDiscount = true;
+              $scope.showInfoPrice = false;
+
+              $scope.selectDiscountTab = function selectDiscountTab() {
+                $scope.showInfoDiscount = true;
+                $scope.showInfoPrice = false;
+              };
+
+              $scope.selectPriceTab = function selectPriceTab() {
+                $scope.showInfoPrice = true;
+                $scope.showInfoDiscount = false;
+              };
+
+            }
+
+          ] )
+
+    </script>
+  </head>
+  <body ng-controller="ItemController">
+    <p
+      ng-show="!hasItem( )"
+    >
+      No item available
+    </p>
+    <div 
+      class="container listtransaction" 
+      ng-if = "hasItem()"
+      ng-repeat="x in itemList"
+    >
+      <div class="header">List Item</div>
+      <div class="body">
+        <div class="item-panel">
+          <div class="item-detail">
+            <h4 class="title">{{ x.title }}</h4>
+            <p class="description">{{ x.description }}</p>
+          </div>
+          <div class="item-control">
+            <span 
+              class="glyphicon glyphicon-chevron-down"
+              ng-show = "!x._viewMode"
+              ng-click="displayInfo( x )"
+            >
+            </span>
+            <span 
+              class="glyphicon glyphicon-chevron-up"
+              ng-show = "x._viewMode"
+              ng-click="displayInfo( x )"
+            >
+            </span>
+          </div>
+        </div>
+        <div 
+          class="item-panel-detail" 
+          ng-show="x._viewMode"
+        >
+          <dl class="col-md-12 dl-horizontal">
+            <dt>Title:</dt>
+            <dd>{{ x.title }}</dd>
+            <dt>Description:</dt>
+            <dd>{{ x.description }}</dd>
+            <dt>Reference:</dt>
+            <dd>{{ x.reference }}</dd>
+            <dt>Effective Date:</dt>
+            <dd>{{ x.reference }}</dd>
+            <dt>Validity Type:</dt>
+            <dd>{{ x.validity_type }}</dd>
+            <dt>Validity Unit:</dt>
+            <dd>
+              <span
+                class="label label-primary"
+                ng-if="x.valid_unit == 'infinite'"
+              >
+                infinite
+              </span>
+              <span
+                class="label label-danger"
+                ng-if="x.valid_unit == 'definite'"
+              >
+                definite
+              </span>
+            </dd>
+          </dl>
+        </div>
+        <div class="discount-price" ng-controller="CoreController">
+          <div 
+            class="tab-panel" 
+            role="tabpanel">
+            <ul class="nav nav-tabs" role="tablist" data-tabs="tabs">
+              <li class="active">
+                <a 
+                  role="tab" 
+                  data-toggle="tab" 
+                  ng-click="selectDiscountTab( )"
+                >
+                  Discount
+                </a>
+              </li>
+              <li>
+                <a 
+                  role="tab" 
+                  data-toggle="tab"
+                  ng-click = "selectPriceTab( )"
+
+                >
+                  Price
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div
+              class="tab-pane fade in active"
+              ng-show="showInfoDiscount"
+            >
+              <div class="item-manager no-left-right-padding">
+                <div class="item-list item-panel-discount-price">
+                  <div class="header-discount-price">
+                    Discount List
+                  </div>
+                  <div class="body-discount-price">
+                    <div class="item-panel-discount-price">
+                      <div class="item-detail-discount-price">
+                        <h4 class="title">VIPs</h4>
+                        <p class="description">VIPs</p>
+                      </div>
+                      <div class="item-control-discount-price">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                      </div>
+                    </div>
+                    <div class="item-panel-detail-discount-price">
+                      <dl class="col-md-12 dl-horizontal">
+                        <dt>Title:</dt>
+                        <dd style="text-transform: capitalize;">VIPs</dd>
+                        <dt>Description:</dt>
+                        <dd style="text-transform: capitalize;">VIPs</dd>
+                        <dt>Reference:</dt>
+                        <dd style="text-transform: capitalize;">4354756867987ughfthgfh</dd>
+                        <dt>Type:</dt>
+                        <dd style="text-transform: capitalize;">Perence</dd>
+                        <dt>Base Curency:</dt>
+                        <dd style="text-transform: capitalize;">PHP</dd>
+                        <dt>Amount:</dt>
+                        <dd style="text-transform: capitalize;">45%</dd>
+                        <dt>Targel:</dt>
+                        <dd style="text-transform: capitalize;">Item-price</dd>
+                        <dt>Effective Date:</dt>
+                        <dd style="text-transform: capitalize;">1.1.2018</dd>
+                        <dt>Validity Date:</dt>
+                        <dd style="text-transform: capitalize;">Infinite</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade in active"
+              ng-show="showInfoPrice"
+            >
+              <div class="item-manager no-left-right-padding">
+                <div class="item-list item-panel-discount-price">
+                  <div class="header-discount-price">
+                    Price List
+                  </div>
+                  <div class="body-discount-price">
+                    <div class="item-panel-discount-price">
+                      <div class="item-detail-discount-price">
+                        <h4 class="title">Regular</h4>
+                        <p class="description">Regular</p>
+                      </div>
+                      <div class="item-control-discount-price">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                      </div>
+                    </div>
+                    <div class="item-panel-detail-discount-price">
+                      <dl class="col-md-12 dl-horizontal">
+                        <dt>Title:</dt>
+                        <dd style="text-transform: capitalize;">VIPs</dd>
+                        <dt>Description:</dt>
+                        <dd style="text-transform: capitalize;">VIPs</dd>
+                        <dt>Reference:</dt>
+                        <dd style="text-transform: capitalize;">4354756867987ughfthgfh</dd>
+                        <dt>Base Curency:</dt>
+                        <dd style="text-transform: capitalize;">PHP</dd>
+                        <dt>Base Curency:</dt>
+                        <dd style="text-transform: capitalize;">PHP</dd>
+                        <dt>Amount:</dt>
+                        <dd style="text-transform: capitalize;">45</dd>
+                        <dt>Effective Date:</dt>
+                        <dd style="text-transform: capitalize;">February 09.2018</dd>
+                        <dt>Validity Type:</dt>
+                        <dd style="text-transform: capitalize;">Infinite</dd>
+                        <dt>Validity Unit:</dt>
+                        <dd style="text-transform: capitalize;">Infinite</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>
