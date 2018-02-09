@@ -16,6 +16,20 @@
           .controller( "ItemController" , [
             "$scope",
             function controller( $scope ) {
+
+            	$scope.showInfoPrice = false;
+              $scope.showInfoDiscount = true;
+
+              $scope.selectDiscountTab = function tDiscountTab() {
+                  $scope.showInfoDiscount = true;
+                  $scope.showInfoPrice = false;
+              };
+
+              $scope.selectPriceTab = function selectPriceTab() {
+                $scope.showInfoPrice = true;
+                $scope.showInfoDiscount = false;
+              };
+
               $scope.itemList = [ 
                 {
                   "title" : "pallpen1",
@@ -275,6 +289,7 @@
 
                 x._viewMode = !x._viewMode;
               };
+
             }
           ] )
 
@@ -354,7 +369,7 @@
                 <a 
                   role="tab" 
                   data-toggle="tab" 
-                  
+                  ng-click="selectDiscountTab()"
                 >
                   Discount
                 </a>
@@ -363,7 +378,7 @@
                 <a 
                   role="tab" 
                   data-toggle="tab"
-                 
+                 	ng-click="selectPriceTab()"
 
                 >
                   Price
@@ -374,8 +389,9 @@
           <div class="tab-content">
             <div
               class="tab-pane fade in active"
+              ng-show="showInfoDiscount"
             >
-             <!--  <div class="item-manager no-left-right-padding">
+              <div class="item-manager no-left-right-padding">
                 <div class="item-list item-panel-discount-price">
                   <div class="header-discount-price">
                     Discount List
@@ -429,13 +445,13 @@
                     </div>
                   </div>
                 </div>
-              </div> -->
-              data discount tab
+              </div>
             </div>
             <div
               class="tab-pane fade in active"
+              ng-show="showInfoPrice"
             >
-              <!-- <div class="item-manager no-left-right-padding">
+              <div class="item-manager no-left-right-padding">
                 <div class="item-list item-panel-discount-price">
                   <div class="header-discount-price">
                     Price List
@@ -488,8 +504,8 @@
                     </div>
                   </div>
                 </div>
-              </div> -->
-							 data price tab
+              </div>
+							 
             </div>
           </div>
         </div>
