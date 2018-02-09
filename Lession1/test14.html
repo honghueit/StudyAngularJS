@@ -295,7 +295,9 @@
 		.controller( 'DiscountController' , [
 			'$scope',
 			function controller( $scope ){
-				console.log( $scope.x );
+				$scope.x.discount.forEach( function onEachItem( discount ) {
+					console.log( "Discount", discount );
+				} );
 			}
 		] )
     </script>
@@ -400,7 +402,7 @@
 					class="item-manager no-left-right-padding"
 					ng-controller="DiscountController"
 				>
-
+					<h3>{{ x.discount[ 0 ].title }}</h3>
 				</div>
               <!-- <div class="item-manager no-left-right-padding">
                 <div class="item-list item-panel-discount-price">
