@@ -270,37 +270,22 @@
                 $scope.itemList.forEach( function onEachItem( item ) {
                   if( item.title != x.title ) {
                     item._viewMode = false;
-                  }
-                  // if(item.discount.title != x.discount.title) {
-                  // 	item._viewMode1 = false;
-                  // }
-
+                   }
                 } );
 
                 x._viewMode = !x._viewMode;
-                // x._viewMode1 = != x._viewMode1;
+              };
+
+              $scope.displayInfo1 = function displayInfo1( y ) {
+                $scope.itemList.discount.forEach( function onEachItem( item ) {
+                  if(  item.discount.title != y.discount.title) {
+                    item._viewMode1 = false;
+                   }
+                } );
+
+                y._viewMode1 = !y._viewMode1;
               };
             }
-          ] )
-          .controller( "CoreController" , [
-            "$scope",
-            function controller( $scope ) {
-
-              $scope.showInfoDiscount = true;
-              $scope.showInfoPrice = false;
-
-              $scope.selectDiscountTab = function selectDiscountTab() {
-                $scope.showInfoDiscount = true;
-                $scope.showInfoPrice = false;
-              };
-
-              $scope.selectPriceTab = function selectPriceTab() {
-                $scope.showInfoPrice = true;
-                $scope.showInfoDiscount = false;
-              };
-
-            }
-
           ] )
 
     </script>
@@ -370,7 +355,7 @@
             </dd>
           </dl>
         </div>
-        <div class="discount-price" ng-controller="CoreController">
+        <div class="discount-price">
           <div 
             class="tab-panel" 
             role="tabpanel">
@@ -379,7 +364,7 @@
                 <a 
                   role="tab" 
                   data-toggle="tab" 
-                  ng-click="selectDiscountTab( )"
+                  
                 >
                   Discount
                 </a>
@@ -388,7 +373,7 @@
                 <a 
                   role="tab" 
                   data-toggle="tab"
-                  ng-click = "selectPriceTab( )"
+                 
 
                 >
                   Price
@@ -399,9 +384,8 @@
           <div class="tab-content">
             <div
               class="tab-pane fade in active"
-              ng-show="showInfoDiscount"
             >
-              <div class="item-manager no-left-right-padding">
+             <!--  <div class="item-manager no-left-right-padding">
                 <div class="item-list item-panel-discount-price">
                   <div class="header-discount-price">
                     Discount List
@@ -418,20 +402,19 @@
                       <div class="item-control-discount-price">
                         <span 
                         	class="glyphicon glyphicon-chevron-down"
-                        	ng-show = "!y._viewMode"
-              						ng-click="displayInfo( y )"
+                        	
                         </span>
                         <span 
                         	class="glyphicon glyphicon-chevron-up"
-                        	ng-show = "y._viewMode"
-              						ng-click="displayInfo( y )"
+                        	
+              						
                         >
                         </span>
                       </div>
                     </div>
                     <div 
                     	class="item-panel-detail-discount-price"
-                    	ng-show = "y._viewMode"
+                    	
                     >
                       <dl class="col-md-12 dl-horizontal">
                         <dt>Title:</dt>
@@ -456,13 +439,13 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
+              data discount tab
             </div>
             <div
               class="tab-pane fade in active"
-              ng-show="showInfoPrice"
             >
-              <div class="item-manager no-left-right-padding">
+              <!-- <div class="item-manager no-left-right-padding">
                 <div class="item-list item-panel-discount-price">
                   <div class="header-discount-price">
                     Price List
@@ -515,7 +498,8 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
+							 data price tab
             </div>
           </div>
         </div>
