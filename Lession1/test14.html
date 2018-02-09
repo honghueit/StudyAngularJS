@@ -275,16 +275,6 @@
 
                 x._viewMode = !x._viewMode;
               };
-
-              $scope.displayInfo1 = function displayInfo1( y ) {
-                $scope.itemList.discount.forEach( function onEachItem( item ) {
-                  if(  item.discount.title != y.discount.title) {
-                    item._viewMode1 = false;
-                   }
-                } );
-
-                y._viewMode1 = !y._viewMode1;
-              };
             }
           ] )
 
