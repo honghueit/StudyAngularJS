@@ -9,7 +9,7 @@
 	.body {
 		padding-left: 20px;
 		margin-top: 10px;
-		// border: 1px solid #aba8a870;
+		border: 1px solid #aba8a870;
 		.item-panel {
 			display: flex;
 			flex-direction: row;
@@ -55,9 +55,11 @@
 	    width: 100%;
 		}
 		.body-discount-price {
+			display: flex;
+			flex-direction : column;
 			padding-left: 20px;
 			margin-top: 10px;
-			// border: 1px solid #aba8a870;
+			border: 1px solid #aba8a870;
 			.item-panel-discount-price {
 				display: flex;
 				flex-direction: row;
