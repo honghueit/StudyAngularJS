@@ -30,7 +30,7 @@
                 $scope.showInfoDiscount = false;
               };
 
-              $scope.itemList = [ 
+              $scope.itemList = [
                 {
                   "title" : "pallpen1",
                   "description" : "pallpen1",
@@ -292,12 +292,12 @@
 
             }
           ] )
-					.controller( 'DiscountController' , [
-						'$scope', 
-						function controller( $scope ){
-						
-						} 
-					] )
+		.controller( 'DiscountController' , [
+			'$scope',
+			function controller( $scope ){
+				console.log( "Discount" );
+			}
+		] )
     </script>
   </head>
   <body ng-controller="ItemController">
@@ -306,8 +306,8 @@
     >
       No item available
     </p>
-    <div 
-      class="container listtransaction" 
+    <div
+      class="container listtransaction"
       ng-if = "hasItem()"
       ng-repeat="x in itemList"
     >
@@ -319,13 +319,13 @@
             <p class="description">{{ x.description }}</p>
           </div>
           <div class="item-control">
-            <span 
+            <span
               class="glyphicon glyphicon-chevron-down"
               ng-show = "!x._viewMode"
               ng-click="displayInfo( x )"
             >
             </span>
-            <span 
+            <span
               class="glyphicon glyphicon-chevron-up"
               ng-show = "x._viewMode"
               ng-click="displayInfo( x )"
@@ -333,8 +333,8 @@
             </span>
           </div>
         </div>
-        <div 
-          class="item-panel-detail" 
+        <div
+          class="item-panel-detail"
           ng-show="x._viewMode"
         >
           <dl class="col-md-12 dl-horizontal">
@@ -366,22 +366,22 @@
           </dl>
         </div>
         <div class="discount-price">
-          <div 
-            class="tab-panel" 
+          <div
+            class="tab-panel"
             role="tabpanel">
             <ul class="nav nav-tabs" role="tablist" data-tabs="tabs">
               <li class="active">
-                <a 
-                  role="tab" 
-                  data-toggle="tab" 
+                <a
+                  role="tab"
+                  data-toggle="tab"
                   ng-click="selectDiscountTab()"
                 >
                   Discount
                 </a>
               </li>
               <li>
-                <a 
-                  role="tab" 
+                <a
+                  role="tab"
                   data-toggle="tab"
                  	ng-click="selectPriceTab()"
 
@@ -396,13 +396,19 @@
               class="tab-pane fade in active"
               ng-show="showInfoDiscount"
             >
+				<div
+					class="item-manager no-left-right-padding"
+					ng-controller="DiscountController"
+				>
+
+				</div>
               <!-- <div class="item-manager no-left-right-padding">
                 <div class="item-list item-panel-discount-price">
                   <div class="header-discount-price">
                     Discount List
                   </div>
-                  <div 
-                  	class="body-discount-price" 
+                  <div
+                  	class="body-discount-price"
                   	ng-repeat="y in x.discount"
                   >
                     <div class="item-panel-discount-price">
@@ -411,21 +417,21 @@
                         <p class="description">{{ y.description }}</p>
                       </div>
                       <div class="item-control-discount-price">
-                        <span 
+                        <span
                         	class="glyphicon glyphicon-chevron-down"
-                        	
+
                         </span>
-                        <span 
+                        <span
                         	class="glyphicon glyphicon-chevron-up"
-                        	
-              						
+
+
                         >
                         </span>
                       </div>
                     </div>
-                    <div 
+                    <div
                     	class="item-panel-detail-discount-price"
-                    	
+
                     >
                       <dl class="col-md-12 dl-horizontal">
                         <dt>Title:</dt>
@@ -462,9 +468,9 @@
                   <div class="header-discount-price">
                     Price List
                   </div>
-                  <div 
-                  	class="body-discount-price" 
-                  	ng-repeat="y in x.price" 
+                  <div
+                  	class="body-discount-price"
+                  	ng-repeat="y in x.price"
                   	>
                     <div class="item-panel-discount-price">
                       <div class="item-detail-discount-price">
