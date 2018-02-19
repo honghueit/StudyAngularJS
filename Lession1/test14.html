@@ -294,11 +294,23 @@
           ] )
 		.controller( 'DiscountController' , [
 			'$scope',
-			function controller( $scope ){
-				$scope.x.discount.forEach( function onEachItem( discount ) {
-					console.log( "Discount", discount );
-				} );
+			function controller( $scope ) {
+				// $scope.x.discount.forEach( function onEachItem( discount ) {
+				// 	console.log(discount.title );
+				// } );
+
+        $scope.displayInfo_detail = function displayInfo_detail( x ) {
+          $scope.x.discount.forEach( function onEachItem( discount ) {
+            if( discount.title != x.title ) {
+              discount._viewMode1 = false;
+            }
+            
+          } );
+
+          x._viewMode1 = !x._viewMode1;
+        }; 
 			}
+
 		] )
     </script>
   </head>
@@ -367,7 +379,7 @@
             </dd>
           </dl>
         </div>
-        <div class="discount-price">
+        <div class="discount-price" >
           <div
             class="tab-panel"
             role="tabpanel">
@@ -398,13 +410,13 @@
               class="tab-pane fade in active"
               ng-show="showInfoDiscount"
             >
-				<div
-					class="item-manager no-left-right-padding"
-					ng-controller="DiscountController"
-				>
-					<h3>{{ x.discount[ 0 ].title }}</h3>
-				</div>
-              <!-- <div class="item-manager no-left-right-padding">
+      				<div
+      					class="item-manager no-left-right-padding"
+      					ng-controller="DiscountController"
+      				>
+      					<!-- <h3>{{ x.discount.title }}</h3> -->
+      				</div>
+              <div class="item-manager no-left-right-padding">
                 <div class="item-list item-panel-discount-price">
                   <div class="header-discount-price">
                     Discount List
@@ -420,20 +432,20 @@
                       </div>
                       <div class="item-control-discount-price">
                         <span
-                        	class="glyphicon glyphicon-chevron-down"
-
+                          class="glyphicon glyphicon-chevron-down"
+                          
+                        >
                         </span>
                         <span
                         	class="glyphicon glyphicon-chevron-up"
-
-
+                          
                         >
                         </span>
                       </div>
                     </div>
                     <div
                     	class="item-panel-detail-discount-price"
-
+                      
                     >
                       <dl class="col-md-12 dl-horizontal">
                         <dt>Title:</dt>
@@ -458,8 +470,8 @@
                     </div>
                   </div>
                 </div>
-              </div> -->
-              data discount tab
+              </div>
+              
             </div>
             <div
               class="tab-pane fade in active"
