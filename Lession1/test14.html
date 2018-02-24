@@ -295,14 +295,10 @@
             }
           ] )
 		.controller( "DiscountController" , [
-			'$scope',
+			"$scope",
 
 			function controller( $scope ) {
-				// $scope.item.discount.forEach( function onEachItem( discount ) {
-				// 	console.log(discount.title );
-				// } );
-
-        $scope.displayItem_detail = function displayItem_detail( item ) {
+        $scope.displayItemDiscount = function displayItemDiscount( item ) {
           $scope.item.discount.forEach( function onEachItem( discount ) {
             if( discount.title != item.title ) {
               discount._viewMode1 = false;
