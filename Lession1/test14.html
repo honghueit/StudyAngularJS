@@ -298,15 +298,15 @@
 			"$scope",
 
 			function controller( $scope ) {
-        $scope.displayItemDiscount = function displayItemDiscount( item ) {
-          $scope.item.discount.forEach( function onEachItem( discount ) {
-            if( discount.title != item.title ) {
-              discount._viewMode1 = false;
+        $scope.displayItemDiscount = function displayItemDiscount( discount ) {
+          $scope.item.discount.forEach( function onEachItemDiscount( discount ) {
+            if( discount.title != discount.title ) {
+              discount._viewMode = false;
             }
             
           } );
 
-          item._viewMode1 = !item._viewMode1;
+          discount._viewMode = !discount._viewMode;
         }; 
 			}
 
