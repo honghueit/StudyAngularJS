@@ -12,20 +12,21 @@
     <link rel="stylesheet" type="text/css" href="assets/style14.css">
     <script type="text/javascript">
        angular
-        .module( "user" , [] )
+        .module( "user" , [ ] )
           .controller( "ItemController" , [
             "$scope",
+
             function controller( $scope ) {
 
             	$scope.showInfoPrice = false;
               $scope.showInfoDiscount = true;
 
-              $scope.selectDiscountTab = function tDiscountTab() {
+              $scope.selectDiscountTab = function selectDiscountTab( ) {
                   $scope.showInfoDiscount = true;
                   $scope.showInfoPrice = false;
               };
 
-              $scope.selectPriceTab = function selectPriceTab() {
+              $scope.selectPriceTab = function selectPriceTab( ) {
                 $scope.showInfoPrice = true;
                 $scope.showInfoDiscount = false;
               };
@@ -75,6 +76,7 @@
                   		"validity_type" : "infinite"
                   	}
                   ],
+                  
                   "price" : [
                   	{
                   		"title" : "regular1",
