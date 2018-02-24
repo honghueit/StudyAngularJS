@@ -7,10 +7,10 @@
     <meta name="viewport" content="wiph=device-wiph, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/style14.css">
-    <script type="text/javascript">
+    <link rel="stylesheet" href="https://maitemcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajaitem.googleapis.com/ajaitem/libs/angularjs/1.6.6/angular.min.js"></script>
+    <link rel="stylesheet" type="teitemt/css" href="assets/style14.css">
+    <script type="teitemt/javascript">
        angular
         .module( "user" , [ ] )
           .controller( "ItemController" , [
@@ -282,14 +282,14 @@
                 return true;
               };
 
-              $scope.displayInfo = function displayInfo( x ) {
+              $scope.displayItem = function displayItem( item ) {
                 $scope.itemList.forEach( function onEachItem( item ) {
-                  if( item.title != x.title ) {
+                  if( item.title != item.title ) {
                     item._viewMode = false;
                    }
                 } );
 
-                x._viewMode = !x._viewMode;
+                item._viewMode = !item._viewMode;
               };
 
             }
@@ -298,19 +298,19 @@
 			'$scope',
 
 			function controller( $scope ) {
-				// $scope.x.discount.forEach( function onEachItem( discount ) {
+				// $scope.item.discount.forEach( function onEachItem( discount ) {
 				// 	console.log(discount.title );
 				// } );
 
-        $scope.displayInfo_detail = function displayInfo_detail( x ) {
-          $scope.x.discount.forEach( function onEachItem( discount ) {
-            if( discount.title != x.title ) {
+        $scope.displayItem_detail = function displayItem_detail( item ) {
+          $scope.item.discount.forEach( function onEachItem( discount ) {
+            if( discount.title != item.title ) {
               discount._viewMode1 = false;
             }
             
           } );
 
-          x._viewMode1 = !x._viewMode1;
+          item._viewMode1 = !item._viewMode1;
         }; 
 			}
 
@@ -325,57 +325,57 @@
     </p>
     <div
       class="container listtransaction"
-      ng-if = "hasItem()"
-      ng-repeat="x in itemList"
+      ng-if = "hasItem( )"
+      ng-repeat="item in itemList"
     >
       <div class="header">List Item</div>
       <div class="body">
         <div class="item-panel">
           <div class="item-detail">
-            <h4 class="title">{{ x.title }}</h4>
-            <p class="description">{{ x.description }}</p>
+            <h4 class="title">{{ item.title }}</h4>
+            <p class="description">{{ item.description }}</p>
           </div>
           <div class="item-control">
             <span
               class="glyphicon glyphicon-chevron-down"
-              ng-show = "!x._viewMode"
-              ng-click="displayInfo( x )"
+              ng-show = "!item._viewMode"
+              ng-click="displayItem( item )"
             >
             </span>
             <span
               class="glyphicon glyphicon-chevron-up"
-              ng-show = "x._viewMode"
-              ng-click="displayInfo( x )"
+              ng-show = "item._viewMode"
+              ng-click="displayItem( item )"
             >
             </span>
           </div>
         </div>
         <div
           class="item-panel-detail"
-          ng-show="x._viewMode"
+          ng-show="item._viewMode"
         >
           <dl class="col-md-12 dl-horizontal">
             <dt>Title:</dt>
-            <dd>{{ x.title }}</dd>
+            <dd>{{ item.title }}</dd>
             <dt>Description:</dt>
-            <dd>{{ x.description }}</dd>
+            <dd>{{ item.description }}</dd>
             <dt>Reference:</dt>
-            <dd>{{ x.reference }}</dd>
+            <dd>{{ item.reference }}</dd>
             <dt>Effective Date:</dt>
-            <dd>{{ x.reference }}</dd>
+            <dd>{{ item.reference }}</dd>
             <dt>Validity Type:</dt>
-            <dd>{{ x.validity_type }}</dd>
+            <dd>{{ item.validity_type }}</dd>
             <dt>Validity Unit:</dt>
             <dd>
               <span
                 class="label label-primary"
-                ng-if="x.valid_unit == 'infinite'"
+                ng-if="item.valid_unit == 'infinite'"
               >
                 infinite
               </span>
               <span
                 class="label label-danger"
-                ng-if="x.valid_unit == 'definite'"
+                ng-if="item.valid_unit == 'definite'"
               >
                 definite
               </span>
@@ -417,7 +417,7 @@
       					class="item-manager no-left-right-padding"
       					ng-controller="DiscountController"
       				>
-      					<!-- <h3>{{ x.discount.title }}</h3> -->
+      					<!-- <h3>{{ item.discount.title }}</h3> -->
       				</div>
               <div class="item-manager no-left-right-padding">
                 <div class="item-list item-panel-discount-price">
@@ -426,7 +426,7 @@
                   </div>
                   <div
                   	class="body-discount-price"
-                  	ng-repeat="y in x.discount"
+                  	ng-repeat="y in item.discount"
                   >
                     <div class="item-panel-discount-price">
                       <div class="item-detail-discount-price">
@@ -487,7 +487,7 @@
                   </div>
                   <div
                   	class="body-discount-price"
-                  	ng-repeat="y in x.price"
+                  	ng-repeat="y in item.price"
                   	>
                     <div class="item-panel-discount-price">
                       <div class="item-detail-discount-price">
@@ -542,8 +542,8 @@
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hitempG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajaitem/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJitemuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maitemcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysitem5WZitemm3itemitemPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   </body>
 </html>
