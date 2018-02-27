@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en" ng-app="user">
   <head>
@@ -299,7 +300,7 @@
 
 			function controller( $scope ) {
         $scope.displayItemDiscount = function displayItemDiscount( discount ) {
-          $scope.item.discountList.forEach( function onEachItemDiscount( discount ) {
+          $scope.itemList.discountList.forEach( function onEachItemDiscount( discount ) {
             if( discount.title != discount.title ) {
               discount._viewMode = false;
             }
@@ -313,6 +314,7 @@
 		] )
     </script>
   </head>
+
   <body ng-controller="ItemController">
     <p
       ng-show="!hasItem( )"
@@ -432,13 +434,13 @@
                         <span
                           class="glyphicon glyphicon-chevron-down"
 													ng-show = "!discount._viewMode"
-                          ng-click="displayItemDiscount( discount )"
+              						ng-click="displayItemDiscount( discount )"
                         >
                         </span>
                         <span
                         	class="glyphicon glyphicon-chevron-up"
 													ng-show = "discount._viewMode"
-                          ng-click="displayItemDiscount( discount )"
+              						ng-click="displayItemDiscount( discount )"
                         >
                         </span>
                       </div>
