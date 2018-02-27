@@ -39,7 +39,7 @@
 				  "effective_date" : "19.03.2017",
 				  "validity_type" : "infinite",
 				  "valid_unit" : "infinite",
-				  "discount" : [
+				  "discountList" : [
 				  	{
 				  		"title" : "vIPs1",
 				  		"description" : "vIPs1",
@@ -120,7 +120,7 @@
 				  "effective_date" : "19.03.2017",
 				  "validity_type" : "infinite",
 				  "valid_unit" : "infinite",
-				  "discount" : [
+				  "discountList" : [
 				  	{
 				  		"title" : "vIPs4",
 				  		"description" : "vIPs4",
@@ -200,7 +200,7 @@
 				  "effective_date" : "19.03.2017",
 				  "validity_type" : "infinite",
 				  "valid_unit" : "definite",
-				  "discount" : [
+				  "discountList" : [
 				  	{
 				  		"title" : "vIPs7",
 				  		"description" : "vIPs7",
@@ -299,7 +299,7 @@
 
 			function controller( $scope ) {
         $scope.displayItemDiscount = function displayItemDiscount( discount ) {
-          $scope.item.discount.forEach( function onEachItemDiscount( discount ) {
+          $scope.item.discountList.forEach( function onEachItemDiscount( discount ) {
             if( discount.title != discount.title ) {
               discount._viewMode = false;
             }
@@ -413,7 +413,6 @@
       					class="item-manager no-left-right-padding"
       					ng-controller="DiscountController"
       				>
-      					<!-- <h3>{{ item.discount.title }}</h3> -->
       				</div>
               <div class="item-manager no-left-right-padding">
                 <div class="item-list item-panel-discount-price">
@@ -422,49 +421,51 @@
                   </div>
                   <div
                   	class="body-discount-price"
-                  	ng-repeat="y in item.discount"
+                  	ng-repeat="discount in item.discountList"
                   >
                     <div class="item-panel-discount-price">
                       <div class="item-detail-discount-price">
-                        <h4 class="title">{{ y.title }}</h4>
-                        <p class="description">{{ y.description }}</p>
+                        <h4 class="title">{{ discount.title }}</h4>
+                        <p class="description">{{ discount.description }}</p>
                       </div>
                       <div class="item-control-discount-price">
                         <span
                           class="glyphicon glyphicon-chevron-down"
-
+													ng-show = "!discount._viewMode"
+                          ng-click="displayItemDiscount( discount )"
                         >
                         </span>
                         <span
                         	class="glyphicon glyphicon-chevron-up"
-
+													ng-show = "discount._viewMode"
+                          ng-click="displayItemDiscount( discount )"
                         >
                         </span>
                       </div>
                     </div>
                     <div
                     	class="item-panel-detail-discount-price"
-
+											ng-show = "discount._viewMode"
                     >
                       <dl class="col-md-12 dl-horizontal">
                         <dt>Title:</dt>
-                        <dd >{{ y.title }}</dd>
+                        <dd >{{ discount.title }}</dd>
                         <dt>Description:</dt>
-                        <dd >{{ y.description }}</dd>
+                        <dd >{{ discount.description }}</dd>
                         <dt>Reference:</dt>
-                        <dd >{{ y.reference }}</dd>
+                        <dd >{{ discount.reference }}</dd>
                         <dt>Type:</dt>
-                        <dd >{{ y.type }}</dd>
+                        <dd >{{ discount.type }}</dd>
                         <dt>Base Curency:</dt>
-                        <dd >{{ y.base_curency }}</dd>
+                        <dd >{{ discount.base_curency }}</dd>
                         <dt>Amount:</dt>
-                        <dd >{{ y.amount }}%</dd>
+                        <dd >{{ discount.amount }}%</dd>
                         <dt>Targel:</dt>
-                        <dd >{{ y.targel }}</dd>
+                        <dd >{{ discount.targel }}</dd>
                         <dt>Effective Date:</dt>
-                        <dd ">{{ y.effective_date }}</dd>
+                        <dd ">{{ discount.effective_date }}</dd>
                         <dt>Validity Type:</dt>
-                        <dd >{{ y.validity_type }}</dd>
+                        <dd >{{ discount.validity_type }}</dd>
                       </dl>
                     </div>
                   </div>
