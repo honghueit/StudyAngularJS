@@ -12,12 +12,12 @@
     <script src="assets/angular.min.js"></script>
     <link rel="stylesheet"  href="assets/style14.css">
     <script type="text/javascript">
-       angular
-        .module( "user" , [ ] )
-          .controller( "ItemController" , [
-            "$scope",
+    angular
+    .module( "user" , [ ] )
+    .controller( "ItemController" , [
+        "$scope",
 
-            function controller( $scope ) {
+      function controller( $scope ) {
 
 				$scope.showInfoPrice = false;
 				$scope.showInfoDiscount = true;
@@ -78,7 +78,7 @@
 				  	}
 				  ],
 
-				  "price" : [
+				  "priceList" : [
 				  	{
 				  		"title" : "regular1",
 				  		"description" : "regular1",
@@ -158,7 +158,7 @@
 				  		"validity_type" : "infinite"
 				  	},
 				  ],
-				  "price" : [
+				  "priceList" : [
 				  	{
 				  		"title" : "regular4",
 				  		"description" : "regular4",
@@ -238,7 +238,7 @@
 				  		"validity_type" : "infinite"
 				  	},
 				  ],
-				  "price" : [
+				  "priceList" : [
 				  	{
 				  		"title" : "regular7",
 				  		"description" : "regular7",
@@ -276,25 +276,37 @@
 				];
 
 				$scope.hasItem = function hasItem( ) {
-				if ( $scope.itemList.length == 0 ) {
-				    return false;
-				}
+					if ( $scope.itemList.length == 0 ) {
+					    return false;
+					}
 
-				return true;
+					return true;
 				};
 
 				$scope.displayItem = function displayItem( item ) {
-				$scope.itemList.forEach( function onEachItem( item ) {
-				  if( item.title != item.title ) {
-				    item._viewMode = false;
-				   }
-				} );
+					$scope.itemList.forEach( function onEachItem( item ) {
+					  if( item.title != item.title ) {
+					    item._viewMode = false;
+					   }
+					} );
 
-				item._viewMode = !item._viewMode;
+					item._viewMode = !item._viewMode;	
 				};
 
-				}
-          ] )
+				$scope.displayItemTab = function displayItemTab( item ) {
+					$scope.itemList.forEach( function onEachItemTab( item ) {
+					  if( item.title != item.title ) {
+					    item.discountMode = false;
+					    item.priceMode = false;
+					   }
+					} );
+
+					item.discountMode  = !item.discountMode ;	
+					item.priceMode  = !item.priceMode ;
+				};
+
+			}
+    ] )
 		.controller( "DiscountController" , [
 			"$scope",
 
@@ -312,6 +324,21 @@
 			}
 
 		] )
+		.controller( "PriceController" , [
+			"$scope",
+
+			function controller( $scope ) {
+				$scope.displayItemPrice = function displayItemPrice ( price ) {
+					$scope.itemList.priceList.forEach( function onEachItemPrice( price) {
+						if( price.title != price.title ) {
+							price._viewMode = false;
+						}
+					});
+
+					price._viewMode = !price._viewMode;
+				}
+			}
+		])
     </script>
   </head>
 
@@ -389,7 +416,7 @@
                 <a
                   role="tab"
                   data-toggle="tab"
-                  ng-click="selectDiscountTab()"
+                  ng-click="displayItemTab( item )"
                 >
                   Discount
                 </a>
@@ -398,7 +425,7 @@
                 <a
                   role="tab"
                   data-toggle="tab"
-                 	ng-click="selectPriceTab()"
+                 	ng-click="displayItemTab( item )"
 
                 >
                   Price
@@ -409,7 +436,7 @@
           <div class="tab-content">
             <div
               class="tab-pane fade in active"
-              ng-show="showInfoDiscount"
+              ng-show="!item.discountMode"
             >
       				<div
       					class="item-manager no-left-right-padding"
@@ -433,14 +460,14 @@
                       <div class="item-control-discount-price">
                         <span
                           class="glyphicon glyphicon-chevron-down"
-													ng-show = "!discount._viewMode"
               						ng-click="displayItemDiscount( discount )"
+              						ng-show = "!discount._viewMode"
                         >
                         </span>
                         <span
                         	class="glyphicon glyphicon-chevron-up"
-													ng-show = "discount._viewMode"
               						ng-click="displayItemDiscount( discount )"
+              						ng-show = "discount._viewMode"
                         >
                         </span>
                       </div>
@@ -477,42 +504,56 @@
             </div>
             <div
               class="tab-pane fade in active"
-              ng-show="showInfoPrice"
+              ng-show="item.priceMode"
             >
-              <!-- <div class="item-manager no-left-right-padding">
+              <div class="item-manager no-left-right-padding">
                 <div class="item-list item-panel-discount-price">
                   <div class="header-discount-price">
                     Price List
                   </div>
                   <div
                   	class="body-discount-price"
-                  	ng-repeat="y in item.price"
+                  	ng-repeat="price in item.priceList"
                   	>
                     <div class="item-panel-discount-price">
                       <div class="item-detail-discount-price">
-                        <h4 class="title"> {{ y.title  }}</h4>
-                        <p class="description">{{ y.description }}</p>
+                        <h4 class="title"> {{ price.title  }}</h4>
+                        <p class="description">{{ price.description }}</p>
                       </div>
                       <div class="item-control-discount-price">
-                        <span class="glyphicon glyphicon-chevron-down"></span>
+                        <span 
+                        	class="glyphicon glyphicon-chevron-down"
+                        	ng-click="displayItemPrice( price )"
+                        	ng-show="!price._viewMode"
+                        >                       	
+                        </span>
+                        <span 
+                        	class="glyphicon glyphicon-chevron-up"
+                        	ng-click="displayItemPrice( price )"
+                        	ng-show="price._viewMode"
+                        >
+                        </span>
                       </div>
                     </div>
-                    <div class="item-panel-detail-discount-price">
+                    <div 
+                    	class="item-panel-detail-discount-price"
+                    	ng-show="price._viewMode"
+                    >
                       <dl class="col-md-12 dl-horizontal">
                         <dt>Title:</dt>
-                        <dd>{{ y.title }}</dd>
+                        <dd>{{ price.title }}</dd>
                         <dt>Description:</dt>
-                        <dd">{{ y.description }}</dd>
+                        <dd">{{ price.description }}</dd>
                         <dt>Reference:</dt>
-                        <dd> {{ y.reference }}</dd>
+                        <dd> {{ price.reference }}</dd>
                         <dt>Base Curency:</dt>
-                        <dd >{{ y.base_curency }}</dd>
+                        <dd >{{ price.base_curency }}</dd>
                         <dt>Amount:</dt>
-                        <dd>{{ y.amount }}</dd>
+                        <dd>{{ price.amount }}</dd>
                         <dt>Effective Date:</dt>
-                        <dd>{{ y.effective_date }}</dd>
+                        <dd>{{ price.effective_date }}</dd>
                         <dt>Validity Type:</dt>
-                        <dd>{{ y.validity_type}}</dd>
+                        <dd>{{ price.validity_type}}</dd>
                         <dt>Validity Unit:</dt>
                         <dd>
                         	<span
@@ -532,8 +573,7 @@
                     </div>
                   </div>
                 </div>
-              </div> -->
-							data price tab
+              </div>
             </div>
           </div>
         </div>
