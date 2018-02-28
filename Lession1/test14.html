@@ -313,13 +313,12 @@
 			function controller( $scope ) {
         $scope.displayItemDiscount = function displayItemDiscount( discount ) {
           $scope.itemList.discountList.forEach( function onEachItemDiscount( discount ) {
-            if( discount.title != discount.title ) {
-              discount._viewMode = false;
-            }
+	          if( discount.title != discount.title ) {
+	            discount._viewMode = false;
+	              } 
+	            } );
 
-          } );
-
-          discount._viewMode = !discount._viewMode;
+          	discount._viewMode = !discount._viewMode;
         };
 			}
 
