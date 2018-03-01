@@ -19,9 +19,6 @@
 
       function controller( $scope ) {
 
-				$scope.showInfoPrice = false;
-				$scope.showInfoDiscount = true;
-
 				$scope.selectDiscountTab = function selectDiscountTab( ) {
 				  $scope.showInfoDiscount = true;
 				  $scope.showInfoPrice = false;
@@ -293,17 +290,18 @@
 					item._viewMode = !item._viewMode;	
 				};
 
-				$scope.displayItemTab = function displayItemTab( item ) {
-					$scope.itemList.forEach( function onEachItemTab( item ) {
-					  if( item.title != item.title ) {
-					    item.discountMode = false;
-					    item.priceMode = false;
-					   }
-					} );
+				$scope.discountMode = true;
+				$scope.priceMode = false;
 
-					item.discountMode  = !item.discountMode ;	
-					item.priceMode  = !item.priceMode ;
-				};
+				$scope.displayTabDiscount = function displayTabDiscount() {
+					$scope.discountMode = true;
+					$scope.priceMode = false;
+				}
+
+				$scope.displayTabPrice = function displayTabPrice( ) {
+					$scope.priceMode = true;
+					$scope.discountMode = false ;
+				}
 
 			}
     ] )
@@ -415,7 +413,7 @@
                 <a
                   role="tab"
                   data-toggle="tab"
-                  ng-click="displayItemTab( item )"
+                  ng-click="displayTabDiscount(  )"
                 >
                   Discount
                 </a>
@@ -424,7 +422,7 @@
                 <a
                   role="tab"
                   data-toggle="tab"
-                 	ng-click="displayItemTab( item )"
+                 	ng-click="displayTabPrice(  )"
 
                 >
                   Price
@@ -435,7 +433,7 @@
           <div class="tab-content">
             <div
               class="tab-pane fade in active"
-              ng-show="!item.discountMode"
+              ng-show="discountMode"
             >
       				<div
       					class="item-manager no-left-right-padding"
@@ -491,7 +489,7 @@
                         <dt>Targel:</dt>
                         <dd >{{ discount.targel }}</dd>
                         <dt>Effective Date:</dt>
-                        <dd ">{{ discount.effective_date }}</dd>
+                        <dd >{{ discount.effective_date }}</dd>
                         <dt>Validity Type:</dt>
                         <dd >{{ discount.validity_type }}</dd>
                       </dl>
@@ -503,7 +501,7 @@
             </div>
             <div
               class="tab-pane fade in active"
-              ng-show="item.priceMode"
+              ng-show="priceMode"
             >
               <div class="item-manager no-left-right-padding">
                 <div class="item-list item-panel-discount-price">
@@ -542,7 +540,7 @@
                         <dt>Title:</dt>
                         <dd>{{ price.title }}</dd>
                         <dt>Description:</dt>
-                        <dd">{{ price.description }}</dd>
+                        <dd>{{ price.description }}</dd>
                         <dt>Reference:</dt>
                         <dd> {{ price.reference }}</dd>
                         <dt>Base Curency:</dt>
