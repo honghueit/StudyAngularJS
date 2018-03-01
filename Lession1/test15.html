@@ -297,6 +297,16 @@
 
 			}
     ] )
+		.controller( "DiscountController" , [
+			"$scope",
+
+			function controller( $scope ) {
+        $scope.displayItemDiscount = function displayItemDiscount( discount ) {
+        	console.log("title", "aaa");
+        };
+			}
+
+		] )
     </script>
   </head>
 
@@ -398,12 +408,63 @@
             >
       				<div
       					class="item-manager no-left-right-padding"
+      					ng-controller="DiscountController"
       				>
       				</div>
               <div class="item-manager no-left-right-padding">
                 <div class="item-list item-panel-discount-price">
                   <div class="header-discount-price">
                     Discount List
+                  </div>
+                  <div
+                  	class="body-discount-price"
+                  	ng-repeat="discount in item.discountList"
+                  >
+                    <div class="item-panel-discount-price">
+                      <div class="item-detail-discount-price">
+                        <h4 class="title">{{ discount.title }}</h4>
+                        <p class="description">{{ discount.description }}</p>
+                      </div>
+                      <div class="item-control-discount-price">
+                        <span
+                          class="glyphicon glyphicon-chevron-down"
+              						ng-click="displayItemDiscount( discount )"
+              					
+                        >
+                        </span>
+                        <span
+                        	class="glyphicon glyphicon-chevron-up"
+              						ng-click="displayItemDiscount( discount )"
+              						
+                        >
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                    	class="item-panel-detail-discount-price"
+											
+                    >
+                      <dl class="col-md-12 dl-horizontal">
+                        <dt>Title:</dt>
+                        <dd >{{ discount.title }}</dd>
+                        <dt>Description:</dt>
+                        <dd >{{ discount.description }}</dd>
+                        <dt>Reference:</dt>
+                        <dd >{{ discount.reference }}</dd>
+                        <dt>Type:</dt>
+                        <dd >{{ discount.type }}</dd>
+                        <dt>Base Curency:</dt>
+                        <dd >{{ discount.base_curency }}</dd>
+                        <dt>Amount:</dt>
+                        <dd >{{ discount.amount }}%</dd>
+                        <dt>Targel:</dt>
+                        <dd >{{ discount.targel }}</dd>
+                        <dt>Effective Date:</dt>
+                        <dd >{{ discount.effective_date }}</dd>
+                        <dt>Validity Type:</dt>
+                        <dd >{{ discount.validity_type }}</dd>
+                      </dl>
+                    </div>
                   </div>
                 </div>
               </div>
