@@ -277,12 +277,11 @@
 				};
 
 				$scope.displayItem = function displayItem( item ) {
-					$scope.itemList.forEach( function onEachItem( item ) {
-					  if( item.title != item.title ) {
-					    item._viewMode = false;
+					$scope.itemList.forEach( function onEachItem( _item ) {
+					  if(  _item.title != item.title ) {
+							_item._viewMode = false
 					   }
 					} );
-
 					item._viewMode = !item._viewMode;	
 				};
 
