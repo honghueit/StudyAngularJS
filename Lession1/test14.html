@@ -305,37 +305,37 @@
 
 			}
     ] )
-		.controller( "DiscountController" , [
-			"$scope",
+		// .controller( "DiscountController" , [
+		// 	"$scope",
 
-			function controller( $scope ) {
-        $scope.displayItemDiscount = function displayItemDiscount( discount ) {
-          $scope.itemList.discountList.forEach( function onEachItemDiscount( discount ) {
-	          if( discount.title != discount.title ) {
-	            discount._viewMode = false;
-	              } 
-	            } );
+		// 	function controller( $scope ) {
+    //     $scope.displayItemDiscount = function displayItemDiscount( discount ) {
+    //       $scope.itemList.discountList.forEach( function onEachItemDiscount( discount ) {
+	  //         if( discount.title != discount.title ) {
+	  //           discount._viewMode = false;
+	  //             } 
+	  //           } );
 
-          	discount._viewMode = !discount._viewMode;
-        };
-			}
+    //       	discount._viewMode = !discount._viewMode;
+    //     };
+		// 	}
 
-		] )
-		.controller( "PriceController" , [
-			"$scope",
+		// ] )
+		// .controller( "PriceController" , [
+		// 	"$scope",
 
-			function controller( $scope ) {
-				$scope.displayItemPrice = function displayItemPrice ( price ) {
-					$scope.itemList.priceList.forEach( function onEachItemPrice( price) {
-						if( price.title != price.title ) {
-							price._viewMode = false;
-						}
-					});
+		// 	function controller( $scope ) {
+		// 		$scope.displayItemPrice = function displayItemPrice ( price ) {
+		// 			$scope.itemList.priceList.forEach( function onEachItemPrice( price) {
+		// 				if( price.title != price.title ) {
+		// 					price._viewMode = false;
+		// 				}
+		// 			});
 
-					price._viewMode = !price._viewMode;
-				}
-			}
-		])
+		// 			price._viewMode = !price._viewMode;
+		// 		}
+		// 	}
+		// ])
     </script>
   </head>
 
@@ -445,7 +445,7 @@
                   <div class="header-discount-price">
                     Discount List
                   </div>
-                  <div
+                  <!-- <div
                   	class="body-discount-price"
                   	ng-repeat="discount in item.discountList"
                   >
@@ -494,7 +494,7 @@
                         <dd >{{ discount.validity_type }}</dd>
                       </dl>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
 
@@ -508,7 +508,7 @@
                   <div class="header-discount-price">
                     Price List
                   </div>
-                  <div
+                  <!-- <div
                   	class="body-discount-price"
                   	ng-repeat="price in item.priceList"
                   	>
@@ -568,7 +568,7 @@
                         </dd>
                       </dl>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
