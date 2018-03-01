@@ -19,20 +19,10 @@
 
       function controller( $scope ) {
 
-				$scope.selectDiscountTab = function selectDiscountTab( ) {
-				  $scope.showInfoDiscount = true;
-				  $scope.showInfoPrice = false;
-				};
-
-				$scope.selectPriceTab = function selectPriceTab( ) {
-				$scope.showInfoPrice = true;
-				$scope.showInfoDiscount = false;
-				};
-
 				$scope.itemList = [
 				{
-					"discountMode": true, 
-          "pricetMode": false,
+					"discountMode": false, 
+          "priceMode": false,
 				  "title" : "pallpen1",
 				  "description" : "pallpen1",
 				  "reference" : "214235234abcd24",
@@ -114,8 +104,8 @@
 				},
 
 				{
-          "discountMode": true, 
-          "pricetMode": false,
+          "discountMode": false, 
+          "priceMode": false,
 				  "title" : "pallpen2",
 				  "description" : "pallpen2",
 				  "reference" : "214235234abcd24",
@@ -196,8 +186,8 @@
 				},
 
 				{
-          "discountMode": true, 
-          "pricetMode": false,
+          "discountMode": false, 
+          "priceMode": false,
 				  "title" : "pallpen3",
 				  "description" : "pallpen3",
 				  "reference" : "214235234abcd24",
@@ -297,13 +287,13 @@
 				};
 
 				$scope.displayTabDiscount = function displayTabDiscount( item ) {
-					item.discountMode = true;
-          item.pricetMode = false;
+					item.discountMode =! item.discountMode;
+					item.priceMode =! item.priceMode;
 				}
 
 				$scope.displayTabPrice = function displayTabPrice( item ) {
-          item.pricetMode = true;
-          item.discountMode = false;
+          item.priceMode =! item.priceMode;
+					item.discountMode =! item.discountMode;
 				}
 
 			}
@@ -405,7 +395,7 @@
           <div class="tab-content">
             <div
               class="tab-pane fade in active"
-              ng-show="item.discountMode"
+              ng-show="!item.discountMode"
             >
       				<div
       					class="item-manager no-left-right-padding"
@@ -422,7 +412,7 @@
             </div>
             <div
               class="tab-pane fade in active"
-              ng-show="item.pricetMode"
+              ng-show="item.priceMode"
             >
               <div class="item-manager no-left-right-padding">
                 <div class="item-list item-panel-discount-price">
