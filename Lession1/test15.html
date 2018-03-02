@@ -15,481 +15,559 @@
     angular
     .module( "user" , [ ] )
     .controller( "ItemController" , [
-      "$scope",
+        "$scope",
 
-      function controller( $scope ) {
+        function controller( $scope ) {
 
-				$scope.itemList = [
+			$scope.itemList = [
 				{
-					"discountMode": false, 
-          "priceMode": false,
-				  "title" : "pallpen1",
-				  "description" : "pallpen1",
-				  "reference" : "214235234abcd24",
-				  "effective_date" : "19.03.2017",
-				  "validity_type" : "infinite",
-				  "valid_unit" : "infinite",
-				  "discountList" : [
-				  	{
-				  		"title" : "vIPs1",
-				  		"description" : "vIPs1",
-				  		"reference" : "24235werre",
-				  		"type" : "perence",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"targel" : "Targel",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite"
-				  	},
+					"discountMode": false,
+                    "priceMode": false,
+				    "title" : "pallpen1",
+				    "description" : "pallpen1",
+				    "reference" : "214235234abcd24",
+				    "effective_date" : "19.03.2017",
+				    "validity_type" : "infinite",
+				    "valid_unit" : "infinite",
+				    "discountList" : [
+    				  	{
+    				  		"title" : "vIPs1",
+    				  		"description" : "vIPs1",
+    				  		"reference" : "24235werre",
+    				  		"type" : "perence",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"targel" : "Targel",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite"
+    				  	},
 
-				  	{
-				  		"title" : "vIPs2",
-				  		"description" : "vIPs2",
-				  		"reference" : "24235werre",
-				  		"type" : "perence",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"targel" : "Targel",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite"
-				  	},
+    				  	{
+    				  		"title" : "vIPs2",
+    				  		"description" : "vIPs2",
+    				  		"reference" : "24235werre",
+    				  		"type" : "perence",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"targel" : "Targel",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite"
+    				  	},
 
-				  	{
-				  		"title" : "vIPs3",
-				  		"description" : "vIPs3",
-				  		"reference" : "24235werre",
-				  		"type" : "perence",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"targel" : "Targel",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite"
-				  	}
-				  ],
+    				  	{
+    				  		"title" : "vIPs3",
+    				  		"description" : "vIPs3",
+    				  		"reference" : "24235werre",
+    				  		"type" : "perence",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"targel" : "Targel",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite"
+    				  	}
+				    ],
 
-				  "priceList" : [
-				  	{
-				  		"title" : "regular1",
-				  		"description" : "regular1",
-				  		"reference" : "24235werre",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite",
-				  		"valid_unit" : "infinite"
-				  	},
+				    "priceList" : [
+    				  	{
+    				  		"title" : "regular1",
+    				  		"description" : "regular1",
+    				  		"reference" : "24235werre",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite",
+    				  		"valid_unit" : "infinite"
+    				  	},
 
-				  	{
-				  		"title" : "regular2",
-				  		"description" : "regular2",
-				  		"reference" : "24235werre",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite",
-				  		"valid_unit" : "infinite"
-				  	},
+    				  	{
+    				  		"title" : "regular2",
+    				  		"description" : "regular2",
+    				  		"reference" : "24235werre",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite",
+    				  		"valid_unit" : "infinite"
+    				  	},
 
-				  	{
-				  		"title" : "regular3",
-				  		"description" : "regular3",
-				  		"reference" : "24235werre",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite",
-				  		"valid_unit" : "infinite"
-				  	},
-				  ]
+    				  	{
+    				  		"title" : "regular3",
+    				  		"description" : "regular3",
+    				  		"reference" : "24235werre",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite",
+    				  		"valid_unit" : "infinite"
+    				  	},
+				    ]
 				},
 
-				{
-          "discountMode": false, 
-          "priceMode": false,
-				  "title" : "pallpen2",
-				  "description" : "pallpen2",
-				  "reference" : "214235234abcd24",
-				  "effective_date" : "19.03.2017",
-				  "validity_type" : "infinite",
-				  "valid_unit" : "infinite",
-				  "discountList" : [
-				  	{
-				  		"title" : "vIPs4",
-				  		"description" : "vIPs4",
-				  		"reference" : "24235werre",
-				  		"type" : "perence",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"targel" : "Targel",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite"
-				  	},
+			    {
+                    "discountMode": false,
+                    "priceMode": false,
+				    "title" : "pallpen2",
+				    "description" : "pallpen2",
+				    "reference" : "214235234abcd24",
+				    "effective_date" : "19.03.2017",
+				    "validity_type" : "infinite",
+				    "valid_unit" : "infinite",
+				    "discountList" : [
+    				  	{
+    				  		"title" : "vIPs4",
+    				  		"description" : "vIPs4",
+    				  		"reference" : "24235werre",
+    				  		"type" : "perence",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"targel" : "Targel",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite"
+    				  	},
 
-				  	{
-				  		"title" : "vIPs5",
-				  		"description" : "vIPs5",
-				  		"reference" : "24235werre",
-				  		"type" : "perence",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"targel" : "Targel",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite"
-				  	},
+    				  	{
+    				  		"title" : "vIPs5",
+    				  		"description" : "vIPs5",
+    				  		"reference" : "24235werre",
+    				  		"type" : "perence",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"targel" : "Targel",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite"
+    				  	},
 
-				  	{
-				  		"title" : "vIPs6",
-				  		"description" : "vIPs6",
-				  		"reference" : "24235werre",
-				  		"type" : "perence",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"targel" : "Targel",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite"
-				  	},
-				  ],
-				  "priceList" : [
-				  	{
-				  		"title" : "regular4",
-				  		"description" : "regular4",
-				  		"reference" : "24235werre",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite",
-				  		"valid_unit" : "infinite"
-				  	},
+    				  	{
+    				  		"title" : "vIPs6",
+    				  		"description" : "vIPs6",
+    				  		"reference" : "24235werre",
+    				  		"type" : "perence",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"targel" : "Targel",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite"
+    				  	},
+				    ],
+				    "priceList" : [
+    				  	{
+    				  		"title" : "regular4",
+    				  		"description" : "regular4",
+    				  		"reference" : "24235werre",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite",
+    				  		"valid_unit" : "infinite"
+    				  	},
 
-				  	{
-				  		"title" : "regular5",
-				  		"description" : "regular5",
-				  		"reference" : "24235werre",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite",
-				  		"valid_unit" : "infinite"
-				  	},
+    				  	{
+    				  		"title" : "regular5",
+    				  		"description" : "regular5",
+    				  		"reference" : "24235werre",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite",
+    				  		"valid_unit" : "infinite"
+    				  	},
 
-				  	{
-				  		"title" : "regular6",
-				  		"description" : "regular6",
-				  		"reference" : "24235werre",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite",
-				  		"valid_unit" : "infinite"
-				  	},
-				  ]
-				},
+    				  	{
+    				  		"title" : "regular6",
+    				  		"description" : "regular6",
+    				  		"reference" : "24235werre",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite",
+    				  		"valid_unit" : "infinite"
+    				  	},
+				    ]
+			    },
 
-				{
-          "discountMode": false, 
-          "priceMode": false,
-				  "title" : "pallpen3",
-				  "description" : "pallpen3",
-				  "reference" : "214235234abcd24",
-				  "effective_date" : "19.03.2017",
-				  "validity_type" : "infinite",
-				  "valid_unit" : "definite",
-				  "discountList" : [
-				  	{
-				  		"title" : "vIPs7",
-				  		"description" : "vIPs7",
-				  		"reference" : "24235werre",
-				  		"type" : "perence",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"targel" : "Targel",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite"
-				  	},
+			    {
+                    "discountMode": false,
+                    "priceMode": false,
+				    "title" : "pallpen3",
+				    "description" : "pallpen3",
+				    "reference" : "214235234abcd24",
+				    "effective_date" : "19.03.2017",
+				    "validity_type" : "infinite",
+				    "valid_unit" : "definite",
+				    "discountList" : [
+    				  	{
+    				  		"title" : "vIPs7",
+    				  		"description" : "vIPs7",
+    				  		"reference" : "24235werre",
+    				  		"type" : "perence",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"targel" : "Targel",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite"
+    				  	},
 
-				  	{
-				  		"title" : "vIPs8",
-				  		"description" : "vIPs8",
-				  		"reference" : "24235werre",
-				  		"type" : "perence",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"targel" : "Targel",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite"
-				  	},
+    				  	{
+    				  		"title" : "vIPs8",
+    				  		"description" : "vIPs8",
+    				  		"reference" : "24235werre",
+    				  		"type" : "perence",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"targel" : "Targel",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite"
+    				  	},
 
-				  	{
-				  		"title" : "vIPs9",
-				  		"description" : "vIPs9",
-				  		"reference" : "24235werre",
-				  		"type" : "perence",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"targel" : "Targel",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite"
-				  	},
-				  ],
-				  "priceList" : [
-				  	{
-				  		"title" : "regular7",
-				  		"description" : "regular7",
-				  		"reference" : "24235werre",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite",
-				  		"valid_unit" : "infinite"
-				  	},
+    				  	{
+    				  		"title" : "vIPs9",
+    				  		"description" : "vIPs9",
+    				  		"reference" : "24235werre",
+    				  		"type" : "perence",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"targel" : "Targel",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite"
+    				  	},
+				    ],
+				    "priceList" : [
+    				  	{
+    				  		"title" : "regular7",
+    				  		"description" : "regular7",
+    				  		"reference" : "24235werre",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite",
+    				  		"valid_unit" : "infinite"
+    				  	},
 
-				  	{
-				  		"title" : "regular8",
-				  		"description" : "regular8",
-				  		"reference" : "24235werre",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite",
-				  		"valid_unit" : "infinite"
-				  	},
+    				  	{
+    				  		"title" : "regular8",
+    				  		"description" : "regular8",
+    				  		"reference" : "24235werre",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite",
+    				  		"valid_unit" : "infinite"
+    				  	},
 
-				  	{
-				  		"title" : "regular9",
-				  		"description" : "regular9",
-				  		"reference" : "24235werre",
-				  		"base_curency" : "PHP",
-				  		"amount" : "24",
-				  		"effective_date" : "1.1.2018",
-				  		"validity_type" : "infinite",
-				  		"valid_unit" : "definite"
-				  	},
-				  ]
-				},
-				];
+    				  	{
+    				  		"title" : "regular9",
+    				  		"description" : "regular9",
+    				  		"reference" : "24235werre",
+    				  		"base_curency" : "PHP",
+    				  		"amount" : "24",
+    				  		"effective_date" : "1.1.2018",
+    				  		"validity_type" : "infinite",
+    				  		"valid_unit" : "definite"
+    				  	},
+				    ]
+			    },
+			];
 
-				$scope.hasItem = function hasItem( ) {
-					if ( $scope.itemList.length == 0 ) {
-					    return false;
-					}
-
-					return true;
-				};
-
-				$scope.displayItem = function displayItem( item ) {
-					$scope.itemList.forEach( function onEachItem( _item ) {
-					  if(  _item.title != item.title ) {
-							_item._viewMode = false
-					   }
-					} );
-					item._viewMode = !item._viewMode;	
-				};
-
-				$scope.displayTabDiscount = function displayTabDiscount( item ) {
-					item.discountMode =! item.discountMode;
-					item.priceMode =! item.priceMode;
+			$scope.hasItem = function hasItem( ) {
+				if ( $scope.itemList.length == 0 ) {
+				    return false;
 				}
 
-				$scope.displayTabPrice = function displayTabPrice( item ) {
-          item.priceMode =! item.priceMode;
-					item.discountMode =! item.discountMode;
-				}
+				return true;
+			};
 
+			$scope.displayItem = function displayItem( item ) {
+				$scope.itemList.forEach( function onEachItem( _item ) {
+				  if(  _item.title != item.title ) {
+						_item._viewMode = false
+				   }
+				} );
+				item._viewMode = !item._viewMode;
+			};
+
+			$scope.displayTabDiscount = function displayTabDiscount( item ) {
+				item.discountMode =! item.discountMode;
+				item.priceMode =! item.priceMode;
 			}
+
+			$scope.displayTabPrice = function displayTabPrice( item ) {
+                item.priceMode =! item.priceMode;
+				item.discountMode =! item.discountMode;
+			}
+
+		}
     ] )
-		.controller( "DiscountController" , [
-			"$scope",
+	.controller( "DiscountController" , [
+		"$scope",
 
-			function controller( $scope ) {
-        $scope.displayItemDiscount = function displayItemDiscount( discount ) {
-        	console.log("title", "aaa");
-        };
-			}
+		function controller( $scope ) {
+            $scope.displayItemDiscount = function displayItemDiscount( discount ) {
+    	        $scope.item.discountList.forEach( function onEachItemDiscount( _discount ) {
+                    if( _discount.title != discount.title ) {
+                        _discount._viewMode = false;
+                    }
+                });
+                discount._viewMode = !discount._viewMode;
+            };
+		}
+	] )
+    .controller( "PriceController" , [
+		"$scope",
 
-		] )
+		function controller( $scope ) {
+            $scope.displayItemPrice = function displayItemPrice( price ) {
+    	        $scope.item.priceList.forEach( function onEachItemPrice( _price ) {
+                    if( _price.title != price.title ) {
+                        _price._viewMode = false;
+                    }
+                });
+                price._viewMode = !price._viewMode;
+            };
+		}
+	] )
     </script>
   </head>
 
-  <body ng-controller="ItemController">
-    <p
-      ng-show="!hasItem( )"
-    >
-      No item available
-    </p>
-    <div
-      class="container listtransaction"
-      ng-if = "hasItem( )"
-      ng-repeat="item in itemList"
-    >
-      <div class="header">List Item</div>
-      <div class="body">
-        <div class="item-panel">
-          <div class="item-detail">
-            <h4 class="title">{{ item.title }}</h4>
-            <p class="description">{{ item.description }}</p>
-          </div>
-          <div class="item-control">
-            <span
-              class="glyphicon glyphicon-chevron-down"
-              ng-show = "!item._viewMode"
-              ng-click="displayItem( item )"
-            >
-            </span>
-            <span
-              class="glyphicon glyphicon-chevron-up"
-              ng-show = "item._viewMode"
-              ng-click="displayItem( item )"
-            >
-            </span>
-          </div>
-        </div>
-        <div
-          class="item-panel-detail"
-          ng-show="item._viewMode"
+    <body ng-controller="ItemController">
+        <p
+          ng-show="!hasItem( )"
         >
-          <dl class="col-md-12 dl-horizontal">
-            <dt>Title:</dt>
-            <dd>{{ item.title }}</dd>
-            <dt>Description:</dt>
-            <dd>{{ item.description }}</dd>
-            <dt>Reference:</dt>
-            <dd>{{ item.reference }}</dd>
-            <dt>Effective Date:</dt>
-            <dd>{{ item.reference }}</dd>
-            <dt>Validity Type:</dt>
-            <dd>{{ item.validity_type }}</dd>
-            <dt>Validity Unit:</dt>
-            <dd>
-              <span
-                class="label label-primary"
-                ng-if="item.valid_unit == 'infinite'"
-              >
-                infinite
-              </span>
-              <span
-                class="label label-danger"
-                ng-if="item.valid_unit == 'definite'"
-              >
-                definite
-              </span>
-            </dd>
-          </dl>
-        </div>
-        <div class="discount-price" >
-          <div
-            class="tab-panel"
-            role="tabpanel">
-            <ul class="nav nav-tabs" role="tablist" data-tabs="tabs">
-              <li class="active">
-                <a
-                  role="tab"
-                  data-toggle="tab"
-                  ng-click="displayTabDiscount( item )"
-                >
-                  Discount
-                </a>
-              </li>
-              <li>
-                <a
-                  role="tab"
-                  data-toggle="tab"
-                 	ng-click="displayTabPrice( item )"
-
-                >
-                  Price
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="tab-content">
-            <div
-              class="tab-pane fade in active"
-              ng-show="!item.discountMode"
-            >
-      				<div
-      					class="item-manager no-left-right-padding"
-      					ng-controller="DiscountController"
-      				>
-      				</div>
-              <div class="item-manager no-left-right-padding">
-                <div class="item-list item-panel-discount-price">
-                  <div class="header-discount-price">
-                    Discount List
-                  </div>
-                  <div
-                  	class="body-discount-price"
-                  	ng-repeat="discount in item.discountList"
-                  >
-                    <div class="item-panel-discount-price">
-                      <div class="item-detail-discount-price">
-                        <h4 class="title">{{ discount.title }}</h4>
-                        <p class="description">{{ discount.description }}</p>
-                      </div>
-                      <div class="item-control-discount-price">
+        No item available
+        </p>
+        <div
+            class="container listtransaction"
+            ng-if = "hasItem( )"
+            ng-repeat="item in itemList"
+        >
+            <div class="header">List Item</div>
+            <div class="body">
+                <div class="item-panel">
+                    <div class="item-detail">
+                        <h4 class="title">{{ item.title }}</h4>
+                        <p class="description">{{ item.description }}</p>
+                    </div>
+                    <div class="item-control">
                         <span
                           class="glyphicon glyphicon-chevron-down"
-              						ng-click="displayItemDiscount( discount )"
-              					
+                          ng-show = "!item._viewMode"
+                          ng-click="displayItem( item )"
                         >
                         </span>
                         <span
-                        	class="glyphicon glyphicon-chevron-up"
-              						ng-click="displayItemDiscount( discount )"
-              						
+                          class="glyphicon glyphicon-chevron-up"
+                          ng-show = "item._viewMode"
+                          ng-click="displayItem( item )"
                         >
                         </span>
-                      </div>
                     </div>
-                    <div
-                    	class="item-panel-detail-discount-price"
-											
-                    >
-                      <dl class="col-md-12 dl-horizontal">
+                </div>
+                <div
+                    class="item-panel-detail"
+                    ng-show="item._viewMode"
+                >
+                    <dl class="col-md-12 dl-horizontal">
                         <dt>Title:</dt>
-                        <dd >{{ discount.title }}</dd>
+                        <dd>{{ item.title }}</dd>
                         <dt>Description:</dt>
-                        <dd >{{ discount.description }}</dd>
+                        <dd>{{ item.description }}</dd>
                         <dt>Reference:</dt>
-                        <dd >{{ discount.reference }}</dd>
-                        <dt>Type:</dt>
-                        <dd >{{ discount.type }}</dd>
-                        <dt>Base Curency:</dt>
-                        <dd >{{ discount.base_curency }}</dd>
-                        <dt>Amount:</dt>
-                        <dd >{{ discount.amount }}%</dd>
-                        <dt>Targel:</dt>
-                        <dd >{{ discount.targel }}</dd>
+                        <dd>{{ item.reference }}</dd>
                         <dt>Effective Date:</dt>
-                        <dd >{{ discount.effective_date }}</dd>
+                        <dd>{{ item.reference }}</dd>
                         <dt>Validity Type:</dt>
-                        <dd >{{ discount.validity_type }}</dd>
-                      </dl>
-                    </div>
-                  </div>
+                        <dd>{{ item.validity_type }}</dd>
+                        <dt>Validity Unit:</dt>
+                        <dd>
+                          <span
+                            class="label label-primary"
+                            ng-if="item.valid_unit == 'infinite'"
+                          >
+                            infinite
+                          </span>
+                          <span
+                            class="label label-danger"
+                            ng-if="item.valid_unit == 'definite'"
+                          >
+                            definite
+                          </span>
+                        </dd>
+                    </dl>
                 </div>
-              </div>
+                <div class="discount-price" >
+                    <div
+                        class="tab-panel"
+                        role="tabpanel">
+                        <ul class="nav nav-tabs" role="tablist" data-tabs="tabs">
+                            <li class="active">
+                                <a
+                                    role="tab"
+                                    data-toggle="tab"
+                                    ng-click="displayTabDiscount( item )"
+                                >
+                                  Discount
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                  role="tab"
+                                  data-toggle="tab"
+                                 	ng-click="displayTabPrice( item )"
 
-            </div>
-            <div
-              class="tab-pane fade in active"
-              ng-show="item.priceMode"
-            >
-              <div class="item-manager no-left-right-padding">
-                <div class="item-list item-panel-discount-price">
-                  <div class="header-discount-price">
-                    Price List
-                  </div>
+                                >
+                                  Price
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div
+                            class="tab-pane fade in active"
+                            ng-show="!item.discountMode"
+                        >
+                            <div
+                                class="item-manager no-left-right-padding"
+                                ng-controller="DiscountController"
+                            >
+                                <div class="item-list item-panel-discount-price">
+                                    <div class="header-discount-price">
+                                        Discount List
+                                    </div>
+                                    <div
+                                  	    class="body-discount-price"
+                                  	    ng-repeat="discount in item.discountList"
+                                    >
+                                        <div class="item-panel-discount-price">
+                                            <div class="item-detail-discount-price">
+                                                <h4 class="title">{{ discount.title }}</h4>
+                                                <p class="description">{{ discount.description }}</p>
+                                            </div>
+                                            <div class="item-control-discount-price">
+                                                <span
+                                                    class="glyphicon glyphicon-chevron-down"
+                                      			    ng-click="displayItemDiscount( discount )"
+                                                    ng-show="!discount._viewMode"
+                                                >
+                                                </span>
+                                                <span
+                                                	class="glyphicon glyphicon-chevron-up"
+                                      				ng-click="displayItemDiscount( discount )"
+                                                    ng-show="discount._viewMode"
+                                                >
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div
+                                        	class="item-panel-detail-discount-price"
+                                            ng-show="discount._viewMode"
+                                        >
+                                            <dl class="col-md-12 dl-horizontal">
+                                                <dt>Title:</dt>
+                                                <dd >{{ discount.title }}</dd>
+                                                <dt>Description:</dt>
+                                                <dd >{{ discount.description }}</dd>
+                                                <dt>Reference:</dt>
+                                                <dd >{{ discount.reference }}</dd>
+                                                <dt>Type:</dt>
+                                                <dd >{{ discount.type }}</dd>
+                                                <dt>Base Curency:</dt>
+                                                <dd >{{ discount.base_curency }}</dd>
+                                                <dt>Amount:</dt>
+                                                <dd >{{ discount.amount }}%</dd>
+                                                <dt>Targel:</dt>
+                                                <dd >{{ discount.targel }}</dd>
+                                                <dt>Effective Date:</dt>
+                                                <dd >{{ discount.effective_date }}</dd>
+                                                <dt>Validity Type:</dt>
+                                                <dd >{{ discount.validity_type }}</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="tab-pane fade in active"
+                            ng-show="item.priceMode"
+                        >
+                            <div
+                                class="item-manager no-left-right-padding"
+                                ng-controller="PriceController"
+                            >
+                                <div class="item-list item-panel-discount-price">
+                                    <div class="header-discount-price">
+                                        Price List
+                                    </div>
+                                    <div
+                                  	    class="body-discount-price"
+                                  	    ng-repeat="price in item.priceList"
+                                    >
+                                        <div class="item-panel-discount-price">
+                                            <div class="item-detail-discount-price">
+                                                <h4 class="title">{{ price.title }}</h4>
+                                                <p class="description">{{ price.description }}</p>
+                                            </div>
+                                            <div class="item-control-discount-price">
+                                                <span
+                                                    class="glyphicon glyphicon-chevron-down"
+                                      			    ng-click="displayItemPrice( price )"
+                                                    ng-show="!price._viewMode"
+                                                >
+                                                </span>
+                                                <span
+                                                	class="glyphicon glyphicon-chevron-up"
+                                      				ng-click="displayItemPrice( price )"
+                                                    ng-show="price._viewMode"
+                                                >
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div
+                                        	class="item-panel-detail-discount-price"
+                                            ng-show="price._viewMode"
+                                        >
+                                            <dl class="col-md-12 dl-horizontal">
+                                                <dt>Title:</dt>
+                                                <dd>{{ price.title }}</dd>
+                                                <dt>Description:</dt>
+                                                <dd>{{ price.description }}</dd>
+                                                <dt>Reference:</dt>
+                                                <dd> {{ price.reference }}</dd>
+                                                <dt>Base Curency:</dt>
+                                                <dd >{{ price.base_curency }}</dd>
+                                                <dt>Amount:</dt>
+                                                <dd>{{ price.amount }}</dd>
+                                                <dt>Effective Date:</dt>
+                                                <dd>{{ price.effective_date }}</dd>
+                                                <dt>Validity Type:</dt>
+                                                <dd>{{ price.validity_type}}</dd>
+                                                <dt>Validity Unit:</dt>
+                                                <dd>
+                                                    <span
+                                                        class="label label-primary"
+                                                        ng-if="y.valid_unit == 'infinite'"
+                                                    >
+                                                        infinite
+                                                    </span>
+                                                    <span
+                                                        class="label label-danger"
+                                                        ng-if="y.valid_unit == 'definite'"
+                                                    >
+                                                        definite
+                                                    </span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="assets/jquery-3.3.1.min.js"></script>
-
     <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   </body>
 </html>
