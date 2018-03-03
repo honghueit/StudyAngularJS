@@ -13,8 +13,8 @@
     <link rel="stylesheet"  href="assets/style14.css">
     <script type="text/javascript">
     angular
-    .module( "user" , [ ] )
-    .controller( "ItemController" , [
+	.module( "user" , [ ] )
+	.controller( "ItemController" , [
         "$scope",
 
         function controller( $scope ) {
@@ -229,7 +229,7 @@
     				  		"targel" : "Targel",
     				  		"effective_date" : "1.1.2018",
     				  		"validity_type" : "infinite"
-    				  	},
+    				  	}
 				    ],
 				    "priceList" : [
     				  	{
@@ -263,14 +263,14 @@
     				  		"effective_date" : "1.1.2018",
     				  		"validity_type" : "infinite",
     				  		"valid_unit" : "definite"
-    				  	},
+    				  	}
 				    ]
-			    },
+			    }
 			];
 
 			$scope.hasItem = function hasItem( ) {
 				if ( $scope.itemList.length == 0 ) {
-				    return false;
+					return false;
 				}
 
 				return true;
@@ -278,22 +278,23 @@
 
 			$scope.displayItem = function displayItem( item ) {
 				$scope.itemList.forEach( function onEachItem( _item ) {
-				  if(  _item.title != item.title ) {
+					if(  _item.title != item.title ) {
 						_item._viewMode = false
-				   }
+					}
 				} );
+
 				item._viewMode = !item._viewMode;
 			};
 
 			$scope.displayTabDiscount = function displayTabDiscount( item ) {
 				item.discountMode =! item.discountMode;
 				item.priceMode =! item.priceMode;
-			}
+			};
 
 			$scope.displayTabPrice = function displayTabPrice( item ) {
                 item.priceMode =! item.priceMode;
 				item.discountMode =! item.discountMode;
-			}
+			};
 
 		}
     ] )
@@ -306,7 +307,8 @@
                     if( _discount.title != discount.title ) {
                         _discount._viewMode = false;
                     }
-                });
+                } );
+
                 discount._viewMode = !discount._viewMode;
             };
 		}
@@ -320,7 +322,8 @@
                     if( _price.title != price.title ) {
                         _price._viewMode = false;
                     }
-                });
+                } );
+
                 price._viewMode = !price._viewMode;
             };
 		}
@@ -348,22 +351,22 @@
                     </div>
                     <div class="item-control">
                         <span
-                          class="glyphicon glyphicon-chevron-down"
-                          ng-show = "!item._viewMode"
-                          ng-click="displayItem( item )"
+                            class="glyphicon glyphicon-chevron-down"
+                            ng-show = "!item._viewMode"
+                            ng-click="displayItem( item )"
                         >
                         </span>
                         <span
-                          class="glyphicon glyphicon-chevron-up"
-                          ng-show = "item._viewMode"
-                          ng-click="displayItem( item )"
+                            class="glyphicon glyphicon-chevron-up"
+                            ng-show = "item._viewMode"
+                            ng-click="displayItem( item )"
                         >
                         </span>
                     </div>
                 </div>
                 <div
                     class="item-panel-detail"
-                    ng-show="item._viewMode"
+                    ng-if="item._viewMode"
                 >
                     <dl class="col-md-12 dl-horizontal">
                         <dt>Title:</dt>
@@ -378,18 +381,18 @@
                         <dd>{{ item.validity_type }}</dd>
                         <dt>Validity Unit:</dt>
                         <dd>
-                          <span
-                            class="label label-primary"
-                            ng-if="item.valid_unit == 'infinite'"
-                          >
-                            infinite
-                          </span>
-                          <span
-                            class="label label-danger"
-                            ng-if="item.valid_unit == 'definite'"
-                          >
-                            definite
-                          </span>
+                            <span
+                                class="label label-primary"
+                                ng-if="item.valid_unit == 'infinite'"
+                            >
+                                infinite
+                            </span>
+                            <span
+                                class="label label-danger"
+                                ng-if="item.valid_unit == 'definite'"
+                            >
+                                definite
+                            </span>
                         </dd>
                     </dl>
                 </div>
@@ -404,17 +407,16 @@
                                     data-toggle="tab"
                                     ng-click="displayTabDiscount( item )"
                                 >
-                                  Discount
+                                    Discount
                                 </a>
                             </li>
                             <li>
                                 <a
-                                  role="tab"
-                                  data-toggle="tab"
-                                 	ng-click="displayTabPrice( item )"
-
+                                    role="tab"
+                                    data-toggle="tab"
+                                    ng-click="displayTabPrice( item )"
                                 >
-                                  Price
+                                    Price
                                 </a>
                             </li>
                         </ul>
@@ -458,7 +460,7 @@
                                         </div>
                                         <div
                                         	class="item-panel-detail-discount-price"
-                                            ng-show="discount._viewMode"
+                                            ng-if="discount._viewMode"
                                         >
                                             <dl class="col-md-12 dl-horizontal">
                                                 <dt>Title:</dt>
@@ -523,7 +525,7 @@
                                         </div>
                                         <div
                                         	class="item-panel-detail-discount-price"
-                                            ng-show="price._viewMode"
+                                            ng-if="price._viewMode"
                                         >
                                             <dl class="col-md-12 dl-horizontal">
                                                 <dt>Title:</dt>
@@ -544,13 +546,13 @@
                                                 <dd>
                                                     <span
                                                         class="label label-primary"
-                                                        ng-if="y.valid_unit == 'infinite'"
+                                                        ng-if="price.valid_unit == 'infinite'"
                                                     >
                                                         infinite
                                                     </span>
                                                     <span
                                                         class="label label-danger"
-                                                        ng-if="y.valid_unit == 'definite'"
+                                                        ng-if="price.valid_unit == 'definite'"
                                                     >
                                                         definite
                                                     </span>
