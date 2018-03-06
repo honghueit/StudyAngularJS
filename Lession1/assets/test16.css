@@ -1,0 +1,121 @@
+table thead {
+  padding-left: 20px !important;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+  flex-grow: 0; }
+
+table thead tr {
+  display: flex; }
+
+table thead tr th {
+  border-bottom: 1px solid #ddd !important;
+  flex: 1; }
+
+table thead tr th input {
+  margin-right: 15px !important; }
+
+table tbody {
+  padding-left: 20px !important;
+  border-left: 4px solid #1a6bbf;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+  flex-grow: 0; }
+
+table tbody tr.title {
+  display: flex; }
+
+table tbody tr.title td {
+  flex: 1 !important; }
+
+table tbody tr.title td input {
+  margin-right: 15px !important; }
+
+table tbody tr.detail {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0; }
+
+table tbody tr.detail td.title-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; }
+
+table tbody tr.detail td.title-detail h4 {
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+table tbody tr.detail td.title-detail button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0; }
+
+table tbody tr.detail td.detail-transaction {
+  padding-top: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start; }
+
+table tbody tr.detail td.detail-transaction .detail-panel {
+  padding-top: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly; }
+
+table tbody tr.detail td.detail-transaction .detail-panel div.header p {
+  font-weight: bold; }
+
+table tbody tr.detail td.detail-transaction .detail-panel div.content {
+  margin-left: 130px !important; }
+
+/*# sourceMappingURL=style.css.map */
+.detail-tab-transaction {
+  display: flex;
+  flex-direction: column !important;
+  overflow: hidden;
+  flex-shrink: 0;
+  flex-grow: 0;
+  justify-content: flex-start; }
+  .detail-tab-transaction table {
+    border: 1px solid #ddd; }
+    .detail-tab-transaction table thead {
+      padding-left: 0px !important; }
+      .detail-tab-transaction table thead tr.title-header {
+        padding-left: 20px !important; }
+      .detail-tab-transaction table thead tr th {
+        border-top: 1px solid #ddd !important; }
+    .detail-tab-transaction table tbody {
+      padding-left: 20px !important;
+      border-left: 0px solid #1a6bbf !important;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      flex-shrink: 0;
+      flex-grow: 0; }
+      .detail-tab-transaction table tbody tr {
+        border-left: 4px solid #1a6bbf;
+        display: flex; }
+        .detail-tab-transaction table tbody tr td {
+          flex: 1; }
+          .detail-tab-transaction table tbody tr td input {
+            margin-right: 15px !important; }
+        .detail-tab-transaction table tbody tr td.detail-transaction {
+          padding: 10px 40px;
+          display: flex !important; }
+          .detail-tab-transaction table tbody tr td.detail-transaction .header {
+            flex: 1 !important; }
+          .detail-tab-transaction table tbody tr td.detail-transaction .content {
+            flex: 1 !important; }
+
+/*# sourceMappingURL=test16.css.map */
