@@ -1,17 +1,70 @@
 <!doctype html>
-<html lang="en" ng-app="user">
+<html lang="en" ng-app="myapp">
   <head>
     <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="wiph=device-wiph, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <link rel="stylesheet" href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="assets/angular.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/test16.css">
     <script type="text/javascript">
+        angular
+        .module( "myapp" , [ ] )
+        .controller( "TransactionController" , [
+            "$scope",
+            function controller( $scope ) {
+                $scope.transactionList = [
+                    {
+                        "stamp" : "4354654yr6ytry6",
+                        "title" : "Reg",
+                        "description" : "Reg",
+                        "firstname" : "Reg",
+                        "lastname" : "Reg",
+                        "status" : "enable",
+                        "user_refernce" : "1321ewdsaxz",
+                        "email_address" : "reg@gmail.com",
+                        "mobile_number" : "132445543",
+                        "home_address" : "Philippin"
+                    },
 
+                    {
+                        "stamp" : "aaaayr6ytry6",
+                        "title" : "Doanh",
+                        "description" : "Doanh",
+                        "firstname" : "Doanh",
+                        "lastname" : "Doanh",
+                        "status" : "disenable",
+                        "user_refernce" : "1321ewdsaxz",
+                        "email_address" : "doanh@gmail.com",
+                        "mobile_number" : "132445543s",
+                        "home_address" : "vietnam"
+                    },
+
+                    {
+                        "stamp" : "aaaayr6ytry6",
+                        "title" : "Hue",
+                        "description" : "Hue",
+                        "firstname" : "Hue",
+                        "lastname" : "Hue",
+                        "status" : "enable",
+                        "user_refernce" : "1321ewdsaxz",
+                        "email_address" : "hue@gmail.com",
+                        "mobile_number" : "132445543",
+                        "home_address" : "VietNam"
+                    }
+                ];
+
+                $scope.hasTransaction = function hasTransaction( ) {
+                    if ( $scope.transactionList.lengh == 0 ) {
+                        return false;
+                    }
+
+                    return true;
+                }
+            }
+        ] )
     </script>
   </head>
   <body ng-controller="TransactionController">
@@ -27,16 +80,19 @@
                     <th>Lastname</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody
+                ng-repeat="transaction in transactionList"
+                ng-if="hasTransaction( )"
+            >
                 <tr class="title">
                     <td scope="row" >
                         <input type="checkbox" value="">
-                        ewqewqe
+                        {{ transaction.stamp }}
                     </td>
-                    <td>Reg</td>
-                    <td>Reg</td>
-                    <td>Reg</td>
-                    <td>Reg</td>
+                    <td>{{ transaction.title }}</td>
+                    <td>{{ transaction.description }}</td>
+                    <td>{{ transaction.firstname }}</td>
+                    <td>{{ transaction.lastname }}</td>
                 </tr >
                 <tr class="detail">
                     <td class="title-detail">
@@ -57,16 +113,29 @@
                                 <p>Home Address:</p>
                             </div>
                             <div class="content">
-                                <p>Reg</p>
-                                <p>Reg</p>
-                                <p>Reg</p>
-                                <p>Reg</p>
-                                <p>Reg</p>
-                                <p>Reg</p>
-                                <p>Reg</p>
-                                <p>Reg</p>
-                                <p>Reg</p>
-                                <p>Reg</p>
+                                <p>{{ transaction.stamp }}</p>
+                                <p>{{ transaction.title }}</p>
+                                <p>{{ transaction.description }}</p>
+                                <p>
+                                    <span
+                                        class="label label-primary"
+                                        ng-if="transaction.status == 'enable'"
+                                    >
+                                        Enable
+                                    </span>
+                                    <span
+                                        class="label label-danger"
+                                        ng-if="transaction.status == 'disenable'"
+                                    >
+                                        Disenable
+                                    </span>
+                                </p>
+                                <p>{{ transaction.user_refernce }}</p>
+                                <p>{{ transaction.firstname }}</p>
+                                <p>{{ transaction.lastname }}</p>
+                                <p>{{ transaction.email_address }}</p>
+                                <p>{{ transaction.mobile_number }}</p>
+                                <p>{{ transaction.home_address }}</p>
                             </div>
                         </div>
                     </td>
@@ -91,10 +160,8 @@
                                         <div class="item-manager no-left-right-padding">
                                             <div class="item-list item-panel-discount-price">
                                                 <table class="table">
+                                                    <label for="" style="padding:10px 15px">Product List</label>
                                                     <thead>
-                                                        <tr>
-                                                            <th>Product List</th>
-                                                        </tr>
                                                         <tr class="title-header">
                                                             <th><input type="checkbox" value="">Reference</th>
                                                             <th>Stamp</th>
@@ -144,11 +211,9 @@
             </tbody>
         </table>
     </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="assets/jquery-3.3.1.min.js"></script>
+    <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   </body>
 </html>

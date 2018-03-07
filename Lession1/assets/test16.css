@@ -80,6 +80,9 @@ table tbody tr.detail td.detail-transaction .detail-panel div.content {
   margin-left: 130px !important; }
 
 /*# sourceMappingURL=style.css.map */
+.item-panel-discount-price {
+  border-left: 1px solid #ddd !important; }
+
 .detail-tab-transaction {
   display: flex;
   flex-direction: column !important;
@@ -89,6 +92,8 @@ table tbody tr.detail td.detail-transaction .detail-panel div.content {
   justify-content: flex-start; }
   .detail-tab-transaction table {
     border: 1px solid #ddd; }
+    .detail-tab-transaction table label {
+      padding: 10px 15px; }
     .detail-tab-transaction table thead {
       padding-left: 0px !important; }
       .detail-tab-transaction table thead tr.title-header {
