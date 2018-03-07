@@ -43,7 +43,7 @@
                     },
 
                     {
-                        "stamp" : "aaaayr6ytry6",
+                        "stamp" : "1aaaayr6ytry6",
                         "title" : "Hue",
                         "description" : "Hue",
                         "firstname" : "Hue",
@@ -62,6 +62,16 @@
                     }
 
                     return true;
+                };
+
+                $scope.displayTransaction = function displayTransaction( transaction ) {
+                  $scope.transactionList.forEach( function onEachItem( _transaction ) {
+                    if(_transaction.stamp != transaction.stamp ) {
+                      _transaction._viewMode = false;
+                    };
+                  } )
+
+                  transaction._viewMode =! transaction._viewMode;
                 }
             }
         ] )
@@ -84,7 +94,10 @@
                 ng-repeat="transaction in transactionList"
                 ng-if="hasTransaction( )"
             >
-                <tr class="title">
+                <tr
+                    class="title"
+                    ng-click ="displayTransaction( transaction )"
+                >
                     <td scope="row" >
                         <input type="checkbox" value="">
                         {{ transaction.stamp }}
@@ -94,7 +107,10 @@
                     <td>{{ transaction.firstname }}</td>
                     <td>{{ transaction.lastname }}</td>
                 </tr >
-                <tr class="detail">
+                <tr
+                    class="detail"
+                    ng-if="transaction._viewMode"
+                >
                     <td class="title-detail">
                         <h4>Transaction Details</h4>
                     </td>
