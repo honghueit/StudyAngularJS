@@ -1,3 +1,6 @@
+.table > tbody + tbody {
+  border-top: 1px solid #ddd !important; }
+
 table thead {
   padding-left: 20px !important;
   display: flex;
@@ -80,10 +83,30 @@ table tbody tr.detail td.detail-transaction .detail-panel div.content {
   margin-left: 130px !important; }
 
 /*# sourceMappingURL=style.css.map */
-.item-panel-discount-price {
+.tab-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; }
+  .tab-panel .nav-tabs {
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: row; }
+  .tab-panel button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0; }
+
+.item-manager {
+  border-left: 1px solid #ddd; }
+
+.item-panel-product-price {
   border-left: 1px solid #ddd !important; }
 
 .detail-tab-transaction {
+  border-top: 0px !important;
   display: flex;
   flex-direction: column !important;
   overflow: hidden;

@@ -17,6 +17,8 @@
             function controller( $scope ) {
                 $scope.transactionList = [
                     {
+                        "productMode" : false,
+                        "priceMode" : false,
                         "stamp" : "4354654yr6ytry6",
                         "title" : "Reg",
                         "description" : "Reg",
@@ -26,10 +28,37 @@
                         "user_refernce" : "1321ewdsaxz",
                         "email_address" : "reg@gmail.com",
                         "mobile_number" : "132445543",
-                        "home_address" : "Philippin"
+                        "home_address" : "Philippin",
+                        "listProduct" : [
+                            {
+                                "reference" : "110000AD1",
+                                "stamp" : "110000AD1",
+                                "code" : "110000AD1",
+                                "title" : "ballpen1",
+                                "description" : "ballpen1"
+                            },
+
+                            {
+                                "reference" : "110000AD2",
+                                "stamp" : "110000AD2",
+                                "code" : "110000AD2",
+                                "title" : "ballpen2",
+                                "description" : "ballpen2"
+                            },
+
+                            {
+                                "reference" : "110000AD3",
+                                "stamp" : "110000AD3",
+                                "code" : "110000AD3",
+                                "title" : "ballpen3",
+                                "description" : "ballpen3"
+                            }
+                        ]
                     },
 
                     {
+                        "productMode" : false,
+                        "priceMode" : false,
                         "stamp" : "aaaayr6ytry6",
                         "title" : "Doanh",
                         "description" : "Doanh",
@@ -39,10 +68,37 @@
                         "user_refernce" : "1321ewdsaxz",
                         "email_address" : "doanh@gmail.com",
                         "mobile_number" : "132445543s",
-                        "home_address" : "vietnam"
+                        "home_address" : "vietnam",
+                        "listProduct" : [
+                            {
+                                "reference" : "110000AD4",
+                                "stamp" : "110000AD4",
+                                "code" : "110000AD4",
+                                "title" : "ballpen4",
+                                "description" : "ballpen4"
+                            },
+
+                            {
+                                "reference" : "110000AD5",
+                                "stamp" : "110000AD5",
+                                "code" : "110000AD5",
+                                "title" : "ballpen5",
+                                "description" : "ballpen5"
+                            },
+
+                            {
+                                "reference" : "110000AD6",
+                                "stamp" : "110000AD6",
+                                "code" : "110000AD6",
+                                "title" : "ballpen6",
+                                "description" : "ballpen6"
+                            }
+                        ]
                     },
 
                     {
+                        "productMode" : false,
+                        "priceMode" : false,
                         "stamp" : "1aaaayr6ytry6",
                         "title" : "Hue",
                         "description" : "Hue",
@@ -52,7 +108,32 @@
                         "user_refernce" : "1321ewdsaxz",
                         "email_address" : "hue@gmail.com",
                         "mobile_number" : "132445543",
-                        "home_address" : "VietNam"
+                        "home_address" : "VietNam",
+                        "listProduct" : [
+                            {
+                                "reference" : "110000AD7",
+                                "stamp" : "110000AD7",
+                                "code" : "110000AD7",
+                                "title" : "ballpen7",
+                                "description" : "ballpen7"
+                            },
+
+                            {
+                                "reference" : "110000AD8",
+                                "stamp" : "110000AD8",
+                                "code" : "110000AD8",
+                                "title" : "ballpen8",
+                                "description" : "ballpen8"
+                            },
+
+                            {
+                                "reference" : "110000AD9",
+                                "stamp" : "110000AD9",
+                                "code" : "110000AD9",
+                                "title" : "ballpen9",
+                                "description" : "ballpen9"
+                            }
+                        ]
                     }
                 ];
 
@@ -72,9 +153,35 @@
                   } )
 
                   transaction._viewMode =! transaction._viewMode;
+                };
+
+                $scope.displayProductTab = function displayProductTab( transaction ) {
+                    transaction.productMode =! transaction.productMode;
+                    transaction.priceMode =! transaction.priceMode;
+                };
+
+                $scope.displayPriceTab = function displayPriceTab( transaction ) {
+                    transaction.priceMode =! transaction.priceMode;
+                    transaction.productMode =! transaction.productMode;
                 }
             }
         ] )
+        .controller( "ProductController" , [
+    		"$scope",
+
+    		function controller( $scope ) {
+                $scope.displayListProduct = function displayListProduct( product ) {
+        	        $scope.transaction.listProduct.forEach( function onEachItemproduct( _product ) {
+                        if( _product.reference != product.reference ) {
+                            _product._viewMode = false;
+                            console.log(_product.reference);
+                        }
+                    } );
+
+                    product._viewMode = !product._viewMode;
+                };
+    		}
+    	] )
     </script>
   </head>
   <body ng-controller="TransactionController">
@@ -156,67 +263,111 @@
                         </div>
                     </td>
                     <td class="title-detail detail-tab-transaction">
-                        <div class="discount-price" >
+                        <div class="product-price" >
                             <div class="tab-panel" role="tabpanel">
                                 <ul class="nav nav-tabs" role="tablist" data-tabs="tabs">
                                     <li class="active">
-                                        <a role="tab" data-toggle="tab">
+                                        <a
+                                            role="tab"
+                                            data-toggle="tab"
+                                            ng-click="displayProductTab( transaction )"
+                                        >
                                             Product
                                         </a>
                                     </li>
                                     <li>
-                                        <a role="tab" data-toggle="tab">
+                                        <a
+                                            role="tab"
+                                            data-toggle="tab"
+                                            ng-click="displayPriceTab( transaction )"
+                                        >
                                             Price
                                         </a>
                                     </li>
+
                                 </ul>
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-default pull-right"
+                                        ng-click="!displayTransaction( transaction )"
+                                    >
+                                        Close
+                                    </button>
+
                             </div>
-                                <div class="tab-content">
-                                    <div class="tab-pane fade in active">
-                                        <div class="item-manager no-left-right-padding">
-                                            <div class="item-list item-panel-discount-price">
-                                                <table class="table">
-                                                    <label for="" style="padding:10px 15px">Product List</label>
-                                                    <thead>
-                                                        <tr class="title-header">
-                                                            <th><input type="checkbox" value="">Reference</th>
-                                                            <th>Stamp</th>
-                                                            <th>Code</th>
-                                                            <th>Title</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td scope="row" >
-                                                                <input type="checkbox" value="">
-                                                                110000AD
-                                                            </td>
-                                                            <td>110000AD</td>
-                                                            <td>110000AD</td>
-                                                            <td>Ballpen</td>
-                                                        </tr >
-                                                        <tr class="detail">
-                                                            <td class="title-detail">
-                                                                <h4>Product Details</h4>
-                                                            </td>
-                                                            <td class="detail-transaction">
-                                                                <div class="header">
-                                                                    <p>Reference:</p>
-                                                                    <p>Stamp:</p>
-                                                                    <p>Code:</p>
-                                                                    <p>Title:</p>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <p>Reg</p>
-                                                                    <p>Reg</p>
-                                                                    <p>Reg</p>
-                                                                    <p>Reg</p>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            <div>
+                            <div
+                                class="tab-content"
+                            >
+                                <div
+                                    class="tab-pane fade in active"
+                                    ng-show="!transaction.productMode"
+                                >
+                                    <div
+                                        class="item-manager no-left-right-padding"
+                                        ng-controller="ProductController"
+                                    >
+                                        <table class="table">
+                                            <label for="" style="padding:10px 15px">Product List</label>
+                                            <thead>
+                                                <tr class="title-header">
+                                                    <th><input type="checkbox" value="">Reference</th>
+                                                    <th>Stamp</th>
+                                                    <th>Code</th>
+                                                    <th>Title</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody
+                                                ng-repeat="product in transaction.listProduct"
+                                            >
+                                                <tr
+                                                    ng-click ="displayListProduct( product )"
+                                                >
+                                                    <td scope="row" >
+                                                        <input type="checkbox" value="">
+                                                        {{ product.reference }}
+                                                    </td>
+                                                    <td>{{ product.stamp }}</td>
+                                                    <td>{{ product.code}}</td>
+                                                    <td>{{ product.title}}</td>
+                                                </tr >
+                                                <tr
+                                                    class="detail"
+                                                    ng-if="product._viewMode"
+                                                >
+                                                    <td class="title-detail">
+                                                        <h4>Product Details</h4>
+                                                    </td>
+                                                    <td class="detail-transaction">
+                                                        <div class="header">
+                                                            <p>Reference:</p>
+                                                            <p>Stamp:</p>
+                                                            <p>Code:</p>
+                                                            <p>Title:</p>
+                                                            <p>Description:</p>
+                                                        </div>
+                                                        <div class="content">
+                                                            <p>{{ product.reference }}</p>
+                                                            <p>{{ product.stamp }}</p>
+                                                            <p>{{ product.code}}</p>
+                                                            <p>{{ product.title}}</p>
+                                                            <p>{{ product.description}}</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div
+                                    class="tab-pane fade in active"
+                                    ng-show="transaction.priceMode"
+                                >
+                                    <div
+                                        class="item-manager no-left-right-padding"
+                                    >
+                                        <div class="item-list item-panel-product-price">
+                                            fgfdfg
                                         </div>
                                     </div>
                                 </div>
