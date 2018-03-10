@@ -148,7 +148,8 @@
                 $scope.displayTransaction = function displayTransaction( transaction ) {
                   $scope.transactionList.forEach( function onEachItem( _transaction ) {
                     if( _transaction.stamp != transaction.stamp ) {
-                      _transaction._viewMode = false;
+                        _transaction._viewMode = false;
+                        console.log( _transaction._viewMode );
                     };
                   } )
 
