@@ -147,7 +147,7 @@
 
                 $scope.displayTransaction = function displayTransaction( transaction ) {
                   $scope.transactionList.forEach( function onEachItem( _transaction ) {
-                    if(_transaction.stamp != transaction.stamp ) {
+                    if( _transaction.stamp != transaction.stamp ) {
                       _transaction._viewMode = false;
                     };
                   } )
@@ -174,7 +174,6 @@
         	        $scope.transaction.listProduct.forEach( function onEachItemproduct( _product ) {
                         if( _product.reference != product.reference ) {
                             _product._viewMode = false;
-                            console.log(_product.reference);
                         }
                     } );
 
