@@ -734,13 +734,13 @@
                 };
 
                 $scope.displayTransaction = function displayTransaction( transaction ) {
-                  $scope.transactionList.forEach( function onEachItem( _transaction ) {
-                    if( _transaction.stamp != transaction.stamp ) {
-                      _transaction._viewMode = false;
-                    };
-                  } )
+                    $scope.transactionList.forEach( function onEachItem( _transaction ) {
+                        if( _transaction.stamp != transaction.stamp ) {
+                            _transaction._viewMode = false;
+                        };
+                    } )
 
-                  transaction._viewMode =! transaction._viewMode;
+                    transaction._viewMode =! transaction._viewMode;
                 };
 
                 $scope.displayProductTab = function displayProductTab( transaction ) {
