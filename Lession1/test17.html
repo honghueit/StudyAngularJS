@@ -30,7 +30,7 @@
                         "home_address" : "Philippin",
                         "listProduct" : [
                             {
-                                "discountMode": false,
+                                "discountMode": true,
                                 "priceMode": false,
                                 "reference" : "110000AD1",
                                 "stamp" : "110000AD1",
@@ -263,7 +263,7 @@
                         "home_address" : "vietnam",
                         "listProduct" : [
                             {
-                                "discountMode": false,
+                                "discountMode": true,
                                 "priceMode": false,
                                 "reference" : "110000AD4",
                                 "stamp" : "110000AD4",
@@ -338,7 +338,7 @@
                             },
 
                             {
-                                "discountMode": false,
+                                "discountMode": true,
                                 "priceMode": false,
                                 "reference" : "110000AD5",
                                 "stamp" : "110000AD5",
@@ -412,7 +412,7 @@
                             },
 
                             {
-                                "discountMode": false,
+                                "discountMode": true,
                                 "priceMode": false,
                                 "reference" : "110000AD6",
                                 "stamp" : "110000AD6",
@@ -501,7 +501,7 @@
                         "home_address" : "VietNam",
                         "listProduct" : [
                             {
-                                "discountMode": false,
+                                "discountMode": true,
                                 "priceMode": false,
                                 "reference" : "110000AD7",
                                 "stamp" : "110000AD7",
@@ -575,7 +575,7 @@
                             },
 
                             {
-                                "discountMode": false,
+                                "discountMode": true,
                                 "priceMode": false,
                                 "reference" : "110000AD8",
                                 "stamp" : "110000AD8",
@@ -649,7 +649,7 @@
                             },
 
                             {
-                                "discountMode": false,
+                                "discountMode": true,
                                 "priceMode": false,
                                 "reference" : "110000AD9",
                                 "stamp" : "110000AD9",
@@ -748,13 +748,13 @@
                 };
 
                 $scope.displayTabDiscount = function displayTabDiscount( product ) {
-    				product.discountMode =! product.discountMode;
-    				product.priceMode =! product.priceMode;
+    				product.discountMode = true;
+    				product.priceMode = false;
     			};
 
-                $scope.displayTabPrice = function displayTabPrice( product) {
-                    product.priceMode =! product.priceMode;
-    			    product.discountMode =! product.discountMode;
+                $scope.displayTabPrice = function displayTabPrice( product ) {
+                    product.priceMode = true;
+    			    product.discountMode = false;
     			};
             }
         ] )
@@ -1000,7 +1000,7 @@
 							                            >
 							                                <div
 							                                    class="tab-pane fade in active"
-                                                                ng-if="!product.discountMode"
+                                                                ng-if="product.discountMode"
 							                                >
 							                                    <div
 							                                        class="item-manager no-left-right-padding"
