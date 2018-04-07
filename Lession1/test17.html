@@ -726,7 +726,7 @@
                 ];
 
                 $scope.hasTransaction = function hasTransaction( ) {
-                    if ( $scope.transactionList.lengh == 0 ) {
+                    if ( $scope.transactionList.length == 0 ) {
                         return false;
                     }
 
@@ -808,7 +808,11 @@
   <body ng-controller="TransactionController">
     <h1>Transaction</h1>
     <div class="container">
-        <table class="table">
+        <p ng-if="!hasTransaction( )"></p>
+        <table
+            class="table"
+            ng-if="hasTransaction( )"
+        >
             <thead>
                 <tr>
                     <th><input type="checkbox" value="">Stamp</th>
@@ -820,7 +824,6 @@
             </thead>
             <tbody
                 ng-repeat="transaction in transactionList"
-                ng-if="hasTransaction( )"
             >
                 <tr
                     class="title"
