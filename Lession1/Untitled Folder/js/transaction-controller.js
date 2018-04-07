@@ -713,7 +713,7 @@ angular
 			// 		]
 			// 	}
 			// ];
-			$scope.transactionList = [];
+
 			$scope.hasTransaction = function hasTransaction( ) {
 				if ( $scope.transactionList.length == 0 ) {
 					return false;
