@@ -746,36 +746,8 @@ angular
 			};
 		}
 		] )
-	.controller( "ProductController" , [
-		"$scope",
 
-		function controller( $scope ) {
-			$scope.displayListProduct = function displayListProduct( product ) {
-				$scope.transaction.listProduct.forEach( function onEachItemproduct( _product ) {
-					if( _product.reference != product.reference ) {
-						_product._viewMode = false;
-					}
-				} );
-
-				product._viewMode =! product._viewMode;
-			};
-		}
-	] )
-	.controller( "DiscountController" , [
-		"$scope",
-
-		function controller( $scope ) {
-			$scope.displayItemDiscount = function displayItemDiscount( discount ) {
-				$scope.product.listDiscount.forEach( function onEachItemDiscount( _discount ) {
-					if( _discount.title != discount.title ) {
-						_discount._viewMode = false;
-					}
-				} );
-
-				discount._viewMode =! discount._viewMode;
-			};
-		}
-	] )
+	
 	.controller( "PriceController" , [
 		"$scope",
 
