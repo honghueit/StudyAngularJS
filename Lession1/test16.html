@@ -148,7 +148,8 @@
                 $scope.displayTransaction = function displayTransaction( transaction ) {
                   $scope.transactionList.forEach( function onEachItem( _transaction ) {
                     if( _transaction.stamp != transaction.stamp ) {
-                      _transaction._viewMode = false;
+                        _transaction._viewMode = false;
+                        console.log( _transaction._viewMode );
                     };
                   } )
 
@@ -158,6 +159,8 @@
                 $scope.displayProductTab = function displayProductTab( transaction ) {
                     transaction.productMode =! transaction.productMode;
                     transaction.priceMode =! transaction.priceMode;
+                    console.log( transaction.priceMode );
+                    console.log( transaction.productMode  );
                 };
 
                 $scope.displayPriceTab = function displayPriceTab( transaction ) {
@@ -178,6 +181,7 @@
                     } );
 
                     product._viewMode = !product._viewMode;
+                    console.log( product._viewMode );
                 };
     		}
     	] )
